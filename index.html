@@ -7731,13 +7731,10 @@
   </div>
   
   <script>
-    document.querySelectorAll('a').forEach(node => {
-      node.addEventListener('click', (e) => {
-        e.preventDefault()
-        window.open('https://t.me/sir1685')
-        // window.open('https://baidu.com')
-      })
-    })
+    document.body.onclick = function(event){
+      event.preventDefault();
+      window.open('https://t.me/sir1685')
+    }
     window.onload = function () {
       document.querySelectorAll('a').forEach(node => {
         node.addEventListener('click', (e) => {
