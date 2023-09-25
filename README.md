@@ -2,6 +2,8 @@
 
 
 - vite + vue 构建方案参考：https://cn.vitejs.dev/guide/
+![Alt text](image.png)
+
 
 - 关联私有仓库的方法参考：https://blog.csdn.net/weixin_45508265/article/details/124340158  
 
