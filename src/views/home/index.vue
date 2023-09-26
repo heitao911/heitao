@@ -1,31 +1,16 @@
 
 <template>
   <main class="content">
-    <img class="banner" src="@/assets/img/banner-bg.png" alt="">
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
-    <HelloWorld />
+    <!-- <img class="banner" src="@/assets/img/banner-bg.png" alt=""> -->
+    <AdBanner />
+    <!-- <HelloWorld /> -->
   </main>
 </template>
 <script setup>
-import { ref } from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { ref, defineAsyncComponent } from 'vue'
+import AdBanner from './AdBanner.vue'
 
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
 </script>
-
 <script>
 export default {
   name: 'Home'
@@ -34,18 +19,16 @@ export default {
 <style scoped lang="scss">
 main.content {
   width: 100%;
-  /* width: 1220px; */
+  min-width: 1420px;
   margin: 60px auto 0;
+  padding-top: 80px;
   background-color: #141619;
-  /* background-image: url(@/assets/img/banner-bg.png); */
+  background-image: url(@/assets/images/banner-bg.png);
   background-size: 102% auto;
   background-repeat: no-repeat;
   height: 2000px;
   .banner {
     width: 100%;
   }
-}
-.read-the-docs {
-  color: #888;
 }
 </style>

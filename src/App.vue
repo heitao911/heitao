@@ -11,6 +11,14 @@ import Footer from "@/components/BgFooter.vue"
 </script>
 
 <style scoped>
+#app {
+  width: 100%;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+  overflow: auto;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

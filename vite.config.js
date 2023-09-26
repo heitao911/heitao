@@ -17,7 +17,7 @@ export default defineConfig({
     preprocessorOptions: {
       // 导入scss预编译程序
       scss: {
-        additionalData: `@use "@/assets/common.scss" as *;`
+        additionalData: `@use "@/styles/common.scss" as *;`
       }
     }
   },
