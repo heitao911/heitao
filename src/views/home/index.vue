@@ -1,6 +1,8 @@
 
 <template>
   <main class="content">
+    <Header />
+
     <!-- <img class="banner" src="@/assets/img/banner-bg.png" alt=""> -->
     <AdBanner />
     <!-- <HelloWorld /> -->
@@ -9,6 +11,7 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue'
 import AdBanner from './AdBanner.vue'
+import Header from "@/components/BgHeader.vue"
 
 </script>
 <script>
