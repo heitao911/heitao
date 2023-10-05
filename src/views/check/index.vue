@@ -76,6 +76,7 @@ const checkFn = () => {
   state.loading = true;
   setTimeout(() => {
     state.loading = false;
+    state.description = "";
     const whiteNameArr = config.whiteName.filter(
       (e) =>
         e.name === state.vague ||
@@ -105,17 +106,16 @@ const checkFn = () => {
       //  U地址黑名单
       state.alertStatus = "warning";
       state.alertTitle = `【 ${state.vague} 】该地址被多人标记为骗子，请停止交易！！！`;
-      state.description = "";
       state.isShowTip = true;
       return;
     } else if (state.vague.length === 34) {
+      // 34位U地址
       state.alertStatus = "error";
       state.alertTitle = `【 ${state.vague} 】该地址非会员专用，请谨慎交易。`;
-      state.description = "";
       state.isShowTip = true;
       return;
     }
-    state.vague;
+    // 飞机账号白名单
     if (whiteNameArr.length) {
       state.alertStatus = "success";
       state.alertTitle = `账号：【 ${state.vague} 】是黑桃集团客服人员。`;
