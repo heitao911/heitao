@@ -8,9 +8,19 @@ const whiteName = [{
     linkName: 'https://t.me/shangiew1'
 }]
 
+const uWhiteName = [{
+    name: 'TJhegqYzh54DFfVB3dXrxufEDXbM26NJyK'
+}]
+const uBlackName = [{
+    name: 'TJhegqYzh54DFfVB3dXrxufEDXbM26NJy1'
+}]
+
+
 const bannerAd = []
 
 export default {
     whiteName,
+    uWhiteName,
+    uBlackName,
     bannerAd
 }
