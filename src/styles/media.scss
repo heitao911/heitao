@@ -1,0 +1,42 @@
+// http://zciwp.github.io/c4/
+$width-small: 440px;
+$width-sm: 599px;
+$width-medium: 899px;
+$width-large: 1439px;
+@mixin media($width) {
+  @if $width == L {
+    @media only screen and (max-width: $width-large) {
+      @content;
+    }
+  } @else if $width == M {
+    @media only screen and (max-width: $width-medium) {
+      @content;
+    }
+  } @else if $width == SM {
+    @media only screen and (max-width: $width-sm) {
+      @content;
+    }
+  } @else if $width == S {
+    @media only screen and (max-width: $width-small) {
+      @content;
+    }
+  }
+}
+
+// 使用
+// #content {
+// 	float: left;
+// 	width: 70%;
+// 	@include media(L) {
+// 		width: 80%;
+// 	}
+// 	@include media(M) {
+// 		width: 50%;
+// 		font-size: 14px;
+// 	}
+// 	@include media(S) {
+// 		float: none;
+// 		width: 100%;
+// 		font-size: 12px;
+// 	}
+// }
