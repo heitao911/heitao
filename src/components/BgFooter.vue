@@ -3,7 +3,7 @@
     <div class="footer">
       <div class="row1">
         <a href="https://basis-global.com/" class="logo">
-          <img src="@/assets/img/logo-white.png" alt="" />
+          <!-- <img src="@/assets/img/logo-white.png" alt="" /> -->
         </a>
 
         <div>Global Education Redefined</div>

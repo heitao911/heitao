@@ -2,7 +2,7 @@
   <div class="header">
     <header>
       <router-link class="logo" to="/home">
-        <img src="@/assets/img/logo.png" alt="" />
+        <!-- <img src="@/assets/img/logo.png" alt="" /> -->
       </router-link>
       <!-- 大于900时 -->
       <nav class="bigger900">
