@@ -106,7 +106,7 @@ main.content {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url(@/assets/images/check-bg.webp);
+  background-image: url(@/assets/images/img/check-bg.webp);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -115,7 +115,7 @@ main.content {
   .cover {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
     z-index: 1;

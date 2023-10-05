@@ -12,8 +12,6 @@ import Footer from "@/components/BgFooter.vue";
 #app {
   width: 100%;
   margin: 0 auto;
-  /* padding: 2rem; */
-  text-align: center;
   overflow: auto;
 }
 

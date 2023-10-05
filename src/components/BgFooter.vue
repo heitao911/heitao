@@ -12,7 +12,7 @@
       <div class="row2-row3">
         <div class="row2">
           <div class="contact-us">
-            <router-link to="contactUs">Contact Us</router-link>
+            <!-- <router-link to="contactUs">Contact Us</router-link> -->
           </div>
           <div class="addr">
             7975 N. Hayden Road, Suite C360, Scottsdale, AZ 85258
@@ -24,7 +24,11 @@
 
         <div class="row3">
           <ul id="menu-social" class="menu icon-box">
-            <li v-for="item in iconList" :class="item.iconClass" :key="item.iconText">
+            <li
+              v-for="item in iconList"
+              :class="item.iconClass"
+              :key="item.iconText"
+            >
               <a :href="item.linkUrl" :title="item.title" target="_blank">
                 <div class="icon-div"></div>
                 <!-- <p>{{ item.iconText }}</p> -->
@@ -38,34 +42,34 @@
 </template>
 
 <script setup name="Footer">
-import { ref } from "vue"
+import { ref } from "vue";
 const iconList = ref([
   {
     linkUrl: "https://www.facebook.com/BASISInternationalSchools/",
     iconClass: "facebook",
     iconText: "Facebook",
-    title: "Like us on Facebook at BASIS International Schools"
+    title: "Like us on Facebook at BASIS International Schools",
   },
 
   {
     linkUrl: "mailto:info@basis-global.com",
     iconClass: "emailUs",
     iconText: "Email Us",
-    title: "Email us"
+    title: "Email us",
   },
 
   {
     linkUrl: "https://www.linkedin.com/company/basis-international-schools",
     iconClass: "linkedin",
     iconText: "LinkedIn",
-    title: "Connect with us on LinkedIn"
+    title: "Connect with us on LinkedIn",
   },
 
   {
     linkUrl: "http://blog.basisinternationalschools.com/",
     iconClass: "blog",
     iconText: "Blog",
-    title: "Read our updates"
+    title: "Read our updates",
   },
 
   // {
@@ -79,9 +83,9 @@ const iconList = ref([
     linkUrl: "https://www.instagram.com/basisinternationalschools/",
     iconClass: "instagram",
     iconText: "Instagram",
-    title: "Follow us on Instagram"
-  }
-])
+    title: "Follow us on Instagram",
+  },
+]);
 </script>
 
 <style scoped lang="scss">
