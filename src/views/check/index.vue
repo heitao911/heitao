@@ -4,38 +4,109 @@
     <div class="cover"></div>
     <div class="form-wrap">
       <h2>黑桃出海防骗查询</h2>
-      <el-input class="input" v-model="vague" placeholder="请输入客服飞机账号" size="large">
-        <template #append>
-          <el-button :icon="Search" />
-        </template>
+      <el-input
+        class="input"
+        v-model="state.vague"
+        placeholder="请输入用户名或者U地址查询"
+        size="large"
+        clearable
+        show-word-limit
+        maxlength="40"
+        @keydown.enter="checkFn"
+      >
       </el-input>
-      <el-button class="search-btn" type="primary" size="large">查询验证</el-button>
-      <el-text class="tips" type="info">您可以查看防骗指南 | 如遇到任何问题，请联系官方网站上的客服工作人员咨询。</el-text>
+      <el-button
+        class="search-btn"
+        type="primary"
+        size="large"
+        @click="checkFn"
+        :loading="state.loading"
+        >查询验证</el-button
+      >
+
+      <el-alert
+        class="check-result"
+        v-if="state.isShowTip"
+        :title="state.alertTitle"
+        show-icon
+        :type="state.alertStatus"
+      >
+      </el-alert>
+
+      <el-text class="tips" type="info"
+        >可查询官方客服真伪以及输入U地址查询是否为骗子，有任何问题请联系官网客服人员。</el-text
+      >
     </div>
   </main>
 </template>
 <script setup>
-import { ref, defineAsyncComponent, reactive } from 'vue'
-import { Search } from '@element-plus/icons-vue'
-const vague = ref('')
+import {
+  ref,
+  defineAsyncComponent,
+  reactive,
+  onMounted,
+  getCurrentInstance,
+} from "vue";
+// import { Search } from '@eement-plus/icons-vue'
+import config from "@/common/config.js";
+const { proxy } = getCurrentInstance();
+const state = reactive({
+  vague: "",
+  loading: false,
+  isShowTip: false,
+  alertTitle: "",
+  alertStatus: "",
+});
 
+onMounted(() => {
+  console.log(config);
+});
+const checkFn = () => {
+  state.isShowTip = false;
+  state.vague = state.vague.trim();
+  if (!state.vague) {
+    proxy.$message.error("请输入用户名或者U地址查询");
+    return;
+  } else if (!state.vague.trim()) {
+    proxy.$message.error("请输入合法用户名或者U地址查询");
+    return;
+  }
+  state.loading = true;
+  setTimeout(() => {
+    state.loading = false;
+    const filterArr = config.whiteName.filter(
+      (e) =>
+        e.name === state.vague ||
+        e.simpleName === state.vague ||
+        e.linkName === state.vague
+    );
+    if (filterArr.length) {
+      state.alertStatus = "success";
+      state.alertTitle = `账号：【 ${state.vague} 】是黑桃集团客服人员，谢谢您的查询！请放心使用`;
+    } else {
+      state.alertStatus = "error";
+      state.alertTitle = `账号：【 ${state.vague} 】不是黑桃集团客服人员，请核对后重新查询！`;
+    }
+    state.isShowTip = true;
+  }, 1000);
+};
 </script>
 <script>
 export default {
-  name: 'Check',
-}
+  name: "Check",
+};
 </script>
 <style>
-#app{
+#app {
   overflow: hidden !important;
-}</style>
+}
+</style>
 <style scoped lang="scss">
 main.content {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
   background-image: url(@/assets/images/check-bg.webp);
-  // background-size: 102% auto;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -44,50 +115,55 @@ main.content {
   .cover {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     top: 0;
     z-index: 1;
   }
-  .form-wrap{
+  .form-wrap {
     position: relative;
     z-index: 10;
     width: 70%;
+    @include media(M) {
+      width: 85%;
+    }
     max-width: 750px;
     margin: 100px auto;
     h2 {
       color: white;
-      font-size: 24px;
-      margin-bottom: 20px;
+      font-size: 28px;
+      margin-bottom: 30px;
     }
-    .input{
-      // height: px;
+    .input {
       font-size: 18px;
       line-height: 18px;
       font-weight: 700;
-      font-family: rial, Helvetica, sans-serif
+      font-family: rial, Helvetica, sans-serif;
     }
-    .search-btn{
+    .search-btn {
       width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 16px;
       background-color: #c9151d;
-      // border: none;
-      border:  1px solid #c9151d !important;
+      border: 1px solid #c9151d !important;
       border-radius: 4px;
       font-weight: 400;
-      color: white ;
-      &:hover{
-        border-color:#db4047f9 !important;
-        color: rgb(244, 235, 235) !important; 
+      color: white;
+      &:hover {
+        border-color: #db4047f9 !important;
+        color: rgb(244, 235, 235) !important;
         background-color: #db4047f9 !important;
       }
     }
     .tips {
-      margin-top: 10px;
+      margin-top: 15px;
       display: block;
+      font-size: 12px;
+    }
+    .check-result {
+      padding: 10px 5px;
+      margin-top: 15px;
     }
   }
- 
 }
 </style>

@@ -5,7 +5,7 @@
   </div>
 </template>
 <script setup>
-import Footer from "@/components/BgFooter.vue"
+import Footer from "@/components/BgFooter.vue";
 </script>
 
 <style scoped>

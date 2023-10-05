@@ -194,28 +194,28 @@ img {
     background-size: contain;
   }
 
-  .linkedin .icon-div {
-    background-image: url('../assets/img/Linkin.png');
-  }
+  // .linkedin .icon-div {
+  //   background-image: url('../assets/img/Linkin.png');
+  // }
 
-  .emailUs .icon-div {
-    background-image: url('../assets/img/Email.png');
-  }
+  // .emailUs .icon-div {
+  //   background-image: url('../assets/img/Email.png');
+  // }
 
-  .blog .icon-div {
-    background-image: url('../assets/img/Blog.png');
-  }
+  // .blog .icon-div {
+  //   background-image: url('../assets/img/Blog.png');
+  // }
 
-  .facebook .icon-div {
-    background-image: url('../assets/img/Facebook.png');
-  }
+  // .facebook .icon-div {
+  //   background-image: url('../assets/img/Facebook.png');
+  // }
 
-  .wechat .icon-div {
-    background-image: url('../assets/img/WeChat.png');
-  }
+  // .wechat .icon-div {
+  //   background-image: url('../assets/img/WeChat.png');
+  // }
 
-  .instagram .icon-div {
-    background-image: url('../assets/img/Ins.png');
-  }
+  // .instagram .icon-div {
+  //   background-image: url('../assets/img/Ins.png');
+  // }
 }
 </style>
