@@ -2,6 +2,7 @@
   "name": "heitao",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
@@ -18,12 +19,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "javascript-obfuscator": "^4.1.0",
-    "rollup-plugin-obfuscator": "^1.0.3",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-visualizer": "^5.9.2",
-    "terser": "^5.21.0",
     "vite": "^4.4.5"
   },
   "sideEffects": false
