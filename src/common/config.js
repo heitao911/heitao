@@ -24,7 +24,7 @@ const service_whiteName = [
   'heitaochgf',
   'heitaobg',
   'heitaogx',
-  'HQIU99_bot',
+  'HQIU99_bot'
 ] // 客服用户名
 const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687'] // 会员用户名
 const black_whiteName = ['pz'] // 骗子用户名
@@ -42,5 +42,5 @@ export default {
   black_whiteName,
   service_U_whiteName,
   vip_U_whiteName,
-  black_U_whiteName,
+  black_U_whiteName
 }

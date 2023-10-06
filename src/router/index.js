@@ -1,6 +1,6 @@
 // import VueRouter from "vue-router"
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from "@/views/home/index.vue"
+// import HomeView from "@/views/home/index.vue"
 
 const router = createRouter({
   history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
@@ -8,22 +8,22 @@ const router = createRouter({
   // base: import.meta.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      name: "home",
-      redirect: "/home",
-      component: HomeView,
+      path: '/',
+      name: 'home',
+      redirect: '/home',
+      component: () => import('@/views/home/index.vue'),
       children: [
         {
-          path: "/home",
-          name: "homePage",
-          component: () => import("@/views/home/index.vue")
+          path: '/home',
+          name: 'homePage',
+          component: () => import('@/views/home/index.vue')
         }
       ]
     },
     {
-      path: "/check",
-      name: "check",
-      component: () => import("@/views/check/index.vue")
+      path: '/check',
+      name: 'check',
+      component: () => import('@/views/check/index.vue')
     }
   ]
 })

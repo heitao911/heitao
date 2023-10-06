@@ -18,7 +18,7 @@
     </div>
   </main>
 </template>
-<script setup>
+<script setup name="Check">
 import { ref, reactive, onMounted, getCurrentInstance } from 'vue'
 // import { Search } from '@eement-plus/icons-vue'
 import config from '@/common/config.js'
@@ -42,7 +42,7 @@ const checkFn = () => {
   state.isShowTip = false
   state.vague = state.vague.trim()
   if (!state.vague) {
-    proxy.$message.error('请输入用户名或者U地址查询');
+    proxy.$message.error('请输入用户名或者U地址查询')
     return
   } else if (!state.vague.trim()) {
     proxy.$message.error('请输入合法用户名或者U地址查询')
@@ -107,11 +107,6 @@ const checkFn = () => {
   }, 1000)
 }
 </script>
-<script>
-export default {
-  name: 'Check',
-}
-</script>
 <style>
 #app {
   overflow: hidden !important;
@@ -122,7 +117,7 @@ main.content {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url(@/assets/images/img/check-bg.png);
+  background-image: url(@/assets/images/img/check-bg.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position-x: center; //居中

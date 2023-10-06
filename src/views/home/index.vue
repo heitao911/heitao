@@ -8,15 +8,10 @@
     </main>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
-import AdBanner from "./AdBanner.vue";
+<script setup name="Home">
+// import { ref } from 'vue'
+import AdBanner from './AdBanner.vue';
 import Header from "@/components/BgHeader.vue";
-</script>
-<script>
-export default {
-  name: "Home",
-};
 </script>
 <style scoped lang="scss">
 main.content {
