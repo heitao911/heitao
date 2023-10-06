@@ -7,6 +7,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 import obfuscator from 'rollup-plugin-obfuscator'
+import { terser } from 'rollup-plugin-terser'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -14,11 +15,11 @@ const isProd = process.env.NODE_ENV === 'production'
 export default defineConfig({
   plugins: [
     vue(),
-    visualizer({
-      emitFile: false,
-      file: 'stats.html', //分析图生成的文件名
-      open: true, //如果存在本地服务端口，将在打包后自动展示
-    }),
+    // visualizer({
+    //   emitFile: false,
+    //   file: 'stats.html', //分析图生成的文件名
+    //   open: true, //如果存在本地服务端口，将在打包后自动展示
+    // }),
     // viteCompression()
   ],
   build: {
@@ -44,7 +45,7 @@ export default defineConfig({
             // See what's allowed: https://github.com/javascript-obfuscator/javascript-obfuscator
           },
         }),
-        // terser()
+        // terser(),
       ],
       // 确保外部化处理那些你不想打包进库的依赖
       external: ['vue'],
@@ -60,14 +61,14 @@ export default defineConfig({
         //   vue: ['vue', 'vue-router'],
         //   elemenPlus: ['element-plus', '@element-plus/icons-vue'],
         // },
-        manualChunks(id) {
-          //静态资源分拆打包
-          if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0].toString()
-          }
-        },
+        // manualChunks(id) {
+        //   //静态资源分拆打包
+        //   if (id.includes('node_modules')) {
+        //     return id.toString().split('node_modules/')[1].split('/')[0].toString()
+        //   }
+        // },
         entryFileNames: `js/[name].[hash].js`,
-        chunkFileNames: `js/[name]-[hash].js`,
+        chunkFileNames: `js/[name].[hash].js`,
         // chunkFileNames: (chunkInfo) => {
         //   const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/') : []
         //   const fileName = facadeModuleId[facadeModuleId.length - 2] || '[name]'
@@ -80,12 +81,11 @@ export default defineConfig({
         //  assetFileNames: `index.[ext]`
       },
     },
-    // chainWebpack: (config) => {
-    //   config
-    //     .optimization
-    //     .minimize(true) // js文件最小化处理
-    //     .splitChunks({ chunks: 'all' }) // 分割代码
-    // }
+    chainWebpack: (config) => {
+      config.optimization
+        .minimize(true) // js文件最小化处理
+        .splitChunks({ chunks: 'all' }) // 分割代码
+    },
   },
   resolve: {
     alias: {
