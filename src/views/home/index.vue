@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header />
-
     <main class="content">
       <!-- <img class="banner" src="@/assets/img/banner-bg.png" alt=""> -->
       <AdBanner />

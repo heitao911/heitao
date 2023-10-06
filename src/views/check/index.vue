@@ -13,7 +13,8 @@
       </el-alert>
 
       <el-text class="tips" type="info">可查询官方客服真伪以及输入U地址查询是否为骗子，有任何问题请联系官网客服人员。<br />
-        黑桃商务官网：<a href="https://www.heitao.org">https://www.heitao.org</a></el-text>
+        黑桃商务官网：<a href="https://www.heitao.org">https://www.heitao.org</a>
+      </el-text>
     </div>
   </main>
 </template>

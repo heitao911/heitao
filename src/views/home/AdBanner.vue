@@ -1,19 +1,9 @@
 <template>
   <div class="ad-wrap">
     <div class="ad-item" v-for="(item, i) in state.list" :key="i">
-      <a
-        rel="nofollow"
-        :href="item.link"
-        target="_blank"
-        class="relative block h-full w-full"
-      >
+      <a rel="nofollow" :href="item.link" target="_blank" class="relative block h-full w-full">
         <div class="img-cover">
-          <img
-            :src="item.imgUrl"
-            class="el-image__inner"
-            alt="广告"
-            title="广告"
-          />
+          <img :src="item.imgUrl" class="el-image__inner" alt="广告" title="广告" />
         </div>
       </a>
     </div>
