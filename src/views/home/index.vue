@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <Header />
@@ -11,7 +10,7 @@
   </div>
 </template>
 <script setup>
-import { ref, defineAsyncComponent } from "vue";
+import { ref } from "vue";
 import AdBanner from "./AdBanner.vue";
 import Header from "@/components/BgHeader.vue";
 </script>

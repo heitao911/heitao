@@ -3,7 +3,7 @@ import '@/styles/style.scss'
 import App from './App.vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import router from "./router"
+import router from './router'
 // 如果您正在使用CDN引入，请删除下面一行。
 // import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 

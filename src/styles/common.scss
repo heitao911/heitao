@@ -25,22 +25,21 @@ $bg-blue: #3255a4;
 
   .el-input__inner:hover,
   .el-input__inner:focus {
-    border-color: #3255A4 !important;
+    border-color: #3255a4 !important;
   }
 
   .el-button--primary,
   .el-button--default {
-    border-color: #3255A4;
+    border-color: #3255a4;
     border-radius: 0px;
   }
 
   .el-button--primary:hover,
   .el-button--default:hover {
     background-color: #fff !important;
-    color: #3255A4 !important;
-    border: solid 1px #3255A4 !important;
+    color: #3255a4 !important;
+    border: solid 1px #3255a4 !important;
   }
-
 }
 
 .w-full {
