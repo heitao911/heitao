@@ -72,8 +72,8 @@ export default defineConfig({
         chunkFileNames: (chunkInfo) => {
           const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/') : []
           const fileName = facadeModuleId[facadeModuleId.length - 2] || '[name]'
-          // return `js/${fileName}/[name].[hash].js`
-          return `js/[name].[hash].js`
+          return `js/${fileName}/[name].[hash].js`
+          // return `js/[name].[hash].js`
         },
         // css、图片等资源文件名
         assetFileNames: '[ext]/[name].[hash].[ext]',
