@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <main class="content">
       <!-- <img class="banner" src="@/assets/img/banner-bg.png" alt=""> -->
       <AdBanner />
@@ -11,7 +10,6 @@
 <script setup name="Home">
 // import { ref } from 'vue'
 import AdBanner from './AdBanner.vue';
-import Header from "@/components/BgHeader.vue";
 </script>
 <style scoped lang="scss">
 main.content {

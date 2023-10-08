@@ -10,20 +10,25 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      redirect: '/home',
-      component: () => import('@/views/home/index.vue'),
-      children: [
-        {
-          path: '/home',
-          name: 'homePage',
-          component: () => import('@/views/home/index.vue')
-        }
-      ]
+      redirect: '/check',
+      component: () => import('@/layout/layout.vue')
+      // children: [
+      //   {
+      //     path: '/home',
+      //     name: 'homePage',
+      //     component: () => import('@/views/home/index.vue')
+      //   }
+      // ]
     },
     {
       path: '/check',
       name: 'check',
       component: () => import('@/views/check/index.vue')
+    },
+    {
+      path: '/:pathMatch(.*)',
+      name: '404',
+      component: () => import('@/views/404.vue')
     }
   ]
 })
