@@ -1,5 +1,5 @@
-@import "./media.scss";
-@import "./reset.scss";
+@import './media.scss';
+@import './reset.scss';
 
 // 全局变量
 $bg-blue: #3255a4;
@@ -15,30 +15,6 @@ $bg-blue: #3255a4;
 
   @include media(M) {
     margin-top: 0px;
-  }
-}
-
-::v-deep {
-  .el-input__inner {
-    border-radius: 0px !important;
-  }
-
-  .el-input__inner:hover,
-  .el-input__inner:focus {
-    border-color: #3255a4 !important;
-  }
-
-  .el-button--primary,
-  .el-button--default {
-    border-color: #3255a4;
-    border-radius: 0px;
-  }
-
-  .el-button--primary:hover,
-  .el-button--default:hover {
-    background-color: #fff !important;
-    color: #3255a4 !important;
-    border: solid 1px #3255a4 !important;
   }
 }
 

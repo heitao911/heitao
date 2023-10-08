@@ -190,13 +190,8 @@ main.content {
     .check-result {
       padding: 10px 5px;
       margin-top: 15px;
-      ::v-deep {
-        // .el-alert__title {
-        // font-size: 16px;
-        // }
-        .el-alert__description {
-          font-weight: 700;
-        }
+      :deep(.el-alert__description) {
+        font-weight: 700;
       }
     }
   }
