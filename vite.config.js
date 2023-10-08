@@ -103,8 +103,8 @@ export default defineConfig({
           // return `js/[name].[hash].js`
         },
         // //     // css、图片等资源文件名
-        assetFileNames: '[ext]/[name].[hash].[ext]'
-        //     // assetFileNames: `assets/[name].[hash].[ext]`,
+        // assetFileNames: '[ext]/[name].[hash].[ext]'
+        assetFileNames: `assets/[name].[hash].[ext]`
         //     // 比如你想构建出来的css为dist/index.css，那么你可以这样
         //     //  assetFileNames: `index.[ext]`
       }

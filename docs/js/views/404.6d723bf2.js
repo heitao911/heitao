@@ -1,0 +1,1 @@
+import{openBlock as e,createElementBlock as _}from"vue";import{_ as t}from"../index.83eb1f26.js";const c={data(){return{}}},o={class:"NOINfo"};function s(a,n,r,p,d,f){return e(),_("div",o)}const u=t(c,[["render",s],["__scopeId","data-v-c566a86c"]]);export{u as default};
