@@ -19,7 +19,7 @@ main.content {
     background-image: url(@/assets/images/img/banner-bg.png);
     background-size: 100% auto;
     background-repeat: no-repeat;
-    margin: 60px auto 0;
+    margin: 0 auto;
   }
   padding-top: 80px;
   @include media(M) {

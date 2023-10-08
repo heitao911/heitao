@@ -10,7 +10,8 @@
 #app {
   width: 100%;
   margin: 0 auto;
-  overflow: auto;
+
+  /* overflow: auto; */
 }
 
 .logo {

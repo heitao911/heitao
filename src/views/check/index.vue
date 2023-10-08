@@ -107,11 +107,6 @@ const checkFn = () => {
   }, 1000)
 }
 </script>
-<style>
-#app {
-  overflow: hidden !important;
-}
-</style>
 <style scoped lang="scss">
 main.content {
   width: 100%;

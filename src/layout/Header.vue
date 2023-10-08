@@ -63,7 +63,7 @@ function foldMenu() {
     display: flex;
     align-items: center;
     @media only screen and (min-width: 900px) {
-      min-width: 850px;
+      min-width: 1200px;
     }
     @include media(M) {
       width: 100%;

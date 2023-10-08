@@ -18,72 +18,14 @@
 </template>
 <script>
 // import utils from '@/common/js/utils.js'
-import Header from "@/layout/Header.vue"
-import Footer from "@/layout/BgFooter.vue";
+import Header from '@/layout/Header.vue'
+import Footer from '@/layout/Footer.vue'
 
 export default {
-  name: 'Home',
+  name: 'Index',
   data() {
     return {
-      exclude: ['test', 'ApplicationBlackList', 'ApplicationAdd', 'stuInfo', 'ApplicationDetail', 'stuInfoEdit', 'StuInfoEdit', 'syllabiDetail', 'operateStaff', 'applyDetail', 'SupplierDetail', 'supplierManagement', 'AssetsClass', 'staffOperate', 'staffOperateFor', 'atSchoolList', 'helpPdf',
-        'bulletinAdd',
-        // 'bulletinLook',
-        'bulletinList',
-        'add-line',
-        'test-bank',
-        'student-info',
-        'SummerDetail',
-        'ProjectDetail',
-        'projectCampDetail',
-        'questionCard',
-        'groupWebConfig',
-        'Attendance',
-        'AttendanceAllocation',
-        'AddAttendanceGroup',
-        'DayoffDetail',
-        'NewConfiguration',
-        'StudentDetail',
-        'myDropDetail',
-        'admitDetail',
-        // 'statisticsDetail',
-        'EvaluationListDetail',
-        'GuideDetail',
-        'SelfEvaluationGuideLecturesDetail',
-        'AddGuide',
-        'ActivityApplyDetail',
-        'CampProjectDetail',
-        'NewForm',
-        'AttendanceDetail',
-        'SalaryDetail',
-        'ArrangingIndex',
-        'ScheduleCheckIndex', // 课表检查
-        'SchduleView', // 课表查看
-        'TeacherSchedule',
-        'ClubList',
-        'ClubListDetail',
-        'NoticeDetil',
-        'EvaluationDetail',
-        'ExchangeDetail',
-        'ExchangeJoinDetail',
-        'JobBoardDetail',
-        'RecruitmentForm',
-        'LoanDetails',
-        'RepaymentSchedule',
-        'PerformanceAssignmentDetail',
-        'AssessmentProgressDetail',
-        'AnnualEvaluation-EvaluationList',
-        'AnnualEvaluation-EvaluationDetail',
-        'StaffEvaluationDetail',
-        'EvaluationAddEdit',
-        'WholeConfig',
-        'AddDropInPage'
-
-        // 'schoolWebsiteConfig',
-        // 'stuConfig',
-        // 'postConfig'
-        // 'applyClub',
-        // 'clubDetail','clubList',
-      ]
+      exclude: []
     }
   },
   components: {
@@ -95,24 +37,23 @@ export default {
     // utils.bus.$on('closeTab', (tag, index) => {
     //   closeVm(self.$refs.coms, tag, index)
     // })
-
-  },
-  methods: {},
-
+  }
 }
 </script>
 <style lang="scss" scoped>
 .container {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
+  // position: absolute;
+  // top: 0px;
+  // bottom: 0px;
   width: 100%;
   .main {
+    width: 100%;
     display: flex;
-    position: absolute;
-    top: 56px;
-    bottom: 0px;
-    overflow: hidden;
+    // position: absolute;
+    // top: 56px;
+    // bottom: 0px;
+    margin-top: 56px;
+    // overflow: hidden;
     .content-container {
       position: relative;
       box-sizing: border-box;
@@ -142,13 +83,13 @@ export default {
         min-width: 1140px;
         box-sizing: border-box;
         // padding:30px 30px 50px;
-        padding: 30px 100px 50px;
+        // padding: 30px 100px 50px;
         flex: 1;
         overflow-y: auto;
       }
       @media screen and (max-width: 1600px) {
         .content-wrapper {
-          padding: 30px 30px 50px;
+          // padding: 30px 30px 50px;
         }
       }
     }
