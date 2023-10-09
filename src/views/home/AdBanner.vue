@@ -72,9 +72,9 @@ export default {
 </script>
 <style scoped lang="scss">
 .ad-wrap {
-  width: 60%;
+  // width: 60%;
   @media only screen and (min-width: 900px) {
-    min-width: 850px;
+    // width: 1200px;
   }
   @include media(M) {
     width: 100%;

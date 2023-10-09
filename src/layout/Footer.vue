@@ -13,8 +13,8 @@
     </div>
     <div class="footer">
       <div>
-        <a href="https://t.me/heitaogf">关于黑桃</a>
-        <a href="https://t.me/heitaogf">联系我们</a>
+        <a href="https://t.me/heitaogf" target="_blank">关于黑桃</a>
+        <a href="https://t.me/heitaogf" target="_blank">联系我们</a>
       </div>
       <div :span="12">
         <div>Copyright 2019 HEITAO</div>
@@ -71,7 +71,7 @@ const iconList = ref([
     iconText: "Instagram",
     title: "Follow us on Instagram",
   },
-]);
+])
 </script>
 
 <style scoped lang="scss">

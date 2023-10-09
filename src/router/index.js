@@ -8,13 +8,13 @@ const router = createRouter({
     {
       path: '/',
       name: 'layout',
-      redirect: '/check',
+      // redirect: '/check',
       component: () => import('@/layout/layout.vue'),
       children: [
         {
           path: '/home',
           name: 'homePage',
-          redirect: '/check',
+          // redirect: '/check',
           component: () => import('@/views/home/index.vue')
         }
       ]
@@ -34,17 +34,17 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   console.log([to, from, next])
-  const countryCode = await getIpCountry()
-  console.info(countryCode)
+  // const countryCode = await getIpCountry()
+  // console.info(countryCode)
   if (to.path === '/404') {
     next()
   }
   // 国内禁止访问
-  if (countryCode !== 'CN') {
-    next()
-  } else {
-    next({ path: '404', replace: true })
-  }
+  // if (countryCode !== 'CN') {
+  next()
+  // } else {
+  //   next({ path: '404', replace: true })
+  // }
 
 })
 

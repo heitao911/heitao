@@ -23,7 +23,7 @@ import Footer from '@/layout/Footer.vue'
 
 export default {
   name: 'Index',
-  data() {
+  data () {
     return {
       exclude: []
     }
@@ -32,7 +32,7 @@ export default {
     Header,
     Footer
   },
-  created() {
+  created () {
     const self = this
     // utils.bus.$on('closeTab', (tag, index) => {
     //   closeVm(self.$refs.coms, tag, index)
@@ -81,6 +81,10 @@ export default {
         height: 100%;
         width: 100%;
         min-width: 1140px;
+        @include media(M) {
+          width: 100%;
+          min-width: 100%;
+        }
         box-sizing: border-box;
         // padding:30px 30px 50px;
         // padding: 30px 100px 50px;
