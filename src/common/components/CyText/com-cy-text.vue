@@ -75,7 +75,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-::v-deep.el-tooltip {
+:deep(.el-tooltip) {
   cursor: inherit !important;
 }
 </style>

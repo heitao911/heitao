@@ -50,8 +50,8 @@ const checkFn = () => {
   }
   state.loading = true
   setTimeout(() => {
-    state.loading = false;
-    state.description = "";
+    state.loading = false
+    state.description = ""
     if (state.vague.length === 34) {
       const vip_U_whiteName = config.vip_U_whiteName.filter((e) => e === state.vague)
       const service_U_whiteName = config.service_U_whiteName.filter((e) => e === state.vague)
