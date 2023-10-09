@@ -1,6 +1,4 @@
-// import VueRouter from "vue-router"
 import { createRouter, createWebHashHistory } from 'vue-router'
-// import HomeView from "@/views/home/index.vue"
 
 const router = createRouter({
   history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
@@ -9,16 +7,17 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'layout',
       redirect: '/check',
-      component: () => import('@/layout/layout.vue')
-      // children: [
-      //   {
-      //     path: '/home',
-      //     name: 'homePage',
-      //     component: () => import('@/views/home/index.vue')
-      //   }
-      // ]
+      component: () => import('@/layout/layout.vue'),
+      children: [
+        {
+          path: '/home',
+          name: 'homePage',
+          redirect: '/check',
+          component: () => import('@/views/home/index.vue')
+        }
+      ]
     },
     {
       path: '/check',

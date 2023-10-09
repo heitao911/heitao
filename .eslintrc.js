@@ -6,8 +6,8 @@ module.exports = {
   extends: [
     'plugin:vue/essential',
     'eslint:recommended',
-    '@vue/standard'
-    // '@vue/eslint-config-prettier'
+    '@vue/eslint-config-prettier'
+    // '@vue/standard'
   ],
   rules: {
     semi: ['error', 'never'],
