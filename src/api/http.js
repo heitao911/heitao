@@ -15,7 +15,6 @@ axios.interceptors.request.use(
 //  response 错误统一处理
 axios.interceptors.response.use(
   (res) => {
-    debugger
     if (res.data.type == "TIPS" || res.data.type == "ALERT") {
       ElMessage({ type: "error", message: res.data.message })
       return res

@@ -40,11 +40,11 @@ router.beforeEach(async (to, from, next) => {
     next()
   }
   // 国内禁止访问
-  if (countryCode !== 'CN') {
-    next()
-  } else {
-    next({ path: '404', replace: true })
-  }
+  // if (countryCode !== 'CN') {
+  next()
+  // } else {
+  //   next({ path: '404', replace: true })
+  // }
 
 })
 
