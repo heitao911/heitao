@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-
+import { getIpCountry } from '@/utils/tools'
 const router = createRouter({
   history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
   // mode: "hash",
@@ -30,6 +30,22 @@ const router = createRouter({
       component: () => import('@/views/404.vue')
     }
   ]
+})
+
+router.beforeEach(async (to, from, next) => {
+  console.log([to, from, next])
+  const countryCode = await getIpCountry()
+  console.info(countryCode)
+  if (to.path === '/404') {
+    next()
+  }
+  // 国内禁止访问
+  if (countryCode !== 'CN') {
+    next()
+  } else {
+    next({ path: '404', replace: true })
+  }
+
 })
 
 router.afterEach(() => {

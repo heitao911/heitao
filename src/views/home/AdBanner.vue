@@ -10,7 +10,7 @@
   </div>
 </template>
 <script setup name="AdBanner">
-import { ref, reactive, onBeforeMount } from "vue";
+import { ref, reactive, onBeforeMount } from "vue"
 
 const state = reactive({
   list: [
@@ -55,20 +55,20 @@ const state = reactive({
       link: "https://t.me/sir1685",
     },
   ],
-});
+})
 
 onBeforeMount(() => {
-  console.log(import.meta.url);
+  // console.log(import.meta.url)
   state.list.map((e) => {
-    e.imgUrl = new URL("/src/assets/images/ad/" + e.img, import.meta.url).href;
-    return e;
-  });
-});
+    e.imgUrl = new URL("/src/assets/images/ad/" + e.img, import.meta.url).href
+    return e
+  })
+})
 </script>
 <script>
 export default {
   name: "AdBanner",
-};
+}
 </script>
 <style scoped lang="scss">
 .ad-wrap {

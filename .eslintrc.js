@@ -14,6 +14,8 @@ module.exports = {
     'no-unused-vars': 'off',
     //关闭组件命名规则
     'vue/multi-word-component-names': 'off',
-    'prettier/prettier': 'off'
+    'prettier/prettier': 'off',
+    'no-debugger': 'off',
+    'no-console': 'off',
   }
 }
