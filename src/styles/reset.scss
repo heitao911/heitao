@@ -80,17 +80,17 @@ mark,
 audio,
 hr,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    // font-size: 14px;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  // font-size: 14px;
+  font: inherit;
+  vertical-align: baseline;
 
-    * {
-        font-family: "Microsoft YaHei", "PingFangSC-Regular", "Helvetica Neue",
-            "Helvetica", "Hiragino Sans GB", "SimSun", "sans-serif";
-    }
+  * {
+    font-family: 'Microsoft YaHei', 'PingFangSC-Regular', 'Helvetica Neue',
+      'Helvetica', 'Hiragino Sans GB', 'SimSun', 'sans-serif';
+  }
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -105,36 +105,36 @@ hgroup,
 menu,
 nav,
 section {
-    display: block;
+  display: block;
 }
 
 body {
-    line-height: 1;
-    height: 100%;
-    font-family: "Microsoft YaHei", "PingFangSC-Regular", "Helvetica Neue",
-        "Helvetica", "Hiragino Sans GB", "SimSun", "sans-serif";
-    font-size: 14px;
-    overflow: hidden;
+  line-height: 1;
+  height: 100%;
+  font-family: 'Microsoft YaHei', 'PingFangSC-Regular', 'Helvetica Neue',
+    'Helvetica', 'Hiragino Sans GB', 'SimSun', 'sans-serif';
+  font-size: 14px;
+  // overflow: hidden;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-    quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: "";
-    content: none;
+  content: '';
+  content: none;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }

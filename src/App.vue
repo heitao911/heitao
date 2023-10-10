@@ -1,22 +1,17 @@
 <template>
   <div id="app">
-    <Header />
     <router-view />
-    <Footer />
   </div>
 </template>
 <script setup>
-import Header from "@/components/BgHeader.vue"
-import Footer from "@/components/BgFooter.vue"
 </script>
 
 <style scoped>
 #app {
   width: 100%;
   margin: 0 auto;
-  /* padding: 2rem; */
-  text-align: center;
-  overflow: auto;
+
+  /* overflow: auto; */
 }
 
 .logo {
