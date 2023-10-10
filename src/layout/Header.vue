@@ -11,9 +11,9 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive } from "vue"
 
-let schoolArr = ref([]);
+let schoolArr = ref([])
 let menuAbout = ref([
   {
     toPath: "/home",
@@ -35,14 +35,14 @@ let menuAbout = ref([
     toPath: "/media",
     name: "Media",
   },
-]);
+])
 
-let mobileNav = ref("mobileNav");
+let mobileNav = ref("mobileNav")
 let data = reactive({
   btnUnfold: false,
-});
-function foldMenu() {
-  data.btnUnfold = !data.btnUnfold;
+})
+function foldMenu () {
+  data.btnUnfold = !data.btnUnfold
 }
 </script>
 
@@ -52,7 +52,7 @@ function foldMenu() {
   position: fixed;
   top: 0;
   height: 60px;
-  background-color: #09111a;
+  background-color: $bg-black;
   z-index: 2;
   @media only screen and (min-width: 900px) {
     min-width: 1420px;

@@ -77,11 +77,11 @@ const iconList = ref([
 <style scoped lang="scss">
 .footer-wrap {
   width: 100%;
-  // margin-top: 8rem;
+  min-width: 1400px;
   height: 200px;
-  background: #000;
+  background: $bg-black;
   .tipsWrap {
-    background-color: #e94b43;
+    background-color: $bg-red;
     width: 100%;
     .tips {
       max-width: 1200px;
@@ -100,13 +100,13 @@ const iconList = ref([
   }
   .footer {
     color: #fff;
-    max-width: 1100px;
-    padding: 40px;
+    max-width: 1200px;
+    padding: 20px 40px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     a {
-      color: #e94b43;
+      color: $bg-red;
       margin-right: 30px;
     }
   }
@@ -116,41 +116,10 @@ const iconList = ref([
     border: 0;
   }
   * {
-    background-color: #e94b43;
+    background-color: $bg-red;
     color: rgb(19, 22, 25);
   }
 }
 @media (max-width: 600px) {
-  .row1 {
-    flex-direction: column;
-    border-bottom: none;
-    > div {
-      display: none;
-    }
-  }
-  .row2-row3 {
-    flex-direction: column-reverse;
-  }
-  .row3 {
-    margin-left: 0 !important;
-    display: flex;
-    justify-content: center;
-  }
-  .row2 {
-    .contact-us {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .addr {
-      text-align: center;
-      border-bottom: 2px solid #a6a6a7;
-      margin-bottom: 2.25rem;
-      padding-bottom: 2.25rem;
-    }
-    .copyright {
-      text-align: center;
-      margin-top: 20px;
-    }
-  }
 }
 </style>

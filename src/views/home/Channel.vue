@@ -1,88 +1,34 @@
 <template>
-  <div class="channel-wrap">
+  <div class="channel-main">
     <div class="channel-item" v-for="(item, i) in state.list" :key="i">
       <a rel="nofollow" :href="item.link" target="_blank" class="link">
         <div class="img-cover">
           <img :src="item.imgUrl" class="el-image__inner" alt="广告" title="广告" />
         </div>
-        <div class="title">{{ item.title }}</div>
-        <div class="des">{{ item.des }}</div>
+        <div class="title">{{ item.name }}</div>
+        <div class="sort">
+          <span class="sort-item" v-for="(e, index) in item.sorts.slice(0, 3)" :key="index">
+            <i>{{ e }}</i>
+            <i v-if="index!==2">/</i>
+          </span>
+        </div>
+
       </a>
     </div>
   </div>
 </template>
 <script setup name="Channel">
-import { ref, reactive, onBeforeMount } from "vue"
+import { reactive, onBeforeMount } from "vue"
+import { useChannelStore } from '@/stores/channel'
 
+const channel = useChannelStore()
 const state = reactive({
-  list: [
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-    {
-      title: '游戏招商',
-      des: '游戏代理/游戏独代/游戏联运',
-      img: "20230904172010.png",
-      link: "https://t.me/sir1685",
-    },
-  ],
+  list: channel.dataList,
 })
-
 onBeforeMount(() => {
   // console.log(import.meta.url)
   state.list.map((e) => {
-    e.imgUrl = new URL("/src/assets/images/ad/" + e.img, import.meta.url).href
+    e.imgUrl = new URL("/src/assets/images/channel/" + e.img, import.meta.url).href
     return e
   })
 })
@@ -93,9 +39,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.channel-wrap {
-  padding: 20px;
+.channel-main {
+  padding: 40px 20px 20px;
   background-color: white;
+  box-sizing: border-box;
   @media only screen and (min-width: 900px) {
     width: 1200px;
   }
@@ -108,34 +55,46 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   .channel-item {
-    width: 220px;
-    // height: 100px;
+    width: 230px;
+    padding: 5px 0;
     overflow: hidden;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     .link {
       // display: inline-block;
       // text-align: center;
-    }
-    .img-cover {
-      margin: 0 auto;
-      text-align: center;
-      width: 60px;
-      height: 60px;
-      margin-bottom: 10px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-    .title {
-      text-align: center;
-      font-weight: 700;
-      color: black;
-      margin-bottom: 10px;
-    }
-    .des {
-      text-align: center;
-      color: #888;
-      font-size: 12px;
+      &:hover {
+        .img-cover {
+          transform: translateY(-5px);
+        }
+      }
+      .img-cover {
+        margin: 0 auto;
+        text-align: center;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: 0.5s;
+      }
+      .title {
+        &:hover {
+          color: $bg-red;
+        }
+        text-align: center;
+        font-weight: 700;
+        color: black;
+        margin-bottom: 10px;
+      }
+      .sort {
+        text-align: center;
+        color: #888;
+        font-size: 12px;
+        .sort-item:hover i {
+          color: $bg-red;
+        }
+      }
     }
   }
 }
