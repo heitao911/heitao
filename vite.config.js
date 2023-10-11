@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// const path = require('path')
 import { fileURLToPath, URL } from 'node:url'
 
 // 在setup中添加 name 属性，方便浏览器调试
@@ -17,6 +16,7 @@ import obfuscator from 'rollup-plugin-obfuscator'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   publicPath: '/',
   plugins: [
     vue(),
@@ -126,7 +126,6 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // '@': path.resolve(__dirname, 'src')
       '@': fileURLToPath(new URL('./src', import.meta.url)) // 不配置，@路径启动会报错
     }
   },

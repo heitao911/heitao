@@ -6,14 +6,16 @@ import 'element-plus/dist/index.css'
 import router from './router'
 import globalComponent from '@/common/components/register.js'
 import { createPinia } from 'pinia'
-// 如果您正在使用CDN引入，请删除下面一行。
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue' // 如果您正在使用CDN引入，请删除这一行。
+import { getImageUrl } from '@/utils/tools'
 
 const pinia = createPinia()
 const app = createApp(App).use(router).use(ElementPlus).use(globalComponent).use(pinia)
-
+// 全局注册组件
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-
+// 绑定全局方法
+app.config.globalProperties.getImageUrl = getImageUrl
+// 注册完全局组件后-->才能挂载实例
 app.mount('#app')
