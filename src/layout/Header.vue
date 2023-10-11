@@ -72,8 +72,6 @@ function foldMenu () {
     .logo {
       margin-right: 15px;
     }
-    .search {
-    }
   }
 }
 </style>

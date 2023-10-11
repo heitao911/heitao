@@ -42,6 +42,7 @@ export default {
     width: 100%;
     display: flex;
     margin-top: 60px;
+    min-height: 100vh;
     // overflow: hidden;
     .content-container {
       position: relative;
@@ -51,7 +52,6 @@ export default {
       display: flex;
       flex-direction: column;
       height: 100%;
-      overflow-x: scroll;
       // overflow: hidden;
       .content-wrapper {
         height: 100%;
@@ -63,7 +63,6 @@ export default {
         }
         box-sizing: border-box;
         flex: 1;
-        overflow-y: auto;
       }
       @media screen and (max-width: 1600px) {
         .content-wrapper {

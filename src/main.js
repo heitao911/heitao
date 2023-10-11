@@ -9,6 +9,9 @@ import { createPinia } from 'pinia'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue' // 如果您正在使用CDN引入，请删除这一行。
 import { getImageUrl } from '@/utils/tools'
 
+// Import Swiper styles
+import 'swiper/css'
+
 const pinia = createPinia()
 const app = createApp(App).use(router).use(ElementPlus).use(globalComponent).use(pinia)
 // 全局注册组件

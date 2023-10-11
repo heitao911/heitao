@@ -2,9 +2,10 @@
   <div>
     <main class="content">
       <div class="banner-top">
-        <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
+        <SwiperAd />
+        <!-- <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt=""> -->
       </div>
-      <div class="banner-wrap">
+      <!-- <div class="banner-wrap">
         <div class="banner-left">
           <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
           <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
@@ -20,16 +21,19 @@
       </div>
       <div class="channel-wrap">
         <Channel />
-      </div>
-
-      <!-- <HelloWorld /> -->
+      </div> -->
     </main>
   </div>
 </template>
 <script setup name="Home">
-// import { ref } from 'vue'
+import { onMounted } from 'vue'
 import AdBanner from './AdBanner.vue'
 import Channel from './Channel.vue'
+import SwiperAd from '@/components/SwiperAd.vue'
+
+onMounted(() => {
+
+})
 </script>
 <style scoped lang="scss">
 main.content {
@@ -63,6 +67,8 @@ main.content {
     }
   }
   .banner-wrap {
+    max-width: 1600px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1200px 1fr;
     @include media(M) {

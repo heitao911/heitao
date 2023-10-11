@@ -1,6 +1,5 @@
 <template>
   <div class="ad-wrap">
-    <el-button @click="Test">Test</el-button>
     <div class="ad-row">
       <div class="ad-item" v-for="(item, i) in state.list1" :key="i">
         <a :href="item.link" target="_blank" class="link">
