@@ -30,10 +30,14 @@ import { onMounted } from 'vue'
 import AdBanner from './AdBanner.vue'
 import Channel from './Channel.vue'
 import SwiperAd from '@/components/SwiperAd.vue'
+import { apiGetContent } from '@/api'
 
 onMounted(() => {
-
+  getContent()
 })
+const getContent = () => {
+  apiGetContent()
+}
 </script>
 <style scoped lang="scss">
 main.content {

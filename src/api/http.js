@@ -74,6 +74,21 @@ const http = {
           reject(err.data)
         })
     })
+  },
+  jsonp (url, params) {
+    return new Promise((resolve, reject) => {
+      NProgress.start()
+      axios
+        .get(url, { params })
+        .then((res) => {
+          NProgress.done()
+          resolve(res.data)
+        })
+        .catch((err) => {
+          NProgress.done()
+          reject(err.data)
+        })
+    })
   }
 }
 
