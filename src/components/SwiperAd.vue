@@ -76,40 +76,34 @@ onBeforeUnmount(() => {
 </script>
 <style scoped lang="scss">
 .swiperWrap {
+  transition: 0.3s;
   width: 1230px;
-        height: 400px;
-
-  transform: translate3d(0,0,0);
-  background: pink;
-  padding: 80px 0;
+  transform: translate3d(0, 0, 0);
+  // background: pink;
+  // padding: 80px 0;
   margin: 0 auto;
   .relative {
     position: relative;
-        height: 400px;
-
     width: 100%;
   }
-  .swiper{
-    width: 400px;
+  .swiper {
     margin: 0 auto;
-    height: 400px;
     overflow: visible;
-    perspective: 200px;
-    transform: translate3d(0,0,0);
-    .swiper-wrapper{
-        transition-timing-function: linear;
+    perspective: 1200px;
+    transform: translate3d(0, 0, 0);
+    height: 64px;
+    .swiper-wrapper {
+      transition-timing-function: linear;
       margin: 0 auto;
       .swiper-slide {
         box-sizing: content-box;
         overflow: hidden;
         width: 100%;
-        height: 400px;
-        transform: translate3d(0,0,0);
-        img.ad-img{
-          // width: 200px;
-          height: 400px;
-          transform: translate3d(0,0,0);
-          // width: 100%;
+        height: 64px;
+        transform: translate3d(0, 0, 0);
+        img.ad-img {
+          transform: translate3d(0, 0, 0);
+          width: 100%;
         }
       }
     }

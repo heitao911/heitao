@@ -2,16 +2,16 @@
   <div>
     <main class="content">
       <div class="banner-top">
-        <SwiperAd />
-        <!-- <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt=""> -->
+        <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
       </div>
-      <!-- <div class="banner-wrap">
+      <div class="banner-wrap">
         <div class="banner-left">
           <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
           <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
           <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
           <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
         </div>
+        <!-- 首屏之间广告 -->
         <AdBanner class="banner-center" />
         <div class="banner-right">
           <img class="banner" src="@/assets/images/banner-ad/20230831164340.png" alt="">
@@ -21,19 +21,39 @@
       </div>
       <div class="channel-wrap">
         <Channel />
-      </div> -->
+      </div>
+      <!-- 底部swiper广告 -->
+      <SwiperAd class="bottom-swiper" :class="{hiddenSwiper: state.hiddenSwiper}" />
     </main>
+
   </div>
 </template>
 <script setup name="Home">
-import { onMounted } from 'vue'
+import { onMounted, nextTick, reactive } from 'vue'
 import AdBanner from './AdBanner.vue'
 import Channel from './Channel.vue'
 import SwiperAd from '@/components/SwiperAd.vue'
 import { apiGetContent } from '@/api'
 
+const state = reactive({
+  hiddenSwiper: false
+})
 onMounted(() => {
-  getContent()
+  // getContent()
+  nextTick(() => {
+    document.documentElement.onscroll = () => {
+      debugger
+      const offsetHeight = document.documentElement.offsetHeight
+      const clientHeight = document.documentElement.clientHeight
+      const scrollTop = document.documentElement.scrollTop
+      console.log(scrollTop)
+      if (scrollTop + clientHeight >= offsetHeight - 10) {
+        state.hiddenSwiper = true
+      } else {
+        state.hiddenSwiper = false
+      }
+    }
+  }, 1000)
 })
 const getContent = () => {
   apiGetContent()
@@ -94,6 +114,16 @@ main.content {
       img {
         width: 80%;
       }
+    }
+  }
+  .bottom-swiper {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    &.hiddenSwiper {
+      bottom: -100px;
     }
   }
 }
