@@ -21,6 +21,7 @@ module.exports = {
     'prettier/prettier': 'off',
     'no-debugger': 'off',
     'no-console': 'off',
-    camelcase: 'off'
+    camelcase: 'off',
+    'space-before-function-paren': 'off'
   }
 }
