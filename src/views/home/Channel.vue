@@ -3,7 +3,7 @@
     <div class="channel-item" v-for="(item, i) in state.list" :key="i">
       <a rel="nofollow" :href="item.link" target="_blank" class="link">
         <div class="img-cover">
-          <img :src="item.imgUrl" class="el-image__inner" alt="广告" title="广告" />
+          <img :src="getImageUrl('channel',item.img)" class="el-image__inner" alt="广告" title="广告" />
         </div>
         <div class="title">{{ item.name }}</div>
         <div class="sort">
@@ -18,19 +18,12 @@
   </div>
 </template>
 <script setup name="Channel">
-import { reactive, onBeforeMount } from 'vue'
+import { reactive } from 'vue'
 import { useChannelStore } from '@/stores/channel'
 
 const channel = useChannelStore()
 const state = reactive({
   list: channel.dataList
-})
-onBeforeMount(() => {
-  // console.log(import.meta.url)
-  state.list.map((e) => {
-    e.imgUrl = new URL('/src/assets/images/channel/' + e.img, import.meta.url).href
-    return e
-  })
 })
 </script>
 <script>
