@@ -1,10 +1,11 @@
 <template>
   <div class="ad-wrap">
+    <el-button @click="Test">Test</el-button>
     <div class="ad-row">
       <div class="ad-item" v-for="(item, i) in state.list1" :key="i">
         <a :href="item.link" target="_blank" class="link">
           <div class="img-cover">
-            <img :src="item.imgUrl" class="el-image__inner" alt="广告" title="广告" />
+            <img :src="getImageUrl('banner-ad', item.img)" class="el-image__inner" alt="广告" title="广告" />
           </div>
         </a>
       </div>
@@ -13,7 +14,7 @@
       <el-col class="ad-item" :span="12" v-for="(item, i) in state.list2" :key="i">
         <a :href="item.link" target="_blank" class="link">
           <div class="img-cover">
-            <img :src="item.imgUrl" class="el-image__inner" alt="广告" title="广告" />
+            <img :src="getImageUrl('banner-ad', item.img)" class="el-image__inner" alt="广告" title="广告" />
           </div>
         </a>
       </el-col>
@@ -31,16 +32,9 @@ const state = reactive({
 })
 
 onBeforeMount(() => {
-  // console.log(import.meta.url)
-  state.list1.map((e) => {
-    e.imgUrl = new URL('/src/assets/images/banner-ad/' + e.img, import.meta.url).href
-    return e
-  })
-  state.list2.map((e) => {
-    e.imgUrl = new URL('/src/assets/images/banner-ad/' + e.img, import.meta.url).href
-    return e
-  })
+  console.log(import.meta.url)
 })
+
 </script>
 <script>
 export default {

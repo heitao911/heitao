@@ -2,20 +2,20 @@
   <div>
     <main class="content">
       <div class="banner-top">
-        <img class="ad-img" src="@/assets/images/ad/banner-top.jpg" alt="">
+        <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
       </div>
       <div class="banner-wrap">
         <div class="banner-left">
-          <img class="banner" src="@/assets/images/ad/20230904172010.png" alt="">
-          <img class="banner" src="@/assets/images/ad/20230904172010.png" alt="">
-          <img class="banner" src="@/assets/images/ad/20230904172010.png" alt="">
-          <img class="banner" src="@/assets/images/ad/20230904172010.png" alt="">
+          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
+          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
+          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
+          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
         </div>
         <AdBanner class="banner-center" />
         <div class="banner-right">
-          <img class="banner" src="@/assets/images/ad/20230831164340.png" alt="">
-          <img class="banner" src="@/assets/images/ad/20230831164340.png" alt="">
-          <img class="banner" src="@/assets/images/ad/20230831164340.png" alt="">
+          <img class="banner" src="@/assets/images/banner-ad/20230831164340.png" alt="">
+          <img class="banner" src="@/assets/images/banner-ad/20230831164340.png" alt="">
+          <img class="banner" src="@/assets/images/banner-ad/20230831164340.png" alt="">
         </div>
       </div>
       <div class="channel-wrap">
