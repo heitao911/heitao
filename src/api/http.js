@@ -1,8 +1,8 @@
-import axios from "axios"
-import NProgress from "nprogress"
-import { ElMessage } from "element-plus"
+import axios from 'axios'
+import NProgress from 'nprogress'
+import { ElMessage } from 'element-plus'
 
-axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8"
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8'
 
 axios.interceptors.request.use(
   (config) => {
@@ -15,20 +15,20 @@ axios.interceptors.request.use(
 //  response 错误统一处理
 axios.interceptors.response.use(
   (res) => {
-    if (res.data.type == "TIPS" || res.data.type == "ALERT") {
-      ElMessage({ type: "error", message: res.data.message })
+    if (res.data.type === 'TIPS' || res.data.type === 'ALERT') {
+      ElMessage({ type: 'error', message: res.data.message })
       return res
     }
     return res
   },
   (err) => {
-    console.log("接口访问失败")
+    console.log('接口访问失败')
     return err
   }
 )
 
 const http = {
-  get (url, params) {
+  get(url, params) {
     return new Promise((resolve, reject) => {
       NProgress.start()
       axios
@@ -43,7 +43,7 @@ const http = {
         })
     })
   },
-  post (url, params) {
+  post(url, params) {
     return new Promise((resolve, reject) => {
       NProgress.start()
       axios
@@ -58,12 +58,12 @@ const http = {
         })
     })
   },
-  upload (url, file) {
+  upload(url, file) {
     return new Promise((resolve, reject) => {
       NProgress.start()
       axios
         .post(url, file, {
-          headers: { "Content-Type": "multipart/form-data" }
+          headers: { 'Content-Type': 'multipart/form-data' }
         })
         .then((res) => {
           NProgress.done()

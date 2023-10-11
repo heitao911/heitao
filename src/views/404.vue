@@ -4,7 +4,7 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       // locale: localStorage.getItem('locale')
     }

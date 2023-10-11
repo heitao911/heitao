@@ -21,30 +21,30 @@
   </div>
 </template>
 <script setup name="AdBanner">
-import { reactive, onBeforeMount } from "vue"
+import { reactive, onBeforeMount } from 'vue'
 import { useAdStore } from '@/stores/ad'
 
 const ad = useAdStore()
 const state = reactive({
   list1: ad.banner1,
-  list2: ad.banner2,
+  list2: ad.banner2
 })
 
 onBeforeMount(() => {
   // console.log(import.meta.url)
   state.list1.map((e) => {
-    e.imgUrl = new URL("/src/assets/images/banner-ad/" + e.img, import.meta.url).href
+    e.imgUrl = new URL('/src/assets/images/banner-ad/' + e.img, import.meta.url).href
     return e
   })
   state.list2.map((e) => {
-    e.imgUrl = new URL("/src/assets/images/banner-ad/" + e.img, import.meta.url).href
+    e.imgUrl = new URL('/src/assets/images/banner-ad/' + e.img, import.meta.url).href
     return e
   })
 })
 </script>
 <script>
 export default {
-  name: "AdBanner",
+  name: 'AdBanner'
 }
 </script>
 <style scoped lang="scss">

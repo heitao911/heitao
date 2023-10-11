@@ -1,11 +1,10 @@
-
 <!--
  * @Descripttion: 使用方式
  *  <cy-text :value="value || '-'" />
 -->
 <template>
   <el-tooltip placement="top" v-model="isShowHover" :open-delay="500" effect="dark" :disabled="!isShowHover">
-    <div slot="content">{{ tipValue||value }}</div>
+    <slot name="content">{{ tipValue||value }}</slot>
     <div @mouseenter="showTips($event,value)" class="myNote" :style="getStyle()">{{ value }}</div>
   </el-tooltip>
 
@@ -42,7 +41,7 @@ export default {
   },
   mounted () {
   },
-  beforeDestroy () { },
+  beforeUnmount () { },
   methods: {
     showTips (obj, title) {
       /* obj为鼠标移入时的事件对象 */

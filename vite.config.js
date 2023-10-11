@@ -1,22 +1,17 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // const path = require('path')
-import { fileURLToPath, URL } from "node:url"
-
+import { fileURLToPath, URL } from 'node:url'
 
 // 在setup中添加 name 属性，方便浏览器调试
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 // 配置global变量名
 import externalGlobals from 'rollup-plugin-external-globals'
-// gzip压缩
-// import viteCompression from "vite-plugin-compression";
 // 依赖分析插件
 import { visualizer } from 'rollup-plugin-visualizer'
 
 import obfuscator from 'rollup-plugin-obfuscator'
 // import JavaScriptObfuscator from 'javascript-obfuscator'
-
-// import { terser } from 'rollup-plugin-terser'
 
 // const isProd = process.env.NODE_ENV === 'production'
 
@@ -28,13 +23,16 @@ export default defineConfig({
     VueSetupExtend(),
     visualizer({
       emitFile: false,
-      file: 'stats.html', //分析图生成的文件名
-      open: true //如果存在本地服务端口，将在打包后自动展示
+      file: 'stats.html', // 分析图生成的文件名
+      open: true // 如果存在本地服务端口，将在打包后自动展示
     })
-    // viteCompression(),
   ],
   build: {
     outDir: 'docs',
+    assetsInlineLimit: 4096, // 在生成的包中压缩文件的大小限制（以字节为单位）
+    cssCodeSplit: true, // 是否将CSS拆分为更小的块并独立加载
+    minify: 'terser', // 代码压缩方式
+    sourcemap: false, // 是否生成sourcemap文件
     rollupOptions: {
       // 排除不想被打包的库 缩小打包体积，请确保外部处理那些你不想打包进库的依赖
       // external: ['vue'],
@@ -75,7 +73,6 @@ export default defineConfig({
         // unicodeEscapeSequence: true // 将所有字符串转换为其unicode表示形式。例如，字符串“Hello World！”将被转换为“'\ x48 \ x65 \ x6c \ x6c \ x6f \ x20 \ x57 \ x6f \ x72 \ x6c \ x64 \ x21”。
         // ... [See more](https://github.com/javascript-obfuscator/javascript-obfuscator)
         // })
-        // terser(),
         // externalGlobals({
         //   vue: 'Vue'
         //   // 'element-plus': 'ElementPlus',
@@ -109,7 +106,7 @@ export default defineConfig({
         //       .toString()
         //   }
         // },
-        entryFileNames: `js/[name].[hash].js`,
+        entryFileNames: 'js/[name].[hash].js',
         //     // chunkFileNames: `js/[name].[hash].js`,
         chunkFileNames: (chunkInfo) => {
           const facadeModuleId = chunkInfo.facadeModuleId
@@ -121,7 +118,7 @@ export default defineConfig({
         },
         // //     // css、图片等资源文件名
         // assetFileNames: '[ext]/[name].[hash].[ext]'
-        assetFileNames: `assets/[name].[hash].[ext]`
+        assetFileNames: 'assets/[name].[hash].[ext]'
         //     // 比如你想构建出来的css为dist/index.css，那么你可以这样
         //     //  assetFileNames: `index.[ext]`
       }
@@ -130,7 +127,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // '@': path.resolve(__dirname, 'src')
-      '@': fileURLToPath(new URL("./src", import.meta.url)) // 不配置，@路径启动会报错
+      '@': fileURLToPath(new URL('./src', import.meta.url)) // 不配置，@路径启动会报错
     }
   },
   css: {
@@ -138,14 +135,11 @@ export default defineConfig({
     preprocessorOptions: {
       // 导入scss预编译程序
       scss: {
-        additionalData: `@use "@/styles/common.scss" as *;`
+        additionalData: '@use "@/styles/common.scss" as *;'
       }
     }
   },
-  // optimizeDeps: {
-  //   include: ['ele']
-  // },
-  //启动服务配置
+  // 启动服务配置
   server: {
     host: '0.0.0.0',
     port: 8000,

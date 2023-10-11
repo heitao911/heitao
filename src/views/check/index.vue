@@ -29,7 +29,7 @@ const state = reactive({
   isShowTip: false,
   alertTitle: '',
   description: '',
-  alertStatus: '',
+  alertStatus: ''
 })
 const description = {
   tip1: '有任何疑问请联系官方客服',
@@ -51,7 +51,7 @@ const checkFn = () => {
   state.loading = true
   setTimeout(() => {
     state.loading = false
-    state.description = ""
+    state.description = ''
     if (state.vague.length === 34) {
       const vip_U_whiteName = config.vip_U_whiteName.filter((e) => e === state.vague)
       const service_U_whiteName = config.service_U_whiteName.filter((e) => e === state.vague)

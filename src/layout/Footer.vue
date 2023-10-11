@@ -26,36 +26,36 @@
 </template>
 
 <script setup name="Footer">
-import { ref } from "vue"
+import { ref } from 'vue'
 
 const content = ref('浏览使用本站时请注意核实信息的准确性或完整性，若未经黑桃（www.heitao.org）担保，私下产生交易纠纷，黑桃（www.heitao.org）概不负责。任何机构或者个人不得以任何方式修改或非法使用本站内容。此外，您同意不假冒任何个人或实体、不虚假声明或谎称与任何个人或实体之间的关系。黑桃担保不参与客户具体业务，交易过程中双方的一切沟通及交易需要在黑桃官方担保人员创建的交易群中进行，最终解释权归黑桃（www.heitao.org）所有。')
 const iconList = ref([
   {
-    linkUrl: "https://www.facebook.com/BASISInternationalSchools/",
-    iconClass: "facebook",
-    iconText: "Facebook",
-    title: "Like us on Facebook at BASIS International Schools",
+    linkUrl: 'https://www.facebook.com/BASISInternationalSchools/',
+    iconClass: 'facebook',
+    iconText: 'Facebook',
+    title: 'Like us on Facebook at BASIS International Schools'
   },
 
   {
-    linkUrl: "mailto:info@basis-global.com",
-    iconClass: "emailUs",
-    iconText: "Email Us",
-    title: "Email us",
+    linkUrl: 'mailto:info@basis-global.com',
+    iconClass: 'emailUs',
+    iconText: 'Email Us',
+    title: 'Email us'
   },
 
   {
-    linkUrl: "https://www.linkedin.com/company/basis-international-schools",
-    iconClass: "linkedin",
-    iconText: "LinkedIn",
-    title: "Connect with us on LinkedIn",
+    linkUrl: 'https://www.linkedin.com/company/basis-international-schools',
+    iconClass: 'linkedin',
+    iconText: 'LinkedIn',
+    title: 'Connect with us on LinkedIn'
   },
 
   {
-    linkUrl: "http://blog.basisinternationalschools.com/",
-    iconClass: "blog",
-    iconText: "Blog",
-    title: "Read our updates",
+    linkUrl: 'http://blog.basisinternationalschools.com/',
+    iconClass: 'blog',
+    iconText: 'Blog',
+    title: 'Read our updates'
   },
 
   // {
@@ -66,11 +66,11 @@ const iconList = ref([
   // },
 
   {
-    linkUrl: "https://www.instagram.com/basisinternationalschools/",
-    iconClass: "instagram",
-    iconText: "Instagram",
-    title: "Follow us on Instagram",
-  },
+    linkUrl: 'https://www.instagram.com/basisinternationalschools/',
+    iconClass: 'instagram',
+    iconText: 'Instagram',
+    title: 'Follow us on Instagram'
+  }
 ])
 </script>
 

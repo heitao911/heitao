@@ -37,7 +37,7 @@ export default {
       default: true
     }
   },
-  data() {
+  data () {
     return {
       // 是否展示所有文本内容
       showTotal: true,
@@ -47,17 +47,17 @@ export default {
       showExchangeButton: false
     }
   },
-  mounted() {
+  mounted () {
     this.$refs.desc.style.maxHeight = (21 * this.rows + 1) + 'px'
     this.checkContent()
   },
   methods: {
-    showTotalIntro() {
+    showTotalIntro () {
       // console.log(this.showTotal);
       this.showTotal = !this.showTotal
       this.exchangeButton = !this.exchangeButton
     },
-    checkContent() {
+    checkContent () {
       this.$nextTick(
         function () {
           // 判断介绍是否超过三行

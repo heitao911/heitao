@@ -11,35 +11,35 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive } from "vue"
+import { ref, reactive } from 'vue'
 
-let schoolArr = ref([])
-let menuAbout = ref([
+const schoolArr = ref([])
+const menuAbout = ref([
   {
-    toPath: "/home",
-    name: "About",
+    toPath: '/home',
+    name: 'About'
   },
   {
-    toPath: "/our-story",
-    name: "Our Story",
+    toPath: '/our-story',
+    name: 'Our Story'
   },
   {
-    toPath: "/leadership-vision",
-    name: "Leadership Vision",
+    toPath: '/leadership-vision',
+    name: 'Leadership Vision'
   },
   {
-    toPath: "blog",
-    name: "School News",
+    toPath: 'blog',
+    name: 'School News'
   },
   {
-    toPath: "/media",
-    name: "Media",
-  },
+    toPath: '/media',
+    name: 'Media'
+  }
 ])
 
-let mobileNav = ref("mobileNav")
-let data = reactive({
-  btnUnfold: false,
+const mobileNav = ref('mobileNav')
+const data = reactive({
+  btnUnfold: false
 })
 function foldMenu () {
   data.btnUnfold = !data.btnUnfold

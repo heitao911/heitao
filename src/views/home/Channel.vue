@@ -18,24 +18,24 @@
   </div>
 </template>
 <script setup name="Channel">
-import { reactive, onBeforeMount } from "vue"
+import { reactive, onBeforeMount } from 'vue'
 import { useChannelStore } from '@/stores/channel'
 
 const channel = useChannelStore()
 const state = reactive({
-  list: channel.dataList,
+  list: channel.dataList
 })
 onBeforeMount(() => {
   // console.log(import.meta.url)
   state.list.map((e) => {
-    e.imgUrl = new URL("/src/assets/images/channel/" + e.img, import.meta.url).href
+    e.imgUrl = new URL('/src/assets/images/channel/' + e.img, import.meta.url).href
     return e
   })
 })
 </script>
 <script>
 export default {
-  name: "AdBanner",
+  name: 'AdBanner'
 }
 </script>
 <style scoped lang="scss">
