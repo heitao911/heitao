@@ -41,13 +41,11 @@ const state = reactive({
 onMounted(() => {
   // getContent()
   nextTick(() => {
-    document.documentElement.onscroll = () => {
-      debugger
+    window.onscroll = () => {
       const offsetHeight = document.documentElement.offsetHeight
       const clientHeight = document.documentElement.clientHeight
       const scrollTop = document.documentElement.scrollTop
-      console.log(scrollTop)
-      if (scrollTop + clientHeight >= offsetHeight - 10) {
+      if (scrollTop + clientHeight >= offsetHeight - 200) {
         state.hiddenSwiper = true
       } else {
         state.hiddenSwiper = false
@@ -122,6 +120,7 @@ main.content {
     bottom: 0;
     margin-left: 50%;
     transform: translateX(-50%);
+    transition: 1s;
     &.hiddenSwiper {
       bottom: -100px;
     }
