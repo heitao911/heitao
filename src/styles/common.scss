@@ -4,21 +4,3 @@
 // 全局变量
 $bg-red: #e94b43;
 $bg-black: #141619;
-
-.label-box {
-  white-space: normal;
-  word-break: break-word;
-  word-wrap: break-word;
-}
-
-.mag-top-10 {
-  margin-top: -10px;
-
-  @include media(M) {
-    margin-top: 0px;
-  }
-}
-
-.w-full {
-  width: 100%;
-}

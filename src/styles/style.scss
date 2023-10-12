@@ -16,12 +16,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -45,15 +40,11 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
 
-button:hover {
-  border-color: #646cff;
-}
+  &:hover {
+    border-color: #646cff;
+  }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -68,5 +59,29 @@ button:focus-visible {
 
   button {
     background-color: #f9f9f9;
+  }
+}
+
+// MessageBox 消息弹框
+.el-message-box {
+  border: none !important;
+  width: 500px !important;
+  max-width: none !important;
+
+  .el-message-box__header {
+    background-color: #20262c;
+
+    span {
+      color: white;
+    }
+
+    .el-message-box__headerbtn {
+      margin-top: -4px;
+      font-size: 20px;
+    }
+  }
+
+  .el-message-box__content {
+    padding: 30px 20px;
   }
 }

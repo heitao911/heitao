@@ -9,7 +9,7 @@
         <div class="unfold" @click="showTotalIntro" v-if="showExchangeButton && !showMessageButton">
           <p>{{ exchangeButton ? '... '+'显示' : '隐藏' }}</p>
         </div>
-        <div class="unfold detail" @click="showTotalIntro" v-if="showMessageButton">
+        <div class="unfold detail" @click="showDetail" v-if="showMessageButton">
           <p>{{ '详情' }}
             <el-icon>
               <i-ep-arrow-right />
@@ -87,6 +87,9 @@ export default {
           }
         }.bind(this)
       )
+    },
+    showDetail () {
+      this.$emit('showDetail')
     }
   },
   watch: {

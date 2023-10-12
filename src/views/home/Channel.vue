@@ -8,8 +8,8 @@
         <div class="title">{{ item.name }}</div>
         <div class="sort">
           <span class="sort-item" v-for="(e, index) in item.sorts.slice(0, 3)" :key="index">
-            <i>{{ e }}</i>
-            <i v-if="index!==2">/</i>
+            <b>{{ e }}</b>
+            <i v-if="index!==2"> / </i>
           </span>
         </div>
 
@@ -18,7 +18,7 @@
   </div>
 </template>
 <script setup name="Channel">
-import { reactive } from 'vue'
+// import { reactive } from 'vue'
 import { useChannelStore } from '@/stores/channel'
 
 const channel = useChannelStore()
@@ -84,7 +84,7 @@ export default {
         text-align: center;
         color: #888;
         font-size: 12px;
-        .sort-item:hover i {
+        .sort-item:hover b {
           color: $bg-red;
         }
       }
