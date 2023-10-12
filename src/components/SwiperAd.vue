@@ -1,19 +1,15 @@
 <template>
-  <div class="swiperWrap">
+  <div class="swiperWrap" :class="{hiddenSwiper: !state.isShow}">
     <div class="relative">
+      <el-icon class="close-btn" @click="closeSiper">
+        <i-ep-close-bold />
+      </el-icon>
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img class="ad-img" src="@/assets/images/banner-ad/swiper-20230804103744.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img class="ad-img" src="@/assets/images/banner-ad/swiper-20230612141509.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img class="ad-img" src="@/assets/images/banner-ad/swiper-20230724144429.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img class="ad-img" src="@/assets/images/banner-ad/swiper-20230922150753.jpg" alt="">
+          <div class="swiper-slide" v-for="(item, i) in state.list" :key="i">
+            <a :href="item.link" target="_blank" class="link">
+              <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
+            </a>
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -29,9 +25,13 @@
 </template>
 <script setup name="SwiperAd">
 import { onMounted, onBeforeUnmount, reactive } from 'vue'
+import { useAdStore } from '@/stores/ad'
 
+const ad = useAdStore()
 const state = reactive({
-  set: null
+  list: ad.bottomSwiper,
+  set: null,
+  isShow: true
 })
 onMounted(() => {
   const mySwiper = new Swiper('.swiper', {
@@ -73,10 +73,12 @@ onMounted(() => {
 onBeforeUnmount(() => {
   clearInterval(state.set)
 })
+const closeSiper = () => {
+  state.isShow = false
+}
 </script>
 <style scoped lang="scss">
 .swiperWrap {
-  transition: 0.3s;
   width: 1230px;
   transform: translate3d(0, 0, 0);
   // background: pink;
@@ -85,6 +87,17 @@ onBeforeUnmount(() => {
   .relative {
     position: relative;
     width: 100%;
+    .close-btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      z-index: 100;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 4px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
   }
   .swiper {
     margin: 0 auto;
@@ -101,6 +114,7 @@ onBeforeUnmount(() => {
         width: 100%;
         height: 64px;
         transform: translate3d(0, 0, 0);
+        cursor: pointer;
         img.ad-img {
           transform: translate3d(0, 0, 0);
           width: 100%;

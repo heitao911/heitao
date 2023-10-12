@@ -6,6 +6,7 @@
           <div class="img-cover">
             <img :src="getImageUrl('banner-ad', item.img)" class="el-image__inner" alt="广告" title="广告" />
           </div>
+          <div class="span">广告</div>
         </a>
       </div>
     </div>
@@ -15,6 +16,7 @@
           <div class="img-cover">
             <img :src="getImageUrl('banner-ad', item.img)" class="el-image__inner" alt="广告" title="广告" />
           </div>
+          <div class="span">广告</div>
         </a>
       </el-col>
     </el-row>
@@ -42,7 +44,6 @@ export default {
 </script>
 <style scoped lang="scss">
 .ad-wrap {
-  // width: 60%;
   @media only screen and (min-width: 900px) {
     // width: 1200px;
   }
@@ -50,39 +51,24 @@ export default {
     width: 100%;
   }
   margin: 0 auto;
-  // .ad-item:nth-child(odd) {
-  //   img: {
-  //     -webkit-animation: 1s ease-in 0s infinite brightnessFn;
-  //     animation: 1s ease-in 0s infinite brightnessFn;
-  //   }
-  // }
-  // .ad-item:nth-child(even) {
-  //   img: {
-  //     -webkit-animation: 1s ease-in 0s infinite alternate brightnessFn;
-  //     animation: 1s ease-in 0s infinite alternate brightnessFn;
-  //   }
-  // }
   .ad-item {
     margin-bottom: 10px;
-    img: {
-      // -webkit-animation: 1s ease-in 0s infinite alternate brightnessFn;
-      // animation: 1s ease-in 0s infinite alternate brightnessFn;
+    position: relative;
+    div.span {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      padding: 5px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: rgb(254, 254, 254);
+      --tw-bg-opacity: 0.2;
+      font-size: 12px;
     }
   }
   .ad-row2 {
     .img-cover {
       height: 64px;
     }
-  }
-}
-
-@keyframes brightnessFn {
-  0% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(70%);
-    transform: scaleX(1.01);
   }
 }
 </style>

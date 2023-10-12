@@ -6,17 +6,16 @@
       </div>
       <div class="banner-wrap">
         <div class="banner-left">
-          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
-          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
-          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
-          <img class="banner" src="@/assets/images/banner-ad/20230904172010.png" alt="">
+          <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.leftBanner" :key="i">
+            <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
+          </a>
         </div>
         <!-- 首屏之间广告 -->
         <AdBanner class="banner-center" />
         <div class="banner-right">
-          <img class="banner" src="@/assets/images/banner-ad/20230831164340.png" alt="">
-          <img class="banner" src="@/assets/images/banner-ad/20230831164340.png" alt="">
-          <img class="banner" src="@/assets/images/banner-ad/20230831164340.png" alt="">
+          <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.rightBanner" :key="i">
+            <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
+          </a>
         </div>
       </div>
       <div class="channel-wrap">
@@ -34,9 +33,13 @@ import AdBanner from './AdBanner.vue'
 import Channel from './Channel.vue'
 import SwiperAd from '@/components/SwiperAd.vue'
 import { apiGetContent } from '@/api'
+import { useAdStore } from '@/stores/ad'
 
+const ad = useAdStore()
 const state = reactive({
-  hiddenSwiper: false
+  hiddenSwiper: false,
+  leftBanner: ad.leftBanner,
+  rightBanner: ad.rightBanner
 })
 onMounted(() => {
   // getContent()

@@ -1,5 +1,4 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
-// import { useUserStore } from './user'
 
 export const useAdStore = defineStore({
   id: 'ad',
@@ -55,7 +54,55 @@ export const useAdStore = defineStore({
         img: 'photo_20231010_0016.jpeg',
         link: 'https://t.me/JunePay999'
       }
-    ]
+    ],
+    leftBanner: [{
+      img: '20230904172010.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230904172010.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230904172010.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230904172010.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230904172010.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230904172010.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230904172010.png',
+      link: 'https://www.k36group.com/'
+    }],
+    rightBanner: [{
+      img: '20230831164340.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230831164340.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230831164340.png',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: '20230831164340.png',
+      link: 'https://www.k36group.com/'
+    }],
+    bottomSwiper: [{
+      img: 'swiper_20230804103744.jpg',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: 'swiper_20230612141509.jpg',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: 'swiper_20230724144429.jpg',
+      link: 'https://www.k36group.com/'
+    }, {
+      img: 'swiper_20230922150753.jpg',
+      link: 'https://www.k36group.com/'
+    }]
   }),
   getters: {
     items: (state) => {
@@ -68,11 +115,6 @@ export const useAdStore = defineStore({
     removeItem(name) {
     },
     async purchaseItems() {
-      // const user = useUserStore()
-      // if (!user.name) return
-      const n = this.items.length
-      this.rawItems = []
-      return n
     }
   }
 })
