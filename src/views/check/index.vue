@@ -112,14 +112,13 @@ main.content {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url(@/assets/images/img/check-bg.jpg);
+  background-image: url(@/assets/images/img/check-bg.jpeg);
   background-attachment: fixed;
   background-size: cover;
   background-position-x: center; //居中
   background-repeat: no-repeat;
   overflow: auto;
   position: relative;
-
   .cover {
     width: 100vw;
     height: 100vh;
@@ -137,7 +136,7 @@ main.content {
       width: 85%;
     }
     max-width: 750px;
-    margin: 100px auto 0;
+    margin: 150px auto 0;
     h2 {
       color: white;
       font-size: 28px;
