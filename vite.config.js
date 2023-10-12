@@ -11,8 +11,14 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 import obfuscator from 'rollup-plugin-obfuscator'
 // import JavaScriptObfuscator from 'javascript-obfuscator'
-
-// const isProd = process.env.NODE_ENV === 'production'
+/* 按需加载 */
+// 自动导入，按需加载element-plus
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// 自动导入，按需加载element-plus icon
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,6 +31,22 @@ export default defineConfig({
       emitFile: false,
       file: 'stats.html', // 分析图生成的文件名
       open: true // 如果存在本地服务端口，将在打包后自动展示
+    }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()]
+    }),
+    Components({
+      resolvers: [ElementPlusResolver(), IconsResolver({
+        prefix: 'i', // 自动引入的Icon组件统一前缀，默认为 i，设置false为不需要前缀
+        // {prefix}-{collection}-{icon} 使用组件解析器时，您必须遵循名称转换才能正确推断图标。
+        // alias: { park: 'icon-park' } 集合的别名
+        enabledCollections: ['ep'] // 这是可选的，默认启用 Iconify 支持的所有集合['mdi']
+      }
+      )]
+    }),
+    Icons({
+      autoInstall: true,
+      compiler: 'vue3'
     })
   ],
   build: {
@@ -130,7 +152,6 @@ export default defineConfig({
     }
   },
   css: {
-    // extract: isProd,
     preprocessorOptions: {
       // 导入scss预编译程序
       scss: {

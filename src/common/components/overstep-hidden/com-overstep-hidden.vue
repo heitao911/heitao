@@ -10,9 +10,11 @@
           <p>{{ exchangeButton ? '... '+'显示' : '隐藏' }}</p>
         </div>
         <div class="unfold detail" @click="showTotalIntro" v-if="showMessageButton">
-          <p>{{ '详情' }}<el-icon>
-              <ArrowRight />
-            </el-icon></p>
+          <p>{{ '详情' }}
+            <el-icon>
+              <i-ep-arrow-right />
+            </el-icon>
+          </p>
         </div>
       </div>
     </div>

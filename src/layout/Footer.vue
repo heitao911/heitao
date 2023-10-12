@@ -4,7 +4,7 @@
       <div class="tips">
         <div class="title">
           <el-icon>
-            <Warning />
+            <i-ep-Warning />
           </el-icon>
           免责声明：
         </div>

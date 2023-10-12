@@ -42,7 +42,6 @@ module.exports = {
     'no-debugger': 'off',
     'no-console': 'off',
     camelcase: 'off',
-    'space-before-function-paren': 'off',
-    indent: 'off'
+    'space-before-function-paren': 'off'
   }
 }

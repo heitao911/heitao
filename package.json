@@ -21,22 +21,26 @@
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
+    "@iconify-json/ep": "^1.1.12",
     "@types/node": "^20.8.3",
     "@vitejs/plugin-legacy": "^2.0.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.5.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.0.0",
     "javascript-obfuscator": "^4.1.0",
     "rollup-plugin-external-globals": "^0.8.0",
     "rollup-plugin-obfuscator": "^1.0.3",
     "rollup-plugin-visualizer": "^5.9.2",
     "terser": "^5.14.2",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-icons": "^0.17.0",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5",
-    "vite-plugin-vue-setup-extend": "^0.4.0",
-    "eslint": "^8.5.0",
-    "eslint-plugin-vue": "^9.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-n": "^16.1.0",
-    "eslint-plugin-promise": "^6.1.1"
+    "vite-plugin-vue-setup-extend": "^0.4.0"
   },
   "sideEffects": false
 }
