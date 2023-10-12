@@ -12,12 +12,12 @@
       </div>
     </div>
     <div class="footer">
-      <div>
+      <div class="linkWrap">
         <a href="https://t.me/heitaogf" target="_blank">关于黑桃</a>
         <a href="https://t.me/heitaogf" target="_blank">联系我们</a>
       </div>
       <div :span="12">
-        <div>Copyright 2019 HEITAO</div>
+        <div class="copyRight">Copyright 2019 HEITAO</div>
       </div>
     </div>
   </div>
@@ -98,10 +98,13 @@ const showMessage = () => {
       line-height: 18px;
       display: flex;
       .title {
-        margin-top: 5px;
+        margin-top: 8px;
         flex-shrink: 0;
         color: rgb(19, 22, 25);
         font-weight: 700;
+        .el-icon {
+          vertical-align: middle;
+        }
       }
     }
   }
@@ -118,6 +121,9 @@ const showMessage = () => {
       &:hover {
         text-decoration: underline;
       }
+    }
+    .copyRight {
+      font-size: 12px;
     }
   }
 }

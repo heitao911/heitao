@@ -7,10 +7,15 @@
         <span class="merchant-desc" :data-title="content" v-if="content" v-html="content">
         </span>
         <div class="unfold" @click="showTotalIntro" v-if="showExchangeButton && !showMessageButton">
-          <p>{{ exchangeButton ? '... '+'显示' : '隐藏' }}</p>
+          <p>{{ exchangeButton ? '...显示' : '隐藏' }}
+            <el-icon>
+              <i-ep-arrow-down v-if="exchangeButton" />
+              <i-ep-arrow-up v-else />
+            </el-icon>
+          </p>
         </div>
         <div class="unfold detail" @click="showDetail" v-if="showMessageButton">
-          <p>{{ '详情' }}
+          <p>...详情
             <el-icon>
               <i-ep-arrow-right />
             </el-icon>
@@ -128,14 +133,11 @@ export default {
     display: block;
     z-index: 11;
     float: right;
-    width: 40px;
     height: 21px;
     text-indent: 0;
     p {
       margin: 0;
-      // background-color: #f5f7fa;
       line-height: 24px;
-      color: #3255a4;
       text-align: left;
       cursor: pointer;
       padding-left: 5px;
@@ -174,7 +176,7 @@ export default {
     word-break: break-all;
     /*同背景色*/
     overflow: hidden;
-    padding-right: 40px;
+    padding-right: 50px;
 
     .merchant-desc {
       width: 100%;
@@ -217,7 +219,6 @@ export default {
     }
     .unfold {
       z-index: 1;
-      // width: 77px;
       height: 21px;
       outline: 0;
       position: absolute;
@@ -227,11 +228,13 @@ export default {
       p {
         margin: 0;
         line-height: 21px;
-        color: #3255a4;
         text-align: left;
         cursor: pointer;
         padding-left: 5px;
         box-sizing: border-box;
+      }
+      .el-icon {
+        vertical-align: middle;
       }
     }
   }
