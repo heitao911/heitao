@@ -10,7 +10,8 @@ module.exports = {
     // 'plugin:vue/essential',
     // '@vue/standard'
     'plugin:vue/vue3-essential',
-    'standard'
+    'standard',
+    './.eslintrc-auto-import.json'
   ],
   overrides: [
     {

@@ -33,7 +33,17 @@ export default defineConfig({
       open: true // 如果存在本地服务端口，将在打包后自动展示
     }),
     AutoImport({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver()],
+      imports: [
+        'vue',
+        'vue-router'
+        // 其他需要自动导入的库
+      ],
+      eslintrc: {
+        // filepath: './.eslintrc-auto-import.json', // 生成json文件
+        // globalsPropValue: true,
+        enabled: false // 1、改为true用于生成eslint配置。2、生成后改回false，避免重复生成消耗
+      }
     }),
     Components({
       resolvers: [ElementPlusResolver(), IconsResolver({
