@@ -26,7 +26,10 @@ const service_whiteName = [
   'heitaogx',
   'HQIU99_bot'
 ] // 客服用户名
-const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687'] // 会员用户名
+const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687', 'XIXI66862',
+  'wssjqf669',
+  'guge1145',
+  'yaoyaoyao3'] // 会员用户名
 const black_whiteName = ['pz'] // 骗子用户名
 
 // ---【U 地址】
