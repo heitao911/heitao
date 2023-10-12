@@ -28,7 +28,7 @@
   </div>
 </template>
 <script setup name="Home">
-import { onMounted, nextTick, reactive } from 'vue'
+// import { onMounted, nextTick, reactive } from 'vue'
 import AdBanner from './AdBanner.vue'
 import Channel from './Channel.vue'
 import SwiperAd from '@/components/SwiperAd.vue'

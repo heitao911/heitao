@@ -24,7 +24,7 @@
   </div>
 </template>
 <script setup name="SwiperAd">
-import { onMounted, onBeforeUnmount, reactive } from 'vue'
+// import { onMounted, onBeforeUnmount, reactive } from 'vue'
 import { useAdStore } from '@/stores/ad'
 
 const ad = useAdStore()

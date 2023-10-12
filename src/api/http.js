@@ -1,6 +1,5 @@
 import axios from 'axios'
 import NProgress from 'nprogress'
-import { ElMessage } from 'element-plus'
 
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8'
 
@@ -75,7 +74,7 @@ const http = {
         })
     })
   },
-  jsonp (url, params) {
+  jsonp(url, params) {
     return new Promise((resolve, reject) => {
       NProgress.start()
       axios

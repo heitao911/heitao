@@ -23,7 +23,7 @@
   </div>
 </template>
 <script setup name="AdBanner">
-import { reactive, onBeforeMount } from 'vue'
+// import { reactive, onBeforeMount } from 'vue'
 import { useAdStore } from '@/stores/ad'
 
 const ad = useAdStore()
@@ -66,7 +66,7 @@ export default {
     }
   }
   .ad-row2 {
-    .img-cover {
+    .img-cover img {
       height: 64px;
     }
   }
