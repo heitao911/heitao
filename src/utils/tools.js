@@ -20,5 +20,17 @@ export const getIpCountry = async () => {
             rejects(new Error(err))
         })
     })
-
+}
+// pc端，返回 true  手机端，返回false
+export function IsPC () {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
 }

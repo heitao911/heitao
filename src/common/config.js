@@ -24,12 +24,27 @@ const service_whiteName = [
   'heitaochgf',
   'heitaobg',
   'heitaogx',
-  'HQIU99_bot'
+  'HQIU99_bot',
+  'heit00194',
+  'heit00192',
+  'heit00193',
+  'heit00190'
 ] // 客服用户名
 const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687', 'XIXI66862',
   'wssjqf669',
   'guge1145',
-  'yaoyaoyao3'] // 会员用户名
+  'yaoyaoyao3',
+  'y856415',
+  'taad25',
+  'aakk153',
+  'xiaocao9912',
+  'afu020',
+  'panghu5201314',
+  'lulu526456',
+  'lauriel394607878',
+  'xixi66862',
+  'tumi99999'
+] // 会员用户名
 const black_whiteName = ['pz'] // 骗子用户名
 
 // ---【U 地址】

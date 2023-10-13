@@ -12,8 +12,11 @@
         :closable="false" show-icon :type="state.alertStatus">
       </el-alert>
 
-      <el-text class="tips" type="info">可查询官方客服真伪以及输入U地址查询是否为骗子，有任何问题请联系官网客服人员。<br />
+      <el-text class="tips" type="info">可查询官方客服真伪以及输入U地址或用户名查询是否为骗子，有任何问题请联系官方客服人员。<br />
         黑桃商务官网：<a href="https://www.heitao.org">https://www.heitao.org</a>
+        <br v-if="!isPC" />
+        <span v-else>&nbsp;&nbsp;</span>
+        黑桃出海电报：<a href="https://t.me/heitaoch">https://t.me/heitaoch</a>
       </el-text>
     </div>
   </main>
@@ -22,6 +25,8 @@
 import { ref, reactive, onMounted, getCurrentInstance } from 'vue'
 // import { Search } from '@eement-plus/icons-vue'
 import config from '@/common/config.js'
+import { IsPC } from '@/utils/tools.js'
+
 const { proxy } = getCurrentInstance()
 const state = reactive({
   vague: '',
@@ -31,6 +36,7 @@ const state = reactive({
   description: '',
   alertStatus: '',
 })
+const isPC = IsPC()
 const description = {
   tip1: '有任何疑问请联系官方客服',
   tip2: '强烈建议大家交易走担保!'
@@ -112,7 +118,7 @@ main.content {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url(@/assets/images/img/check-bg.jpeg);
+  background-image: url(@/assets/images/img/check-bg.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position-x: center; //居中
@@ -140,7 +146,7 @@ main.content {
     h2 {
       color: white;
       font-size: 28px;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
       text-align: center;
     }
 
@@ -171,8 +177,8 @@ main.content {
     .tips {
       margin-top: 15px;
       display: block;
-      font-size: 12px;
-      line-height: 16px;
+      font-size: 14px;
+      line-height: 18px;
       text-align: center;
       color: white;
       a {
