@@ -108,6 +108,12 @@ const checkFn = () => {
         state.alertTitle = `【 ${state.vague} 】该用户非黑桃商务会员，建议交易走黑桃担保`
         state.description = description.tip1
       }
+
+      if (state.vague === 'bbs129') {
+        state.alertStatus = 'success'
+        state.alertTitle = `【 ${state.vague} 】该用户为黑桃商务VIP会员。头铁哥大量收巴西博彩电子老虎机游戏平台广告资源渠道。`
+        state.description = description.tip1
+      }
     }
     state.isShowTip = true
   }, 1000)

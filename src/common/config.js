@@ -45,7 +45,8 @@ const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687', 'XIXI66862',
   'lulu526456',
   'lauriel394607878',
   'xixi66862',
-  'tumi99999'
+  'tumi99999',
+  'bbs129'
 ]
 const black_whiteName = ['pz'] // 骗子用户名
 
