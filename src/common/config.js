@@ -11,7 +11,8 @@
   simpleName: "sir1685",
   linkName: "https://t.me/sir1685",
 */
-// ---【名单】
+/* ---【名单】--- */
+// 客服用户名
 const service_whiteName = [
   'shangiew1',
   'sir1685',
@@ -29,7 +30,8 @@ const service_whiteName = [
   'heit00192',
   'heit00193',
   'heit00190'
-] // 客服用户名
+]
+// 会员用户名
 const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687', 'XIXI66862',
   'wssjqf669',
   'guge1145',
@@ -44,7 +46,7 @@ const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687', 'XIXI66862',
   'lauriel394607878',
   'xixi66862',
   'tumi99999'
-] // 会员用户名
+]
 const black_whiteName = ['pz'] // 骗子用户名
 
 // ---【U 地址】
