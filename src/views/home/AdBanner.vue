@@ -33,7 +33,7 @@ const state = reactive({
 })
 
 onBeforeMount(() => {
-  console.log(import.meta.url)
+  // console.log(import.meta.url)
 })
 
 </script>

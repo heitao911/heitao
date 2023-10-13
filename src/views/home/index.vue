@@ -2,7 +2,9 @@
   <div>
     <main class="content">
       <div class="banner-top">
-        <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
+        <a href="https://t.me/heitaoch002" target="_blank" class="link">
+          <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
+        </a>
       </div>
       <div class="banner-wrap">
         <div class="banner-left">
@@ -29,12 +31,17 @@
 </template>
 <script setup name="Home">
 // import { onMounted, nextTick, reactive } from 'vue'
-import AdBanner from './AdBanner.vue'
-import Channel from './Channel.vue'
-import SwiperAd from '@/components/SwiperAd.vue'
+// import AdBanner from './AdBanner.vue'
+// import Channel from './Channel.vue'
+// import SwiperAd from '@/components/SwiperAd.vue'
 import { apiGetContent } from '@/api'
 import { useAdStore } from '@/stores/ad'
+// import { defineAsyncComponent } from 'vue'
 
+const AdBanner = defineAsyncComponent(() => import('./AdBanner.vue'))
+const Channel = defineAsyncComponent(() => import('./Channel.vue'))
+const SwiperAd = defineAsyncComponent(() => import('@/components/SwiperAd.vue'))
+const TopSwiperAd = defineAsyncComponent(() => import('@/components/TopSwiperAd.vue'))
 const ad = useAdStore()
 const state = reactive({
   hiddenSwiper: false,

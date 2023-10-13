@@ -3,6 +3,13 @@ import { defineStore, acceptHMRUpdate } from 'pinia'
 export const useAdStore = defineStore({
   id: 'ad',
   state: () => ({
+    topBanner: [{
+      img: 'banner-top.jpg',
+      link: 'https://t.me/heitaoch002'
+    }, {
+      img: 'banner-top.jpg',
+      link: 'https://t.me/heitaoch002'
+    }],
     banner1: [
       {
         img: 'photo_20231010_0001.jpeg',
@@ -70,12 +77,6 @@ export const useAdStore = defineStore({
     }, {
       img: '20230904172010.png',
       link: 'https://www.k36group.com/'
-    }, {
-      img: '20230904172010.png',
-      link: 'https://www.k36group.com/'
-    }, {
-      img: '20230904172010.png',
-      link: 'https://www.k36group.com/'
     }],
     rightBanner: [{
       img: '20230831164340.png',
@@ -110,11 +111,11 @@ export const useAdStore = defineStore({
     }
   },
   actions: {
-    addItem(name) {
+    addItem (name) {
     },
-    removeItem(name) {
+    removeItem (name) {
     },
-    async purchaseItems() {
+    async purchaseItems () {
     }
   }
 })
