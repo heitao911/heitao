@@ -1,17 +1,23 @@
 <template>
   <div class="header-wrap">
     <header class="header">
-      <router-link class="logo" to="/home">
-        <img src="@/assets/images/img/logo.png" alt="" />
-      </router-link>
-      <router-link class="search" to="/check">
-        <img src="@/assets/images/img/search.png" alt="" />
-      </router-link>
+      <div class="left">
+        <router-link class="logo" to="/home">
+          <img src="@/assets/images/img/logo.png" alt="" />
+        </router-link>
+        <router-link class="search" to="/check" title="黑桃出海防骗查询">
+          <img src="@/assets/images/img/search.png" alt="" />
+        </router-link>
+      </div>
+      <div class="right">
+        <!-- <a class="link" href="https://telegram.org/" target="_blank">
+          <div class="telegram"></div>
+        </a> -->
+      </div>
     </header>
   </div>
 </template>
 <script setup>
-// import { ref, reactive } from 'vue'
 
 const schoolArr = ref([])
 const menuAbout = ref([
@@ -62,6 +68,7 @@ function foldMenu () {
     width: 60%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     @media only screen and (min-width: 900px) {
       min-width: 1200px;
     }
@@ -70,7 +77,25 @@ function foldMenu () {
     }
     margin: 0 auto;
     .logo {
-      margin-right: 15px;
+      margin-right: 20px;
+      display: inline-block;
+    }
+    .search {
+      vertical-align: 5px;
+      display: inline-block;
+      padding: 6px 5px;
+      img {
+        width: 20px;
+      }
+    }
+    .telegram {
+      // border-radius: 50%;
+      padding: 2px;
+      width: 30px;
+      height: 30px;
+      background-position-x: 34px;
+      background-size: cover;
+      background-image: url(@/assets/images/img/telegram.svg);
     }
   }
 }

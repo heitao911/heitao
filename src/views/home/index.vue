@@ -30,13 +30,9 @@
   </div>
 </template>
 <script setup name="Home">
-// import { onMounted, nextTick, reactive } from 'vue'
-// import AdBanner from './AdBanner.vue'
-// import Channel from './Channel.vue'
-// import SwiperAd from '@/components/SwiperAd.vue'
 import { apiGetContent } from '@/api'
 import { useAdStore } from '@/stores/ad'
-// import { defineAsyncComponent } from 'vue'
+import { getIpCountry } from '@/utils/tools'
 
 const AdBanner = defineAsyncComponent(() => import('./AdBanner.vue'))
 const Channel = defineAsyncComponent(() => import('./Channel.vue'))
@@ -49,6 +45,8 @@ const state = reactive({
   rightBanner: ad.rightBanner
 })
 onMounted(() => {
+  const countryCode = getIpCountry()
+  console.log('countryCode', countryCode)
   // getContent()
   nextTick(() => {
     window.onscroll = () => {
