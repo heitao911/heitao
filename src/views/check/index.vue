@@ -42,7 +42,7 @@ const description = {
   tip2: '强烈建议大家交易走担保!'
 }
 onMounted(() => {
-  console.log(config)
+  // console.log(config)
 })
 const checkFn = () => {
   state.isShowTip = false
