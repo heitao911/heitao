@@ -34,3 +34,10 @@ export function IsPC () {
     }
     return flag;
 }
+// 返回 true 是飞机用户，返回false不是 , state.vague
+export function isTelegramUser (e, checkValue) {
+    return e === checkValue ||
+        '@' + e === checkValue ||
+        'https://t.me/' + e === checkValue ||
+        'http://t.me/' + e === checkValue
+}

@@ -14,7 +14,6 @@
 /* ---【名单】--- */
 // 客服用户名
 const service_whiteName = [
-  'shangiew1',
   'sir1685',
   'heitaoch002',
   'heitaoch003',
@@ -32,7 +31,9 @@ const service_whiteName = [
   'heit00190'
 ]
 // 会员用户名
-const vip_whiteName = ['jiuye6698', 'chens1697', 'cc2687', 'XIXI66862',
+const vip_whiteName = [
+  'shangiew1',
+  'jiuye6698', 'chens1697', 'cc2687', 'XIXI66862',
   'wssjqf669',
   'guge1145',
   'yaoyaoyao3',

@@ -25,7 +25,7 @@
 import { ref, reactive, onMounted, getCurrentInstance } from 'vue'
 // import { Search } from '@eement-plus/icons-vue'
 import config from '@/common/config.js'
-import { IsPC } from '@/utils/tools.js'
+import { IsPC, isTelegramUser } from '@/utils/tools.js'
 
 const { proxy } = getCurrentInstance()
 const state = reactive({
@@ -82,19 +82,16 @@ const checkFn = () => {
       }
     } else {
       // 会员白名单
-      const vip_whiteName = config.vip_whiteName.filter((e) =>
-        e === state.vague || '@' + e === state.vague || 'https://t.me/' + e === state.vague
-      )
-      const service_whiteName = config.service_whiteName.filter((e) =>
-        e === state.vague || '@' + e === state.vague || 'https://t.me/' + e === state.vague
-      )
-      const black_whiteName = config.black_whiteName.filter((e) =>
-        e === state.vague || '@' + e === state.vague || 'https://t.me/' + e === state.vague
-      )
+      const vip_whiteName = config.vip_whiteName.filter((e) => isTelegramUser(e, state.vague))
+      const service_whiteName = config.service_whiteName.filter((e) => isTelegramUser(e, state.vague))
+      const black_whiteName = config.black_whiteName.filter((e) => isTelegramUser(e, state.vague))
       if (vip_whiteName.length) {
         state.alertStatus = 'success'
         state.alertTitle = `【 ${state.vague} 】该用户为黑桃商务VIP会员。`
         state.description = description.tip1
+        if (state.vague.includes('bbs129')) {
+          state.alertTitle = `【 ${state.vague} 】该用户为黑桃商务VIP会员。头铁哥大量收巴西博彩电子老虎机游戏平台广告资源渠道。`
+        }
       } else if (service_whiteName.length) {
         state.alertStatus = 'success'
         state.alertTitle = `【 ${state.vague} 】该用户为黑桃商务官方客服。`
@@ -106,12 +103,6 @@ const checkFn = () => {
       } else {
         state.alertStatus = 'error'
         state.alertTitle = `【 ${state.vague} 】该用户非黑桃商务会员，建议交易走黑桃担保`
-        state.description = description.tip1
-      }
-
-      if (state.vague === 'bbs129') {
-        state.alertStatus = 'success'
-        state.alertTitle = `【 ${state.vague} 】该用户为黑桃商务VIP会员。头铁哥大量收巴西博彩电子老虎机游戏平台广告资源渠道。`
         state.description = description.tip1
       }
     }
