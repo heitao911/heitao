@@ -13,10 +13,10 @@
       </el-alert>
 
       <el-text class="tips" type="info">可查询官方客服真伪以及输入U地址或用户名查询是否为骗子，有任何问题请联系官方客服人员。<br />
-        黑桃商务官网：<a href="https://www.heitao.org">https://www.heitao.org</a>
+        黑桃商务官网：<a href="https://www.heitao.org" target="_blank">https://www.heitao.org</a>
         <br v-if="!isPC" />
         <span v-else>&nbsp;&nbsp;</span>
-        黑桃出海电报：<a href="https://t.me/heitaoch">https://t.me/heitaoch</a>
+        黑桃出海电报：<a href="https://t.me/heitaoch" target="_blank">https://t.me/heitaoch</a>
       </el-text>
     </div>
   </main>
