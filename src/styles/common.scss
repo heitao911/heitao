@@ -4,3 +4,14 @@
 // 全局变量
 $bg-red: #e94b43;
 $bg-black: #141619;
+$bg-gray: rgba(136, 136, 136);
+
+$--color-primary:  pink;
+$--el-color-primary: pink !important;
+
+.flex{
+  display: flex;
+}
+.jsb{
+  justify-content: space-between;
+}

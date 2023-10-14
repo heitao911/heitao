@@ -3,6 +3,7 @@ import { defineStore, acceptHMRUpdate } from 'pinia'
 export const useAdStore = defineStore({
   id: 'ad',
   state: () => ({
+    danbao: 'https://t.me/heitaoch004',
     topBanner: [{
       img: 'banner-top.jpg',
       link: 'https://t.me/heitaoch002'

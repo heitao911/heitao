@@ -16,6 +16,11 @@ const router = createRouter({
           name: 'homePage',
           // redirect: '/check',
           component: () => import('@/views/home/index.vue')
+        },
+        {
+          path: '/cooperation',
+          name: 'coopetarion',
+          component: () => import('@/views/cooperation/index.vue')
         }
       ]
     },

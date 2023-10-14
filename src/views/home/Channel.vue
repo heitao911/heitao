@@ -23,7 +23,7 @@ import { useChannelStore } from '@/stores/channel'
 
 const channel = useChannelStore()
 const state = reactive({
-  list: channel.dataList
+  list: channel.sortList
 })
 </script>
 <script>
