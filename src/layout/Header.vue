@@ -49,7 +49,6 @@ const state = reactive({
   ]
 })
 onMounted(() => {
-  // console.log(route)
   state.menuList.forEach((e) => {
     if (e.toPath === route.path) {
       state.activeIndex = e.id
@@ -57,8 +56,19 @@ onMounted(() => {
   })
 })
 const handleSelect = (key, keyPath) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
+watch(route, (newVal) => {
+  if (!newVal.query.replace) {
+    document.title = newVal.meta.title
+  }
+  console.log(newVal)
+  state.menuList.forEach(e => {
+    if (e.toPath === newVal.path) {
+      state.activeIndex = e.id
+    }
+  })
+})
 </script>
 
 <style lang="scss" scoped>

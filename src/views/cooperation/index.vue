@@ -92,15 +92,18 @@ const state = reactive({
   secondFilterList: [],
   showList: []
 })
-onMounted(() => {
-  // console.log(route.query)
-  // state.sortList.forEach((e, i) => {
-  //   if (i + '' === state.activeTab) {
-  //     state.sortSecondList = e.sorts
-  //   }
-  // })
+onActivated(() => {
+  const sort = route.query.sort
   nextTick(() => {
-    document.querySelector('.all').click()
+    if (sort) {
+      document.querySelectorAll('.sort-list .sort-item').forEach(dom => {
+        if (dom.innerText === sort) {
+          dom.click()
+        }
+      })
+    } else {
+      document.querySelector('.all').click()
+    }
   })
 })
 // 一级分类
@@ -112,6 +115,15 @@ const selectFn = (event, item) => {
   state.sortList.forEach((e, i) => {
     if (i + '' === event.target.dataset.index) {
       state.sortSecondList = e.sorts
+      // debugger
+      document.title = e.name + '_' + route.meta.title
+      router.replace({
+        path: '/cooperation',
+        query: {
+          sort: e.name,
+          replace: 1
+        }
+      })
     }
   })
   // 处理数据

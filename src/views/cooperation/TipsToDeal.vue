@@ -2,14 +2,14 @@
   <div class="tips flex aic" v-if="gurantee">
     <img class="deal-icon" src="@/assets/images/img/deal-true.png" alt="">
     <div class="txt">
-      官方提醒：该资源已支持黑桃担保，交易前需联系<a href="" class="link-btn" plain size="small"
-        type="success">黑桃官方担保客服@hddb_official</a>对接，建立Telegram交易群组，
+      官方提醒：该资源已支持黑桃担保，交易前需联系<a href="https://t.me/heitaoch004" target="_blank" class="link-btn"
+        size="small">黑桃官方担保客服@heitaoch004</a>对接，建立Telegram交易群组，
       <b>交易担保群组必须由黑桃官方号建立，非黑桃官方客服建群交易一律无效。</b>
     </div>
   </div>
   <div v-else class="warn-tips flex aic">
     <img class="deal-icon" src="@/assets/images/img/deal-false.png" alt="">
-    风险提示：该资源暂不支持灰度担保，私下交易存在高风险，属个人行为，谨防上当受骗。如有交易纠纷，灰度概不负责。
+    风险提示：该资源暂不支持黑桃担保，私下交易存在高风险，属个人行为，谨防上当受骗。如有交易纠纷，黑桃概不负责。
   </div>
 </template>
 <script setup name="TipsToDeal">
@@ -19,6 +19,16 @@ const props = defineProps({
     default: false
   }
 })
+
+fetch('https://www.huidu.io/api/resource/provide/pageList', {
+  method: 'post',
+  body: JSON.stringify({ page: 1, limit: 16, keySearch: '', type: '1', businessSubdivide: '', region: '', industry: '', sort: '1', gurantee: '' })
+}).then(e => {
+  e.json().then(e => {
+    console.log(e)
+  })
+})
+
 </script>
 <style lang="scss" scoped>
 .tips {

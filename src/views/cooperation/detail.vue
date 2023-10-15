@@ -18,7 +18,7 @@
             </div>
             <div>
               <el-button class="deal-btn" type="success" plain>获取联系</el-button>
-              <el-button v-if="detailData.gurantee" class="deal-btn" type="success">担保交易</el-button>
+              <el-button v-if="detailData.gurantee" class="deal-btn" type="success" @click="guranteeFn">担保交易</el-button>
             </div>
           </div>
           <div class="flex aic">
@@ -47,6 +47,7 @@
             <el-image v-for="url in detailData.introduce.imgs" :key="url" :src="url" :preview-src-list="[url]" lazy />
           </div>
         </template>
+        <el-empty class="empty" v-if="!detailData.details && !detailData.introduce" description="暂无简介" />
         <div class="tips">
           <h3>防骗提醒</h3>
           <ol>
@@ -116,6 +117,9 @@ const getRegion = (obj) => {
     obj.regions[i] && (strs += obj.regions[i])
   })
   return strs || '区域不限'
+}
+const guranteeFn = () => {
+  window.open('https://t.me/heitaoch004', '_blank')
 }
 </script>
 <style lang="scss" scoped>
@@ -206,6 +210,9 @@ main.wrap {
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-column-gap: 10px;
+    .empty {
+      padding: 50px 0;
+    }
     .left {
       background-color: white;
       padding: 30px;

@@ -39,8 +39,8 @@ const toCooperation = (item, e) => {
     router.push({
       path: '/cooperation',
       query: {
-        sort: item.name,
-        sSort: e
+        sort: item.name
+        // sSort: e
       }
     })
   }

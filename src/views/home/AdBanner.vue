@@ -54,6 +54,10 @@ export default {
   .ad-item {
     margin-bottom: 10px;
     position: relative;
+    &:hover {
+      transform: scale(1.01);
+      transition: 0.3s;
+    }
     div.span {
       position: absolute;
       right: 5px;
