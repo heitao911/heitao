@@ -663,6 +663,11 @@ export const useChannelStore = defineStore('channel', {
           tyStr: '我提供',
           type: 17,
           typeStr: '游戏招商',
+          details: '',
+          introduce: {
+            imgs: ['https://huidu-bucket.s3.ap-southeast-1.amazonaws.com/huidu/images/2023-10-13/20231013103206.png'],
+            content: '【开云代理】\n1、55%会员净输赢分红\n2、独立代理后台，一对一官方维护\n3、人头费（2998-299998元）无上限}'
+          },
           businessSubdivide: '82',
           businessSubdivides: {
             82: '游戏代理'
@@ -731,6 +736,11 @@ export const useChannelStore = defineStore('channel', {
           tyStr: '我提供',
           type: 17,
           typeStr: '游戏招商',
+          details: '',
+          introduce: {
+            imgs: [],
+            content: '主打多币别充提快速到账\n极致游戏画面支持4k画质\n极多游戏平台，任君选择\n让您无时无刻享受极致游戏体验\n\n诚招代理！！！佣金无上限！！！\n实力招商，资金雄厚，佣金每周准时派发绝无拖欠！\n—24/7客服全天候服务，保证让宾客们宾至如归—\n网站多优惠出款快，查看名片可联系了解更多！'
+          },
           businessSubdivide: '82',
           businessSubdivides: {
             82: '游戏代理'
@@ -753,7 +763,7 @@ export const useChannelStore = defineStore('channel', {
           originalLanguage: 'zh-CN',
           gurantee: 1,
           views: null,
-          updateTime: '1697163804'
+          updateTime: '1691625600'
         },
         {
           id: 12291,
@@ -1202,7 +1212,30 @@ export const useChannelStore = defineStore('channel', {
           updateTime: '1696822078'
         }
       ]
-    }]
+    }],
+    // 合作列表页  广告
+    adList: [
+      {
+        img: '20230928121323.jpeg',
+        link: 'https://www.k36group.com/'
+      },
+      {
+        img: '20231009132956.jpeg',
+        link: 'https://www.k36group.com/'
+      },
+      {
+        img: '20230901161946.jpeg',
+        link: ''
+      }
+      // {
+      //   img: '20230901161946.jpeg',
+      //   link: ''
+      // },
+      // {
+      //   img: '20230901161946.jpeg',
+      //   link: ''
+      // }
+    ]
   }),
   getters: {
     items: (state) => {

@@ -112,13 +112,15 @@ main.content {
       text-align: right;
       margin-right: 10px;
       img {
-        width: 80%;
+        width: 100%;
+        max-width: 200px;
       }
     }
     .banner-right {
       margin-left: 10px;
       img {
-        width: 80%;
+        width: 100%;
+        max-width: 200px;
       }
     }
   }

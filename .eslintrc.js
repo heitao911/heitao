@@ -43,6 +43,7 @@ module.exports = {
     'no-debugger': 'off',
     'no-console': 'off',
     camelcase: 'off',
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    'no-multi-str': 'off'
   }
 }

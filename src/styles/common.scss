@@ -2,16 +2,41 @@
 @import './reset.scss';
 
 // 全局变量
-$bg-red: #e94b43;
+$bg-red: rgb(233, 75, 67);
+$bg-red-light : rgb(233, 75, 67, 0.3);
 $bg-black: #141619;
-$bg-gray: rgba(136, 136, 136);
+$bg-background: rgba(32,38,44);
+$color-gray: rgba(136, 136, 136);
+$bg-gray: rgba(240, 240, 240);
 
-$--color-primary:  pink;
-$--el-color-primary: pink !important;
+:root{
+  --el-color-success: rgb(48, 178, 107)pink !important;
+  --el-color-primary:  pink;
+  --el-color-primary: pink !important;
+}
 
+
+.gray{
+  color: $color-gray;
+}
 .flex{
   display: flex;
 }
+.aic{
+  align-items: center;
+}
 .jsb{
   justify-content: space-between;
+}
+// 分隔线
+.divider {
+  border-top: 1px dashed rgba(231, 231, 231);
+  margin: 10px 0;
+}
+.vertical-divider{
+  display: inline-block;
+  height: 12px;
+  border-left: 1px solid rgba(231, 231, 231);
+  margin: 0 10px;
+  vertical-align: middle;
 }

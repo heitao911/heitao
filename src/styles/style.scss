@@ -25,11 +25,6 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -44,6 +39,32 @@ button {
   &:hover {
     border-color: #646cff;
   }
+
+}
+.el-button{
+  border-radius: 2px !important;
+  &:hover{
+    transform: translateY(-1px);
+    transition: 0.6s;
+  }
+  &.el-button--danger:hover{
+    color: $bg-red !important;
+    border-color: $bg-red !important;
+    background-color: $bg-red-light !important;
+  }
+  &.el-button--success{
+    background-color: rgb(48, 178, 107);
+    &.is-plain{
+      background-color: rgba(6, 202, 100, 0.5) !important;
+      &:hover{
+        background-color: rgb(48, 178, 107) !important;
+      }
+    }
+    &:hover{
+    border-color: rgba(6, 202, 100) !important;
+    background-color: rgb(48, 178, 107);
+    // background-color: rgba(6, 202, 100, 0.5) !important;
+  }}
 
 }
 
@@ -84,4 +105,9 @@ button {
   .el-message-box__content {
     padding: 30px 20px;
   }
+}
+
+.el-message-box__headerbtn:focus .el-message-box__close, 
+.el-message-box__headerbtn:hover .el-message-box__close{
+  color: $bg-red !important;
 }

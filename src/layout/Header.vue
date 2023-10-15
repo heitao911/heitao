@@ -16,7 +16,7 @@
         <el-menu :default-active="state.activeIndex" class="header-menu" mode="horizontal" @select="handleSelect">
           <el-menu-item :index="item.id" v-for="(item, i) in state.menuList" :key="i">
             <router-link v-if="item.id === '10'" class="search" to="/check" target="_blank" title="黑桃出海防骗查询">
-              防骗查询<img src="@/assets/images/img/search.png" alt="" />
+              账号查询<img src="@/assets/images/img/search.png" alt="" />
             </router-link>
             <router-link v-else :to="item.toPath">{{item.name}}</router-link>
           </el-menu-item>
@@ -42,14 +42,6 @@ const state = reactive({
       name: '合作'
     },
     {
-      toPath: '/leadership-vision',
-      name: 'Leadership Vision'
-    },
-    {
-      toPath: 'blog',
-      name: 'School News'
-    },
-    {
       id: '10',
       toPath: '/check',
       name: '防骗查询'
@@ -57,7 +49,7 @@ const state = reactive({
   ]
 })
 onMounted(() => {
-  console.log(route)
+  // console.log(route)
   state.menuList.forEach((e) => {
     if (e.toPath === route.path) {
       state.activeIndex = e.id

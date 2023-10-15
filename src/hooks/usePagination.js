@@ -1,8 +1,8 @@
-export const useHandlePages = (proxy) => {
+export const useHandlePages = (requestData) => {
   const pageData = reactive({
     currentPage: 1, // 分页当前第几页
     recordCount: 0, // 数据总数
-    pageSize: 5, // 每页的数据量
+    pageSize: 10, // 每页的数据量
     pageCount: 1, /// 总页数
     stateFalg: true
   })
@@ -17,16 +17,15 @@ export const useHandlePages = (proxy) => {
     } else {
       pageData.stateFalg = true
     }
-    proxy.requestData()
+    requestData()
   }
 
   const handlePageChange = (val) => {
-    console.log(proxy)
     pageData.currentPage = val
     if (!pageData.stateFalg) {
       pageData.stateFalg = true
     } else {
-      proxy.requestData()
+      requestData()
     }
   }
 
@@ -34,7 +33,7 @@ export const useHandlePages = (proxy) => {
     if (!val) return
     if (pageData.currentPage > Math.ceil(val / pageData.pageSize)) {
       pageData.currentPage = Math.ceil(val / pageData.pageSize)
-      proxy.requestData()
+      requestData()
     }
   }, {
     immediate: true

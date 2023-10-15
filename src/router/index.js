@@ -15,19 +15,34 @@ const router = createRouter({
           path: '/home',
           name: 'homePage',
           // redirect: '/check',
-          component: () => import('@/views/home/index.vue')
-        },
-        {
+          component: () => import('@/views/home/index.vue'),
+          meta: {
+            keepAlive: false,
+            title: '黑桃商务'
+          }
+        }, {
           path: '/cooperation',
           name: 'coopetarion',
-          component: () => import('@/views/cooperation/index.vue')
+          component: () => import('@/views/cooperation/index.vue'),
+          meta: {
+            keepAlive: false,
+            title: '合作-黑桃商务'
+          }
+        }, {
+          path: '/cooperation/cooperationDetail',
+          name: 'cooperationDetail',
+          component: () => import('@/views/cooperation/detail.vue')
         }
       ]
     },
     {
       path: '/check',
       name: 'check',
-      component: () => import('@/views/check/index.vue')
+      component: () => import('@/views/check/index.vue'),
+      meta: {
+        keepAlive: false,
+        title: '账号查询-黑桃商务'
+      }
     },
     {
       path: '/:pathMatch(.*)',
