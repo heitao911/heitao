@@ -353,10 +353,9 @@ main.wrap {
       }
     }
     .right {
-      // background-color: white;
       max-height: 500px;
       height: fit-content;
-      overflow-y: auto;
+      // overflow-y: auto;
       .link {
         position: relative;
         margin-bottom: 10px;

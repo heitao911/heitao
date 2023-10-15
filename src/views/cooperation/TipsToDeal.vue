@@ -20,15 +20,6 @@ const props = defineProps({
   }
 })
 
-fetch('https://www.huidu.io/api/resource/provide/pageList', {
-  method: 'post',
-  body: JSON.stringify({ page: 1, limit: 16, keySearch: '', type: '1', businessSubdivide: '', region: '', industry: '', sort: '1', gurantee: '' })
-}).then(e => {
-  e.json().then(e => {
-    console.log(e)
-  })
-})
-
 </script>
 <style lang="scss" scoped>
 .tips {
@@ -41,7 +32,7 @@ fetch('https://www.huidu.io/api/resource/provide/pageList', {
     padding: 3px 4px;
     margin: 0 4px;
     font-weight: 700;
-    font-size: 12px;
+    // font-size: 12px;
     color: rgb(1, 160, 74);
   }
   b {

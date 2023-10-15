@@ -16,3 +16,16 @@ This template should help get you started developing with Vue 3 in Vite. The tem
     }
 </script> 
 ```
+
+```JS
+
+fetch('https://www.huidu.io/api/resource/provide/pageList', {
+  method: 'post',
+  body: JSON.stringify({ page: 1, limit: 16, keySearch: '', type: '1', businessSubdivide: '', region: '', industry: '', sort: '1', gurantee: '' })
+}).then(e => {
+  e.json().then(e => {
+    console.log(e)
+  })
+})
+
+```

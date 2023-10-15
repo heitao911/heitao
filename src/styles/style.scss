@@ -18,6 +18,13 @@ a {
   font-weight: 500;
   text-decoration: inherit;
 }
+a.link{
+  display: block;
+  &:hover {
+    transform: scale(1.01);
+    transition: 0.3s;
+  }
+}
 
 body {
   margin: 0;
