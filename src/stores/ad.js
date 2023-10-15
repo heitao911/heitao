@@ -40,19 +40,19 @@ export const useAdStore = defineStore({
     banner2: [
       {
         img: 'photo_20231010_0011.jpeg',
-        link: 'https://www.k36group.com/'
+        link: 'https://kmbw.club/'
       },
       {
         img: 'photo_20231010_0012.jpeg',
-        link: 'https://www.dbgaming.com/Home'
+        link: 'https://t.me/SBO568WinSales'
       },
       {
         img: 'photo_20231010_0013.jpeg',
-        link: 'https://t.me/kin_kaqiusha'
+        link: 'https://t.me/damexcha'
       },
       {
         img: 'photo_20231010_0014.jpeg',
-        link: 'https://t.me/Junepay_M'
+        link: 'https://t.me/heitaoch002'
       },
       {
         img: 'photo_20231010_0015.jpeg',
@@ -60,50 +60,50 @@ export const useAdStore = defineStore({
       },
       {
         img: 'photo_20231010_0016.jpeg',
-        link: 'https://t.me/JunePay999'
+        link: 'https://t.me/heitaoch002'
       }
     ],
     leftBanner: [{
       img: '20230904172010.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: '20230904172010.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: '20230904172010.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: '20230904172010.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: '20230904172010.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }],
     rightBanner: [{
       img: '20230831164340.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: '20230831164340.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: '20230831164340.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: '20230831164340.png',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }],
     bottomSwiper: [{
       img: 'swiper_20230804103744.jpg',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685/'
     }, {
       img: 'swiper_20230612141509.jpg',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685//'
     }, {
       img: 'swiper_20230724144429.jpg',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685//'
     }, {
       img: 'swiper_20230922150753.jpg',
-      link: 'https://www.k36group.com/'
+      link: 'https://t.me/sir1685//'
     }]
   }),
   getters: {

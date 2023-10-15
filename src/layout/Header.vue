@@ -62,7 +62,7 @@ watch(route, (newVal) => {
   if (!newVal.query.replace) {
     document.title = newVal.meta.title
   }
-  console.log(newVal)
+  // console.log(newVal)
   state.menuList.forEach(e => {
     if (e.toPath === newVal.path) {
       state.activeIndex = e.id

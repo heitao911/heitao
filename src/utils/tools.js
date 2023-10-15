@@ -7,9 +7,9 @@ export const getIpCountry = async () => {
         return res
       }
     }).then((ip) => {
-      console.log(ip)
+      // console.log(ip)
       http.get(`http://ip-api.com/json/${ip}?lang=zh-CN`).then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.status === 'success') {
           resolve(res.countryCode)
         }

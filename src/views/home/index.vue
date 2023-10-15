@@ -45,9 +45,6 @@ const state = reactive({
   rightBanner: ad.rightBanner
 })
 onMounted(() => {
-  const countryCode = getIpCountry()
-  console.log('countryCode', countryCode)
-  // getContent()
   nextTick(() => {
     window.onscroll = () => {
       const offsetHeight = document.documentElement.offsetHeight

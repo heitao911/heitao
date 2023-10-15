@@ -53,18 +53,25 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  try {
+    const countryCode = await getIpCountry()
+    // console.info(countryCode)
+    // throw error
+    // 国内禁止访问
+    if (countryCode !== 'CN') {
+      next()
+      return
+    }
+  } catch (error) {
+    console.log(error)
+  }
+
   // console.log([to, from, next])
-  // const countryCode = await getIpCountry()
-  // console.info(countryCode)
+  console.log('it is CN')
   if (to.path === '/404') {
     next()
   }
-  // 国内禁止访问
-  // if (countryCode !== 'CN') {
   next()
-  // } else {
-  //   next({ path: '404', replace: true })
-  // }
 })
 
 router.afterEach(() => {
