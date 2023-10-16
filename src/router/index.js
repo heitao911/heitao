@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { getIpCountry } from '@/utils/tools'
+import { getIpCountry } from '@/api'
+
 const router = createRouter({
   history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
   // mode: "hash",
@@ -28,7 +29,6 @@ const router = createRouter({
             title: '合作-黑桃商务'
           },
           component: () => import('@/views/cooperation/index.vue')
-
         }, {
           path: '/cooperation/cooperationDetail',
           name: 'cooperationDetail',
@@ -44,16 +44,15 @@ const router = createRouter({
             keepAlive: false,
             title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
           },
-          component: () => import('@/views/cooperation/index.vue')
-
+          component: () => import('@/views/news/index.vue')
         }, {
-          path: '/news/:id',
+          path: '/news/newsDetail/:id',
           name: 'newsDetail',
           meta: {
             keepAlive: false,
             title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
           },
-          component: () => import('@/views/cooperation/detail.vue')
+          component: () => import('@/views/news/detail.vue')
         }
       ]
     },
@@ -79,7 +78,7 @@ router.beforeEach(async (to, from, next) => {
   try {
     loading = ElLoading.service({
       lock: true,
-      text: 'Loading',
+      text: '加载中',
       background: 'rgba(0, 0, 0, 0.7)'
     })
     const countryCode = await getIpCountry()
@@ -96,7 +95,7 @@ router.beforeEach(async (to, from, next) => {
   }
 
   // console.log([to, from, next])
-  console.log('it is CN')
+  console.log('getIpCountry请求失败')
   if (to.path === '/404') {
     next()
   }

@@ -1,8 +1,8 @@
 <template>
   <article class="news-article" v-loading="state.loading">
-    <h1>黑桃资讯</h1>
+    <h1 @click="toNewsList">黑桃资讯</h1>
     <section class="news-main">
-      <el-carousel height="200px" :interval="3000" type="card">
+      <el-carousel height="250px" :interval="3000" type="card">
         <el-carousel-item v-for="(item, i) in state.topList" :key="i">
           <div class="box">
             <div class="cover"></div>
@@ -24,8 +24,6 @@
   </article>
 </template>
 <script setup name="News">
-// import { reactive } from 'vue'
-import { useChannelStore } from '@/stores/channel'
 import { apiGetHomeNewsList } from '@/api/index.js'
 
 const router = useRouter()
@@ -53,12 +51,14 @@ onBeforeMount(async () => {
     state.loading = false
   }
 })
+const toNewsList = () => {
+  router.push({
+    path: '/news'
+  })
+}
 const toDetail = (item) => {
   router.push({
-    path: '/newDetail',
-    query: {
-      id: item.id
-    }
+    path: '/news/newDetail/' + item.id
   })
 }
 </script>
@@ -76,9 +76,10 @@ const toDetail = (item) => {
     font-weight: 500;
     color: white;
     margin-bottom: 10px;
+    cursor: pointer;
   }
   section.news-main {
-    padding: 40px 20px 20px;
+    padding: 20px;
     background-color: white;
     box-sizing: border-box;
   }

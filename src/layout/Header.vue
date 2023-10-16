@@ -36,6 +36,11 @@ const state = reactive({
       name: '合作'
     },
     {
+      id: '03',
+      toPath: '/news',
+      name: '资讯'
+    },
+    {
       id: '10',
       toPath: '/check',
       name: '防骗查询'
