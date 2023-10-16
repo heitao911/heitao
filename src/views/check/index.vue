@@ -1,5 +1,5 @@
 <template>
-  <main class="content">
+  <section class="content">
     <div class="cover"></div>
     <div class="form-wrap">
       <h2>黑桃出海防骗查询</h2>
@@ -16,7 +16,7 @@
         黑桃商务官网：<a href="https://www.heitao.org">https://www.heitao.org</a>
       </el-text>
     </div>
-  </main>
+  </section>
 </template>
 <script setup name="Check">
 // import { ref, reactive, onMounted, getCurrentInstance } from 'vue'
@@ -107,7 +107,7 @@ const checkFn = () => {
 }
 </script>
 <style scoped lang="scss">
-main.content {
+section.content {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;

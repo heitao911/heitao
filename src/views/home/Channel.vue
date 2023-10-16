@@ -1,5 +1,5 @@
 <template>
-  <div class="channel-main">
+  <section class="channel-section">
     <div class="channel-item" v-for="(item, i) in state.list" :key="i">
       <a rel="nofollow" :href="item.link" target="_blank" class="link">
         <div class="img-cover">
@@ -15,7 +15,7 @@
 
       </a>
     </div>
-  </div>
+  </section>
 </template>
 <script setup name="Channel">
 // import { reactive } from 'vue'
@@ -32,7 +32,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.channel-main {
+section.channel-section {
   padding: 40px 20px 20px;
   background-color: white;
   box-sizing: border-box;

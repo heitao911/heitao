@@ -9,7 +9,7 @@ const router = createRouter({
       path: '/',
       name: 'layout',
       redirect: '/home',
-      component: () => import('@/layout/layout.vue'),
+      component: () => import('@/layout/Layout.vue'),
       children: [
         {
           path: '/home',
@@ -33,9 +33,9 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  console.log([to, from, next])
-  const countryCode = await getIpCountry()
-  console.info(countryCode)
+  // console.log([to, from, next])
+  // const countryCode = await getIpCountry()
+  // console.info(countryCode)
   if (to.path === '/404') {
     next()
   }

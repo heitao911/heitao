@@ -61,7 +61,6 @@ export default {
       padding: 5px;
       background-color: rgba(0, 0, 0, 0.4);
       color: rgb(254, 254, 254);
-      --tw-bg-opacity: 0.2;
       font-size: 12px;
     }
   }

@@ -1,36 +1,33 @@
 <template>
-  <div>
-    <main class="content">
-      <div class="banner-top">
-        <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
-      </div>
-      <div class="banner-wrap">
-        <div class="banner-left">
-          <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.leftBanner" :key="i">
-            <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
-          </a>
-        </div>
-        <!-- 首屏之间广告 -->
-        <AdBanner class="banner-center" />
-        <div class="banner-right">
-          <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.rightBanner" :key="i">
-            <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
-          </a>
-        </div>
-      </div>
-      <div class="channel-wrap">
-        <Channel />
-      </div>
-      <!-- 底部swiper广告 -->
-      <SwiperAd class="bottom-swiper" :class="{hiddenSwiper: state.hiddenSwiper}" />
-    </main>
-
-  </div>
+  <section class="content">
+    <div class="banner-top">
+      <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
+    </div>
+    <div class="banner-wrap">
+      <aside class="banner-left">
+        <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.leftBanner" :key="i">
+          <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
+        </a>
+      </aside>
+      <!-- 首屏之间广告 -->
+      <AdBanner class="banner-center" />
+      <aside class="banner-right">
+        <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.rightBanner" :key="i">
+          <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
+        </a>
+      </aside>
+    </div>
+    <Channel />
+    <News></News>
+    <!-- 底部swiper广告 -->
+    <SwiperAd class="bottom-swiper" :class="{hiddenSwiper: state.hiddenSwiper}" />
+  </section>
 </template>
 <script setup name="Home">
 // import { onMounted, nextTick, reactive } from 'vue'
 import AdBanner from './AdBanner.vue'
 import Channel from './Channel.vue'
+import News from './News.vue'
 import SwiperAd from '@/components/SwiperAd.vue'
 import { useAdStore } from '@/stores/ad'
 
@@ -56,9 +53,10 @@ onMounted(() => {
 })
 </script>
 <style scoped lang="scss">
-main.content {
+section.content {
   width: 100%;
   background: $bg-black;
+  overflow-y: auto;
   @media only screen and (min-width: 900px) {
     margin: 0px auto 0;
     min-width: 1420px;

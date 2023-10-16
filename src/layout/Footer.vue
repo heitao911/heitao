@@ -1,6 +1,6 @@
 <template>
-  <div class="footer-wrap">
-    <div class="tipsWrap">
+  <footer class="footer">
+    <div class="footer-tips">
       <div class="tips">
         <div class="title">
           <el-icon>
@@ -11,7 +11,7 @@
         <overstep-hidden :content='content' :rows="2" @showDetail="showMessage"></overstep-hidden>
       </div>
     </div>
-    <div class="footer">
+    <div class="footer-main">
       <div class="linkWrap">
         <a href="https://t.me/heitaogf" target="_blank">关于黑桃</a>
         <a href="https://t.me/heitaogf" target="_blank">联系我们</a>
@@ -20,12 +20,11 @@
         <div class="copyRight">Copyright 2019 HEITAO</div>
       </div>
     </div>
-  </div>
+  </footer>
 
 </template>
 
 <script setup name="Footer">
-// import { ref } from 'vue'
 
 const content = ref('浏览使用本站时请注意核实信息的准确性或完整性，若未经黑桃（www.heitao.org）担保，私下产生交易纠纷，黑桃（www.heitao.org）概不负责。任何机构或者个人不得以任何方式修改或非法使用本站内容。此外，您同意不假冒任何个人或实体、不虚假声明或谎称与任何个人或实体之间的关系。黑桃担保不参与客户具体业务，交易过程中双方的一切沟通及交易需要在黑桃官方担保人员创建的交易群中进行，最终解释权归黑桃（www.heitao.org）所有。')
 const iconList = ref([
@@ -82,12 +81,12 @@ const showMessage = () => {
 </script>
 
 <style scoped lang="scss">
-.footer-wrap {
+.footer {
   width: 100%;
   min-width: 1420px;
   height: 200px;
   background: $bg-black;
-  .tipsWrap {
+  .footer-tips {
     background-color: $bg-red;
     width: 100%;
     .tips {
@@ -108,7 +107,7 @@ const showMessage = () => {
       }
     }
   }
-  .footer {
+  .footer-main {
     color: #fff;
     max-width: 1200px;
     padding: 20px 40px;

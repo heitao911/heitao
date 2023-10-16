@@ -1,17 +1,17 @@
 <template>
-  <div class="header-wrap">
-    <header class="header">
+  <header class="header">
+    <div class="header-main">
       <router-link class="logo" to="/home">
         <img src="@/assets/images/img/logo.png" alt="" />
       </router-link>
       <router-link class="search" to="/check">
         <img src="@/assets/images/img/search.png" alt="" />
       </router-link>
-    </header>
-  </div>
+    </div>
+  </header>
+
 </template>
 <script setup>
-// import { ref, reactive } from 'vue'
 
 const schoolArr = ref([])
 const menuAbout = ref([
@@ -47,7 +47,7 @@ function foldMenu () {
 </script>
 
 <style lang="scss" scoped>
-.header-wrap {
+.header {
   width: 100%;
   position: fixed;
   top: 0;
@@ -57,7 +57,7 @@ function foldMenu () {
   @media only screen and (min-width: 900px) {
     min-width: 1420px;
   }
-  .header {
+  .header-main {
     height: 60px;
     width: 60%;
     display: flex;
