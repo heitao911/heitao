@@ -11,6 +11,10 @@ export const apiGetNewsCategory = async (params) => {
   return get(`/api?key=hiudu&url=${encodeURIComponent(url)}`, params)
 }
 // 新闻列表
+export const apiGetHomeNewsList = async (params) => {
+  const url = 'https://www.huidu.io/api/content/list?page=1&limit=24&categoryId=0' // 首页新闻列表-最新
+  return get(`/api?key=hiudu&url=${encodeURIComponent(url)}`, params)
+}
 export const apiGetNewsList = async (params) => {
   // https://www.huidu.io/api/content/list?page=1&limit=24&categoryId=0  // 首页新闻列表-最新
   // https://www.huidu.io/api/content/list?page=1&limit=16&categoryId=2  // 头条
