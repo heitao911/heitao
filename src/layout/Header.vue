@@ -58,10 +58,12 @@ watch(route, (newVal) => {
   }
   // console.log(newVal)
   state.menuList.forEach(e => {
-    if (e.toPath === newVal.path) {
+    if (newVal.path.includes(e.toPath)) {
       state.activeIndex = e.id
     }
   })
+}, {
+  immediate: true
 })
 </script>
 

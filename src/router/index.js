@@ -23,14 +23,36 @@ const router = createRouter({
         }, {
           path: '/cooperation',
           name: 'coopetarion',
-          component: () => import('@/views/cooperation/index.vue'),
           meta: {
             keepAlive: false,
             title: '合作-黑桃商务'
-          }
+          },
+          component: () => import('@/views/cooperation/index.vue')
+
         }, {
           path: '/cooperation/cooperationDetail',
           name: 'cooperationDetail',
+          meta: {
+            keepAlive: false,
+            title: '业务详情-黑桃商务'
+          },
+          component: () => import('@/views/cooperation/detail.vue')
+        }, {
+          path: '/news',
+          name: 'news',
+          meta: {
+            keepAlive: false,
+            title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
+          },
+          component: () => import('@/views/cooperation/index.vue')
+
+        }, {
+          path: '/news/:id',
+          name: 'newsDetail',
+          meta: {
+            keepAlive: false,
+            title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
+          },
           component: () => import('@/views/cooperation/detail.vue')
         }
       ]
@@ -53,7 +75,13 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  let loading = ''
   try {
+    loading = ElLoading.service({
+      lock: true,
+      text: 'Loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    })
     const countryCode = await getIpCountry()
     // console.info(countryCode)
     // 国内禁止访问
@@ -63,6 +91,8 @@ router.beforeEach(async (to, from, next) => {
     }
   } catch (error) {
     console.log(error)
+  } finally {
+    loading.close()
   }
 
   // console.log([to, from, next])

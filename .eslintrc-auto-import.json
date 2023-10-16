@@ -70,6 +70,7 @@
     "useRouter": true,
     "ElMessageBox": true,
     "ElMessage": true,
+    "ElLoading": true,
     "Swiper": true
   }
 }
