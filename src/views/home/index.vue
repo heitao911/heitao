@@ -32,7 +32,6 @@
 import AdBanner from './AdBanner.vue'
 import Channel from './Channel.vue'
 import SwiperAd from '@/components/SwiperAd.vue'
-import { apiGetContent } from '@/api'
 import { useAdStore } from '@/stores/ad'
 
 const ad = useAdStore()
@@ -42,7 +41,6 @@ const state = reactive({
   rightBanner: ad.rightBanner
 })
 onMounted(() => {
-  // getContent()
   nextTick(() => {
     window.onscroll = () => {
       const offsetHeight = document.documentElement.offsetHeight
@@ -56,9 +54,6 @@ onMounted(() => {
     }
   }, 1000)
 })
-const getContent = () => {
-  apiGetContent()
-}
 </script>
 <style scoped lang="scss">
 main.content {

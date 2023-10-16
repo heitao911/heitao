@@ -178,7 +178,8 @@ export default defineConfig({
     proxy: {
       '/api': {
         // target: "http://192.168.10.169",
-        // changeOrigin: true
+        target: 'http://localhost:9999',
+        changeOrigin: true
       }
     }
   }

@@ -17,6 +17,8 @@ axios.interceptors.response.use(
     if (res.data.type === 'TIPS' || res.data.type === 'ALERT') {
       ElMessage({ type: 'error', message: res.data.message })
       return res
+    } else if (res.data.status === 200) {
+      return res.data
     }
     return res
   },
@@ -26,69 +28,56 @@ axios.interceptors.response.use(
   }
 )
 
-const http = {
-  get(url, params) {
-    return new Promise((resolve, reject) => {
-      NProgress.start()
-      axios
-        .get(url, { params })
-        .then((res) => {
-          NProgress.done()
-          resolve(res.data)
-        })
-        .catch((err) => {
-          NProgress.done()
-          reject(err.data)
-        })
-    })
-  },
-  post(url, params) {
-    return new Promise((resolve, reject) => {
-      NProgress.start()
-      axios
-        .post(url, JSON.stringify(params))
-        .then((res) => {
-          NProgress.done()
-          resolve(res.data)
-        })
-        .catch((err) => {
-          NProgress.done()
-          reject(err.data)
-        })
-    })
-  },
-  upload(url, file) {
-    return new Promise((resolve, reject) => {
-      NProgress.start()
-      axios
-        .post(url, file, {
-          headers: { 'Content-Type': 'multipart/form-data' }
-        })
-        .then((res) => {
-          NProgress.done()
-          resolve(res.data)
-        })
-        .catch((err) => {
-          NProgress.done()
-          reject(err.data)
-        })
-    })
-  },
-  jsonp(url, params) {
-    return new Promise((resolve, reject) => {
-      NProgress.start()
-      axios
-        .get(url, { params })
-        .then((res) => {
-          NProgress.done()
-          resolve(res.data)
-        })
-        .catch((err) => {
-          NProgress.done()
-          reject(err.data)
-        })
-    })
-  }
+export function get (url, params) {
+  return new Promise((resolve, reject) => {
+    NProgress.start()
+    axios
+      .get(url, { params })
+      .then((res) => {
+        NProgress.done()
+        resolve(res.data)
+      })
+      .catch((err) => {
+        NProgress.done()
+        reject(err.data)
+      })
+  })
 }
-
-export default http
+export function post (url, params) {
+  return new Promise((resolve, reject) => {
+    NProgress.start()
+    axios
+      .post(url, JSON.stringify(params))
+      .then((res) => {
+        NProgress.done()
+        resolve(res.data)
+      })
+      .catch((err) => {
+        NProgress.done()
+        reject(err.data)
+      })
+  })
+}
+export function upload (url, file) {
+  return new Promise((resolve, reject) => {
+    NProgress.start()
+    axios
+      .post(url, file, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      })
+      .then((res) => {
+        NProgress.done()
+        resolve(res.data)
+      })
+      .catch((err) => {
+        NProgress.done()
+        reject(err.data)
+      })
+  })
+}
+const ajax = {
+  post,
+  get,
+  axios
+}
+export default ajax
