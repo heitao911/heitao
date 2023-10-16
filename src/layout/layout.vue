@@ -1,7 +1,7 @@
 <!--框架首页 - 包括左侧导航栏的实现-->
 <template>
   <div class="container">
-    <Header></Header>
+    <!-- <Header></Header>
     <div class="main">
       <section class="content-container">
         <div class="content-wrapper">
@@ -13,14 +13,14 @@
         </div>
       </section>
     </div>
-    <Footer></Footer>
+    <Footer></Footer> -->
   </div>
 </template>
 <script>
 // import utils from '@/common/js/utils.js'
 import Header from '@/layout/Header.vue'
 import Footer from '@/layout/Footer.vue'
-
+import {apiGet}  from '@/api/index.js'
 export default {
   name: 'Index',
   data () {
@@ -29,10 +29,15 @@ export default {
     }
   },
   components: {
-    Header,
-    Footer
+    // Header,
+    // Footer
   },
-  created () { }
+  created () {
+    const url = 'https://www.huidu.io/api/content/list?page=1&limit=4&categoryId=21&callback=fetchUser'
+    apiGet('').then(res => {
+      debugger
+    })
+   }
 }
 </script>
 <style lang="scss" scoped>

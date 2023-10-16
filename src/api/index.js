@@ -9,3 +9,12 @@ export const apiGetContent = async () => {
     }
   })
 }
+
+export const apiGet = async (url) => {
+  http.get(url).then(res => {
+    if (res) {
+      console.log(res)
+      return res
+    }
+  })
+}
