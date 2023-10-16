@@ -19,7 +19,6 @@
   </section>
 </template>
 <script setup name="Check">
-// import { ref, reactive, onMounted, getCurrentInstance } from 'vue'
 import config from '@/common/config.js'
 const { proxy } = getCurrentInstance()
 const state = reactive({

@@ -15,14 +15,34 @@ const router = createRouter({
           path: '/home',
           name: 'homePage',
           // redirect: '/check',
-          component: () => import('@/views/home/index.vue')
+          component: () => import('@/views/home/index.vue'),
+          meta: {
+            keepAlive: false,
+            title: '黑桃商务'
+          }
+        }, {
+          path: '/cooperation',
+          name: 'coopetarion',
+          component: () => import('@/views/cooperation/index.vue'),
+          meta: {
+            keepAlive: false,
+            title: '合作-黑桃商务'
+          }
+        }, {
+          path: '/cooperation/cooperationDetail',
+          name: 'cooperationDetail',
+          component: () => import('@/views/cooperation/detail.vue')
         }
       ]
     },
     {
       path: '/check',
       name: 'check',
-      component: () => import('@/views/check/index.vue')
+      component: () => import('@/views/check/index.vue'),
+      meta: {
+        keepAlive: false,
+        title: '账号查询-黑桃商务'
+      }
     },
     {
       path: '/:pathMatch(.*)',
@@ -33,18 +53,24 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  try {
+    const countryCode = await getIpCountry()
+    // console.info(countryCode)
+    // 国内禁止访问
+    if (countryCode !== 'CN') {
+      next()
+      return
+    }
+  } catch (error) {
+    console.log(error)
+  }
+
   // console.log([to, from, next])
-  // const countryCode = await getIpCountry()
-  // console.info(countryCode)
+  console.log('it is CN')
   if (to.path === '/404') {
     next()
   }
-  // 国内禁止访问
-  // if (countryCode !== 'CN') {
   next()
-  // } else {
-  //   next({ path: '404', replace: true })
-  // }
 })
 
 router.afterEach(() => {

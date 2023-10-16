@@ -1,7 +1,9 @@
 <template>
   <section class="content">
     <div class="banner-top">
-      <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
+      <a href="https://t.me/heitaoch002" target="_blank" class="link">
+        <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
+      </a>
     </div>
     <div class="banner-wrap">
       <aside class="banner-left">
@@ -24,13 +26,15 @@
   </section>
 </template>
 <script setup name="Home">
-// import { onMounted, nextTick, reactive } from 'vue'
-import AdBanner from './AdBanner.vue'
-import Channel from './Channel.vue'
-import News from './News.vue'
-import SwiperAd from '@/components/SwiperAd.vue'
-import { useAdStore } from '@/stores/ad'
 
+import { useAdStore } from '@/stores/ad'
+import { getIpCountry } from '@/utils/tools'
+
+const AdBanner = defineAsyncComponent(() => import('./AdBanner.vue'))
+const Channel = defineAsyncComponent(() => import('./Channel.vue'))
+const SwiperAd = defineAsyncComponent(() => import('@/components/SwiperAd.vue'))
+const TopSwiperAd = defineAsyncComponent(() => import('@/components/TopSwiperAd.vue'))
+const News = defineAsyncComponent(() => import('@/components/News.vue'))
 const ad = useAdStore()
 const state = reactive({
   hiddenSwiper: false,
@@ -100,13 +104,15 @@ section.content {
       text-align: right;
       margin-right: 10px;
       img {
-        width: 80%;
+        width: 100%;
+        max-width: 200px;
       }
     }
     .banner-right {
       margin-left: 10px;
       img {
-        width: 80%;
+        width: 100%;
+        max-width: 200px;
       }
     }
   }
