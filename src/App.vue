@@ -1,13 +1,13 @@
 <template>
-  <div id="app">
+  <article id="app-article">
     <router-view />
-  </div>
+  </article>
 </template>
 <script setup>
 </script>
 
 <style scoped>
-#app {
+#app-article {
   width: 100%;
   margin: 0 auto;
   /* overflow: auto; */

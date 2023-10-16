@@ -16,9 +16,8 @@
         <a href="https://t.me/heitaogf" target="_blank">关于黑桃</a>
         <a href="https://t.me/heitaogf" target="_blank">联系我们</a>
       </div>
-      <div :span="12">
-        <div class="copyRight">Copyright 2019 HEITAO &nbsp;|&nbsp; <a href="https://t.me/heitaoch" target="_blank"> ✈️
-          </a></div>
+      <div class="copyRight">
+        Copyright 2019 HEITAO &nbsp;|&nbsp; <a href="https://t.me/heitaoch" target="_blank"> ✈️</a>
       </div>
     </div>
   </footer>

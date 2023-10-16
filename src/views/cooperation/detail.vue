@@ -1,5 +1,5 @@
 <template>
-  <main class="wrap" v-cloak>
+  <article class="cooperationDetail-article" v-cloak>
     <header>
       <div class="flex header-main">
         <div class="avatar-wrap" v-if="detailData.logo">
@@ -32,8 +32,8 @@
       </div>
       <TipsToDeal :gurantee="!!detailData.gurantee"></TipsToDeal>
     </header>
-    <section class="content">
-      <div class="left" v-loading="!state.isShow">
+    <article class="content">
+      <section class="left" v-loading="state.loading">
         <template v-if="detailData.details">
           <h2>业务明细</h2>
           <div class="content-des">
@@ -48,7 +48,7 @@
           </div>
         </template>
         <el-empty class="empty" v-if="!detailData.details && !detailData.introduce" description="暂无简介" />
-        <div class="tips">
+        <section class="tips">
           <h3>防骗提醒</h3>
           <ol>
             <li>1、联系对接资源服务前请认真核查对方身份及经营资质，切勿轻信贪图便宜和承诺。</li>
@@ -56,19 +56,19 @@
             <li>3、黑桃平台不介入任何交易过程，交易时请您提高警惕，以免蒙受损失。</li>
             <li>4、如遇冒充黑桃工作人员进行行骗的，请及时联系官方核实举报，如若查实永久封禁。</li>
           </ol>
-        </div>
-      </div>
-      <div class="right">
+        </section>
+      </section>
+      <aside class="right">
         <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.adList" :key="i">
           <div class="img-cover">
             <img :src="getImageUrl('channel', item.img)" class="el-image__inner" alt="广告" title="广告" />
           </div>
           <div class="span">广告</div>
         </a>
-      </div>
-    </section>
+      </aside>
+    </article>
 
-  </main>
+  </article>
 </template>
 <script setup name="CooperationDetail">
 import { useChannelStore } from '@/stores/channel'
@@ -79,7 +79,7 @@ const route = useRoute()
 const channel = useChannelStore()
 const detailData = ref({})
 const state = reactive({
-  isShow: false,
+  loading: true,
   allDataList: channel.dataList,
   adList: channel.adList
 })
@@ -96,7 +96,7 @@ onBeforeMount(() => {
   })
   console.log(detailData.value)
   setTimeout(() => {
-    state.isShow = true
+    state.loading = false
   }, 1000)
 })
 
@@ -123,7 +123,7 @@ const guranteeFn = () => {
 }
 </script>
 <style lang="scss" scoped>
-main.wrap {
+article.cooperationDetail-article {
   width: 100%;
   background: $bg-background;
   header {
@@ -202,7 +202,7 @@ main.wrap {
       }
     }
   }
-  section.content {
+  article.content {
     width: 1200px;
     min-height: 90vh;
     margin: 0 auto;

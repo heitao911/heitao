@@ -1,40 +1,37 @@
 <template>
-  <section class="content">
-    <div class="banner-top">
+  <article class="content">
+    <header class="banner-top">
       <a href="https://t.me/heitaoch002" target="_blank" class="link">
         <img class="ad-img" src="@/assets/images/banner-ad/banner-top.jpg" alt="">
       </a>
-    </div>
-    <div class="banner-wrap">
+    </header>
+    <article class="banner-wrap">
       <aside class="banner-left">
         <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.leftBanner" :key="i">
           <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
         </a>
       </aside>
-      <!-- 首屏之间广告 -->
-      <AdBanner class="banner-center" />
+      <AdBanner />
       <aside class="banner-right">
         <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.rightBanner" :key="i">
           <img class="ad-img" :src="getImageUrl('banner-ad', item.img)" alt="">
         </a>
       </aside>
-    </div>
+    </article>
     <Channel />
     <News></News>
-    <!-- 底部swiper广告 -->
     <SwiperAd class="bottom-swiper" :class="{hiddenSwiper: state.hiddenSwiper}" />
-  </section>
+  </article>
 </template>
 <script setup name="Home">
-
 import { useAdStore } from '@/stores/ad'
-import { getIpCountry } from '@/utils/tools'
 
 const AdBanner = defineAsyncComponent(() => import('./AdBanner.vue'))
 const Channel = defineAsyncComponent(() => import('./Channel.vue'))
+const News = defineAsyncComponent(() => import('./News.vue'))
 const SwiperAd = defineAsyncComponent(() => import('@/components/SwiperAd.vue'))
 const TopSwiperAd = defineAsyncComponent(() => import('@/components/TopSwiperAd.vue'))
-const News = defineAsyncComponent(() => import('@/components/News.vue'))
+
 const ad = useAdStore()
 const state = reactive({
   hiddenSwiper: false,
@@ -57,7 +54,7 @@ onMounted(() => {
 })
 </script>
 <style scoped lang="scss">
-section.content {
+article.content {
   width: 100%;
   background: $bg-black;
   overflow-y: auto;
@@ -73,8 +70,6 @@ section.content {
     width: 100%;
     padding-top: 10px;
   }
-
-  // height: 2000px;
   .banner-top {
     text-align: center;
     font-size: 0;
@@ -96,9 +91,6 @@ section.content {
     @include media(M) {
       grid-gap: 0px;
       grid-template-columns: 0 100% 0;
-    }
-    .banner-center {
-      width: 100%;
     }
     .banner-left {
       text-align: right;

@@ -1,6 +1,6 @@
 <!--框架首页 - 包括左侧导航栏的实现-->
 <template>
-  <div class="container">
+  <div class="layout">
     <Header></Header>
     <main>
       <section class="content-container">
@@ -31,12 +31,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.container {
-  width: 100%;
+.layout {
   main {
     width: 100%;
     display: flex;
-    margin-top: 60px;
+    padding-top: 60px;
     min-height: 100vh;
     // overflow: hidden;
     .content-container {

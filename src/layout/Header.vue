@@ -1,18 +1,12 @@
 <template>
   <header class="header">
     <div class="header-main">
-      <div class="left">
+      <section class="left">
         <router-link class="logo" to="/home">
           <img src="@/assets/images/img/logo.png" alt="" />
         </router-link>
-        <!-- <router-link class="search" to="/check" title="黑桃出海防骗查询">
-          <img src="@/assets/images/img/search.png" alt="" />
-        </router-link> -->
-      </div>
-      <div class="right">
-        <!-- <a class="link" href="https://telegram.org/" target="_blank">
-          <div class="telegram"></div>
-        </a> -->
+      </section>
+      <nav class="right">
         <el-menu :default-active="state.activeIndex" class="header-menu" mode="horizontal" @select="handleSelect">
           <el-menu-item :index="item.id" v-for="(item, i) in state.menuList" :key="i">
             <router-link v-if="item.id === '10'" class="search" to="/check" target="_blank" title="黑桃出海防骗查询">
@@ -21,7 +15,7 @@
             <router-link v-else :to="item.toPath">{{item.name}}</router-link>
           </el-menu-item>
         </el-menu>
-      </div>
+      </nav>
     </div>
   </header>
 </template>

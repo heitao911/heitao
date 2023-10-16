@@ -1,5 +1,5 @@
 <template>
-  <div class="ad-wrap">
+  <section class="ad-section">
     <div class="ad-row">
       <div class="ad-item" v-for="(item, i) in state.list1" :key="i">
         <a :href="item.link" target="_blank" class="link">
@@ -20,7 +20,7 @@
         </a>
       </el-col>
     </el-row>
-  </div>
+  </section>
 </template>
 <script setup name="AdBanner">
 // import { reactive, onBeforeMount } from 'vue'
@@ -32,18 +32,9 @@ const state = reactive({
   list2: ad.banner2
 })
 
-onBeforeMount(() => {
-  // console.log(import.meta.url)
-})
-
-</script>
-<script>
-export default {
-  name: 'AdBanner'
-}
 </script>
 <style scoped lang="scss">
-.ad-wrap {
+.ad-section {
   @media only screen and (min-width: 900px) {
     // width: 1200px;
   }

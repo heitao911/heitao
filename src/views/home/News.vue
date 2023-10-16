@@ -1,7 +1,7 @@
 <template>
-  <section class="news-section" v-loading="state.loading">
+  <article class="news-article" v-loading="state.loading">
     <h1>黑桃资讯</h1>
-    <div class="news-main">
+    <section class="news-main">
       <el-carousel height="200px" :interval="400000" type="card">
         <el-carousel-item v-for="(item, i) in state.topList" :key="i">
           <div class="box">
@@ -20,8 +20,8 @@
           <span>{{item.title}}</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </article>
 </template>
 <script setup name="News">
 // import { reactive } from 'vue'
@@ -63,7 +63,7 @@ const toDetail = (item) => {
 }
 </script>
 <style scoped lang="scss">
-.news-section {
+.news-article {
   margin: 40px auto 20px;
   @media only screen and (min-width: 900px) {
     width: 1200px;
@@ -77,7 +77,7 @@ const toDetail = (item) => {
     color: white;
     margin-bottom: 10px;
   }
-  .news-main {
+  section.news-main {
     padding: 40px 20px 20px;
     background-color: white;
     box-sizing: border-box;

@@ -1,7 +1,7 @@
 <template>
-  <main class="wrap">
-    <div class="header-wrap">
-      <header>
+  <article class="cooperation-article">
+    <header>
+      <div class="header-main">
         <ul class="sort-list">
           <li class="sort-item" :class="{all: i===0,active: state.activeTab === i+''}" v-for="(e, i) in state.sortList"
             :key="i" :data-index="i" @click="selectFn($event, e)">
@@ -13,11 +13,11 @@
           <li class="sort-item" :class="{active: state.activeTab2 === i+1+''}" v-for="(e, i) in state.sortSecondList"
             :key="i" :data-index="i+1" @click="selecSecondtFn($event, e)">{{ e }}</li>
         </ul>
-      </header>
-    </div>
+      </div>
+    </header>
     <section class="content">
-      <div class="left">
-        <div class="table">
+      <article class="left">
+        <section class="table">
           <template v-if="state.showList.length">
             <div class="table-item" v-for="(item ,i) in state.showList" :key="i" @click="toDetail(item)">
               <img v-if="item.isTop" class="zhiding" src="@/assets/images/img/zhiding.png" alt="">
@@ -53,24 +53,24 @@
             </div>
           </template>
           <el-empty class="empty" v-else description="暂无数据" />
-        </div>
-        <div class="pagination-wrap">
+        </section>
+        <footer class="pagination-wrap">
           <el-pagination background layout="prev,pager,next,total" @current-change="handlePageChange"
             @size-change="handleSizeChange" :current-page="pageData.currentPage" :page-size="pageData.pageSize"
             :total="pageData.recordCount" />
-        </div>
-      </div>
-      <div class="right">
+        </footer>
+      </article>
+      <aside class="right">
         <a :href="item.link" target="_blank" class="link" v-for="(item, i) in state.adList" :key="i">
           <div class="img-cover">
             <img :src="getImageUrl('channel', item.img)" class="el-image__inner" alt="广告" title="广告" />
           </div>
           <div class="span">广告</div>
         </a>
-      </div>
+      </aside>
     </section>
 
-  </main>
+  </article>
 </template>
 <script setup name="Cooperation">
 import { useChannelStore } from '@/stores/channel'
@@ -195,10 +195,10 @@ defineExpose({ requestData })
 
 </script>
 <style lang="scss" scoped>
-main.wrap {
+article.cooperation-article {
   width: 100%;
   background: $bg-black;
-  .header-wrap {
+  header {
     position: fixed;
     z-index: 10;
     background: $bg-black;
@@ -207,7 +207,7 @@ main.wrap {
       min-width: 1300px;
     }
   }
-  header {
+  .header-main {
     width: 1200px;
     margin: 0 auto;
     overflow: hidden;

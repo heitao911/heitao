@@ -1,5 +1,5 @@
 <template>
-  <div class="swiperWrap" :class="{hiddenSwiper: !state.isShow}">
+  <article class="swiper-article" :class="{hiddenSwiper: !state.isShow}">
     <div class="relative">
       <el-icon class="close-btn" @click="closeSiper">
         <i-ep-close-bold />
@@ -21,7 +21,7 @@
         <!-- <div class="swiper-scrollbar"></div> -->
       </div>
     </div>
-  </div>
+  </article>
 </template>
 <script setup name="SwiperAd">
 // import { onMounted, onBeforeUnmount, reactive } from 'vue'
@@ -78,7 +78,7 @@ const closeSiper = () => {
 }
 </script>
 <style scoped lang="scss">
-.swiperWrap {
+article.swiper-article {
   width: 1230px;
   transform: translate3d(0, 0, 0);
   // background: pink;
