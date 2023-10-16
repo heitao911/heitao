@@ -2,7 +2,7 @@
   <article class="news-article" v-loading="state.loading">
     <h1>黑桃资讯</h1>
     <section class="news-main">
-      <el-carousel height="200px" :interval="4000" type="card">
+      <el-carousel height="200px" :interval="3000" type="card">
         <el-carousel-item v-for="(item, i) in state.topList" :key="i">
           <div class="box">
             <div class="cover"></div>
@@ -10,7 +10,7 @@
             <!-- <img :src="item.coverUrl" alt=""> -->
             <el-image :src="item.coverUrl" lazy fit="cover"></el-image>
           </div>
-        </el-carousel-item>``
+        </el-carousel-item>
       </el-carousel>
       <div class="new-list">
         <div class="news-item" v-for="(item, i) in state.list" :key="i" @click="toDetail(item)">
@@ -116,10 +116,13 @@ const toDetail = (item) => {
     .news-item {
       cursor: pointer;
       line-height: 30px;
-      color: $bg-black;
+      color: $color-gray;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      &:hover {
+        text-decoration: underline;
+      }
       .el-icon {
         vertical-align: middle;
         margin-right: 5px;

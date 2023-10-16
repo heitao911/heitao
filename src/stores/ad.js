@@ -75,14 +75,8 @@ export const useAdStore = defineStore({
     }, {
       img: '20230904172010.png',
       link: 'https://t.me/sir1685/'
-    }, {
-      img: '20230904172010.png',
-      link: 'https://t.me/sir1685/'
     }],
     rightBanner: [{
-      img: '20230831164340.png',
-      link: 'https://t.me/sir1685/'
-    }, {
       img: '20230831164340.png',
       link: 'https://t.me/sir1685/'
     }, {
