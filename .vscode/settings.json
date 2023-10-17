@@ -1,0 +1,31 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".vue"
+    ]
+  },
+  // 当保存代码的时候，会自动格式化
+  "editor.formatOnSave": true,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "javascript.suggestionActions.enabled": false,
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_line_length": 120,
+      "wrap_attributes": "auto",
+      "end_with_newline": false
+    },
+    "prettier": {
+      // 格式化不加分号
+      "semi": false,
+      // 格式化以单引号为主
+      "singleQuote": true
+    }
+  },
+  // 这里是实现函数名后边有空格的效果
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+}
