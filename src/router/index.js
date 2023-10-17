@@ -52,7 +52,7 @@ const router = createRouter({
             keepAlive: false,
             title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
           },
-          component: () => import('@/views/news/detail.vue')
+          component: () => import('@/views/news/NewsDetail.vue')
         }
       ]
     },
@@ -81,13 +81,13 @@ router.beforeEach(async (to, from, next) => {
       text: '加载中',
       background: 'rgba(0, 0, 0, 0.7)'
     })
-    const countryCode = await getIpCountry()
+    // const countryCode = await getIpCountry()
     // console.info(countryCode)
     // 国内禁止访问
-    if (countryCode !== 'CN') {
-      next()
-      return
-    }
+    // if (countryCode !== 'CN') {
+    //   next()
+    //   return
+    // }
   } catch (error) {
     console.log(error)
   } finally {

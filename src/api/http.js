@@ -2,10 +2,10 @@ import axios from 'axios'
 import NProgress from 'nprogress'
 
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8'
-axios.defaults.timeout = 10 * 1000 // 全局设置10s
+// axios.defaults.timeout = 10 * 1000 // 全局设置10s
 const instance = axios.create({
   baseURL: '/',
-  timeout: 5000
+  timeout: 20000
 })
 
 axios.interceptors.request.use((config) => {

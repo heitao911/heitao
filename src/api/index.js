@@ -48,7 +48,7 @@ export const apiGetNewsList = async (params) => {
 }
 // 热门精选
 export const apiGetHotspotContent = async (params) => {
-  const url = 'https://www.huidu.io/api/content/hotspotContent?type=0' // 列表页精选
+  const url = 'https://www.huidu.io/api/content/hotspotContent?type=' + params.type // 列表页精选
   // const url = 'https://www.huidu.io/api/content/hotspotContent?type=1' // 详情页精选
   return get(`/api?key=hiudu&url=${encodeURIComponent(url)}`, params)
 }

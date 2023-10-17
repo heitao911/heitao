@@ -1,9 +1,11 @@
 <template>
   <article class="news-article" v-loading="state.loading">
-    <h1 @click="toNewsList"><el-icon><i-ep-memo /></el-icon>黑桃资讯</h1>
+    <h1 @click="toNewsList">
+      <el-icon><i-ep-memo /></el-icon>黑桃资讯<el-icon><i-ep-ArrowRight /></el-icon>
+    </h1>
     <section class="news-main">
       <el-carousel height="250px" :interval="3000" type="card">
-        <el-carousel-item v-for="(item, i) in state.topList" :key="i">
+        <el-carousel-item v-for="(item, i) in state.topList" :key="i" @click="toDetail(item)">
           <div class="box">
             <div class="cover"></div>
             <h2>{{item.title}}</h2>
@@ -39,11 +41,6 @@ onBeforeMount(async () => {
       state.topList = res.data.records.slice(0, 3)
       state.list = res.data.records.slice(3)
     }
-    // const res2 = await apiGetContentDetail({ id: 9277 })
-    // if (res2.status === '1') {
-    //   console.log(res2.data)
-    //   this.content = res2.data.content
-    // }
   } catch (error) {
 
   } finally {
@@ -57,13 +54,16 @@ const toNewsList = () => {
 }
 const toDetail = (item) => {
   router.push({
-    path: '/news/newDetail/' + item.id
+    name: 'newsDetail',
+    params: {
+      id: item.id
+    }
   })
 }
 </script>
 <style scoped lang="scss">
 .news-article {
-  margin: 40px auto 20px;
+  margin: 30px auto 20px;
   @media only screen and (min-width: 900px) {
     width: $min-width;
   }
@@ -76,6 +76,11 @@ const toDetail = (item) => {
     color: white;
     margin-bottom: 10px;
     cursor: pointer;
+    .el-icon {
+      vertical-align: top;
+      margin-right: 5px;
+      color: $bg-red;
+    }
   }
   section.news-main {
     padding: 20px;

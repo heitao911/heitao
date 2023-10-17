@@ -57,7 +57,7 @@ article.channel-article {
   @include media(M) {
     width: 100%;
   }
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

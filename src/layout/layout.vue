@@ -21,7 +21,7 @@ export default {
   name: 'Index',
   data () {
     return {
-      exclude: []
+      exclude: ['News', 'NewsDetail']
     }
   },
   components: {

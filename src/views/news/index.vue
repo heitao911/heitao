@@ -3,7 +3,7 @@
     <div class="news-article-box">
       <header>
         <el-carousel height="350px" :interval="3000" type="card">
-          <el-carousel-item v-for="(item, i) in state.bannerList" :key="i">
+          <el-carousel-item v-for="(item, i) in state.bannerList" :key="i" @click="toDetail(item)">
             <div class="box">
               <div class="cover"></div>
               <h2>{{item.title}}</h2>
@@ -16,7 +16,7 @@
         <article class="left">
           <nav>
             <ul class="sort-list">
-              <li class="sort-item" :class="{active: state.activeTab === '-1'}" @click="navClick(-1, '')">最新</li>
+              <li class="sort-item" :class="{active: state.activeTab === '-1'}" @click="navClick(-1, '')">最新动态</li>
               <li class="sort-item" :class="{active: state.activeTab === i+''}" v-for="(e, i) in state.newsCategory"
                 :key="i" @click="navClick(i, e)">
                 {{ replaceText(e.name) }}</li>
@@ -24,7 +24,7 @@
           </nav>
           <section class="table" v-loading="state.loadingTab">
             <template v-if="state.newsList.length">
-              <div class="news-item" v-for="item in state.newsList" :key="item.id">
+              <div class="news-item" v-for="item in state.newsList" :key="item.id" @click="toDetail(item)">
                 <div class="news-box">
                   <el-image :src="item.coverUrl" fit="cover"></el-image>
                   <div class="flex-c jsb content">
@@ -47,7 +47,7 @@
         </article>
         <aside class="right">
           <h1>热门文章</h1>
-          <div class="right-news" v-for="(item, i) in state.hotspotContent" :key="i">
+          <div class="right-news" v-for="(item, i) in state.hotspotContent" :key="i" @click="toDetail(item)">
             <div v-if="i <= 1" class="news-box1">
               <div class="cover"></div>
               <div class="img-wrap">
@@ -73,8 +73,6 @@ import { useHandlePages } from '@/hooks/usePagination'
 import { apiGetNewsBanner, apiGetNewsCategory, apiGetHotspotContent, apiGetNewsList } from '@/api/index.js'
 import { replaceText } from '@/utils/tools'
 
-const route = useRoute()
-const router = useRouter()
 const state = reactive({
   activeTab: '-1',
   categoryId: 0,
@@ -84,11 +82,16 @@ const state = reactive({
   newsList: [],
   loading: false
 })
-onMounted(() => {
+onBeforeMount(() => {
+  window.scroll({
+    left: 0,
+    top: 0,
+    behavior: 'smooth'
+  })
   getBanner()
   getNewsCategory()
   getHotspotContent()
-  requestData()
+  requestData(true)
 })
 
 const getBanner = async () => {
@@ -113,7 +116,7 @@ const getNewsCategory = async () => {
 }
 const getHotspotContent = async () => {
   try {
-    const res = await apiGetHotspotContent()
+    const res = await apiGetHotspotContent({ type: 0 })
     if (res.status === '1') {
       state.hotspotContent = res.data
     }
@@ -127,7 +130,7 @@ const navClick = (index, obj) => {
   state.categoryId = obj ? obj.id : 0
   requestData()
 }
-const requestData = async () => {
+const requestData = async (key) => {
   try {
     const params = {
       categoryId: state.categoryId,
@@ -139,7 +142,7 @@ const requestData = async () => {
     if (status === '1') {
       state.newsList = data.records || []
       pageData.recordCount = data.total
-      window.scroll({
+      key || window.scroll({
         left: 0,
         top: 400,
         behavior: 'smooth'
@@ -153,11 +156,16 @@ const requestData = async () => {
 }
 const { pageData, handlePageChange, handleSizeChange } = useHandlePages(requestData)
 
-const toDetail = (row) => {
-  window.open('/#/cooperation/cooperationDetail?id=' + row.id, '_blank')
-  // router.push({ name: 'cooperationDetail' })
-}
+const toDetail = (item) => {
+  window.open('/#/news/newsDetail/' + item.id, '_blank')
 
+  // router.push({
+  //   name: 'newsDetail',
+  //   params: {
+  //     id: item.id
+  //   }
+  // })
+}
 defineExpose({ requestData })
 
 </script>
@@ -210,6 +218,7 @@ article.news-article {
         .sort-item {
           padding: 12px 15px;
           margin-right: 15px;
+          margin-bottom: 15px;
           color: rgba(192, 199, 206);
           border-radius: 4px;
           cursor: pointer;
