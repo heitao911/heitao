@@ -49,3 +49,15 @@ export function getTimeAgo (dateTimeStamp) {
   }
   return result
 }
+
+export function setUrlParams (obj) {
+  let str = ''
+  for (const key in obj) {
+    str += `${key}=${obj[key]}&`
+  }
+  return str
+}
+
+export function replaceText (txt) {
+  return txt.replace(/灰度/g, '黑桃')
+}

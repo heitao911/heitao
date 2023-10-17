@@ -1,13 +1,12 @@
 <template>
   <article class="news-article" v-loading="state.loading">
-    <h1 @click="toNewsList">黑桃资讯</h1>
+    <h1 @click="toNewsList"><el-icon><i-ep-memo /></el-icon>黑桃资讯</h1>
     <section class="news-main">
       <el-carousel height="250px" :interval="3000" type="card">
         <el-carousel-item v-for="(item, i) in state.topList" :key="i">
           <div class="box">
             <div class="cover"></div>
             <h2>{{item.title}}</h2>
-            <!-- <img :src="item.coverUrl" alt=""> -->
             <el-image :src="item.coverUrl" lazy fit="cover"></el-image>
           </div>
         </el-carousel-item>
@@ -66,7 +65,7 @@ const toDetail = (item) => {
 .news-article {
   margin: 40px auto 20px;
   @media only screen and (min-width: 900px) {
-    width: 1200px;
+    width: $min-width;
   }
   @include media(M) {
     width: 100%;
