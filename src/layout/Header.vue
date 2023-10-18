@@ -79,7 +79,7 @@ watch(route, (newVal) => {
   top: 0;
   height: 60px;
   background-color: $bg-black;
-  z-index: 100;
+  z-index: 10000;
   @media only screen and (min-width: 900px) {
     min-width: 1300px;
   }

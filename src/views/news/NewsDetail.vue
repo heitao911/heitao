@@ -1,16 +1,36 @@
 <template>
   <article class="newsDetail-article" v-cloak>
-    <article class="newsDetail-main">
-      <section class="left" v-loading="state.loading">
-        <header>
-          <h1>{{ detailData.title }}</h1>
-          <div>{{ detailData.intro }}</div>
+    <article class="newsDetail-main" v-loading="state.loading" element-loading-text="Loading...">
+      <section class="left">
+        <header v-if="detailData.title">
+          <h1 class="news-title">{{ detailData.title }}</h1>
+          <div class="flex">
+            <div class="type">{{ replaceText(detailData.name) }}</div>
+            <div class="createTime">{{ getTimeAgo(detailData.createTime+'000') }}</div>
+          </div>
         </header>
-        <div class="content" v-html="detailData.content"></div>
+        <section style="min-height: 500px">
+          <div class="news-intro">{{ detailData.intro }}</div>
+          <div class="content" v-html="detailData.content"></div>
+        </section>
+        <footer>
+          <div>
+            <a href="https://t.me/heitaoch" target="_blank">欢迎加入 黑桃-海外资源交流群 @heitaoch</a>
+          </div>
+          <div>
+            <a href="https://t.me/heitaoch002" target="_blank">商务合作: @heitaoch002</a>
+          </div>
+          <div>
+            <a href="https://t.me/heitaoch003" target="_blank">购买会员: @heitaoch003</a>
+          </div>
+          <div>
+            <a href="https://t.me/heitaoch004" target="_blank">黑桃♠担保: @heitaoch004</a>
+          </div>
+        </footer>
       </section>
       <aside class="right">
-        <h1>热门文章</h1>
-        <div class="right-news" v-for="(item, i) in state.hotspotContent" :key="i">
+        <h1>热门精选</h1>
+        <div class="right-news" v-for="(item, i) in state.hotspotContent" :key="i" @click="toDetail(item)">
           <div v-if="i <= 1" class="news-box1">
             <div class="cover"></div>
             <div class="img-wrap">
@@ -33,7 +53,7 @@
 </template>
 <script setup name="NewsDetail">
 import { apiGetContentDetail, apiGetHotspotContent } from '@/api/index.js'
-import { replaceText } from '@/utils/tools'
+import { replaceText, getTimeAgo } from '@/utils/tools'
 
 const route = useRoute()
 const detailData = ref({})
@@ -41,14 +61,14 @@ const state = reactive({
   loading: true,
   adList: []
 })
-onBeforeMount(() => {
+onBeforeMount(async () => {
   window.scroll({
     left: 0,
     top: 0,
     behavior: 'smooth'
   })
   const id = route.params.id || ''
-  getContentDetail(id)
+  await getContentDetail(id)
   getHotspotContent()
 })
 const getContentDetail = async (id) => {
@@ -56,6 +76,9 @@ const getContentDetail = async (id) => {
     state.loading = true
     const { status, data } = await apiGetContentDetail({ id })
     if (status === '1') {
+      data.content = data.content.replace(/https:\/\/www\.huidu\.io\/news\/\d*/g, '/#/news')
+      const arr = data.content.split('游戏需求资源高效对接')
+      data.content = arr[0]
       detailData.value = data
     }
   } catch (error) {
@@ -75,6 +98,9 @@ const getHotspotContent = async () => {
 
   }
 }
+const toDetail = (item) => {
+  window.open('/#/news/newsDetail/' + item.id, '_blank')
+}
 </script>
 <style lang="scss" scoped>
 article.newsDetail-article {
@@ -87,38 +113,57 @@ article.newsDetail-article {
     padding-bottom: 20px;
     display: flex;
     grid-column-gap: 10px;
+
     .left {
       padding: 30px;
       overflow: hidden;
       flex-grow: 1;
-      .content {
-        width: 100%;
-      }
-      h2 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-      .text {
-        white-space: break-spaces;
-        line-height: 25px;
-        color: $color-gray;
-        margin-bottom: 10px;
-      }
-      .tips {
-        margin-top: 50px;
-        background-color: $bg-gray;
-        padding: 20px;
-        border-radius: 15px;
-        h3 {
-          font-size: 16px;
-          font-weight: 700;
-          color: #333;
-          margin-bottom: 10px;
+      header {
+        .news-title {
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 20px;
         }
-        ol li {
-          color: gray;
-          line-height: 22px;
+        .type {
+          font-size: 12px;
+          color: white;
+          background-color: #000;
+          padding: 6px 8px;
+          border-radius: 2px;
+          margin-right: 10px;
+        }
+        .createTime {
+          font-size: 12px;
+          color: $color-gray;
+          line-height: 24px;
+        }
+      }
+      :deep(.content) {
+        width: 100%;
+        line-height: 24px;
+        font-size: 16px;
+        color: rgb(51, 51, 51);
+        a {
+          color: rgb(51, 51, 51);
+          font-weight: bold;
+        }
+        img {
+          max-width: 100%;
+        }
+      }
+      .news-intro {
+        color: $color-gray;
+        margin: 20px 0;
+        font-size: 16px;
+        line-height: 22px;
+      }
+      footer {
+        a {
+          display: inline-block;
+          font-weight: bold;
+          color: black;
+          font-size: 16px;
+          line-height: 30px;
         }
       }
     }
@@ -128,10 +173,9 @@ article.newsDetail-article {
       width: 350px;
       flex-shrink: 0;
       h1 {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 700;
-        color: white;
-        margin: 10px 0 15px;
+        margin: 80px 0 20px;
       }
       .right-news {
         margin-bottom: 15px;

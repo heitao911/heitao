@@ -74,13 +74,13 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  let loading = ''
+  const loading = ''
   try {
-    loading = ElLoading.service({
-      lock: true,
-      text: '加载中',
-      background: 'rgba(0, 0, 0, 0.7)'
-    })
+    // loading = ElLoading.service({
+    //   lock: true,
+    //   text: '加载中',
+    //   background: 'rgba(0, 0, 0, 0.7)'
+    // })
     // const countryCode = await getIpCountry()
     // console.info(countryCode)
     // 国内禁止访问
@@ -91,7 +91,7 @@ router.beforeEach(async (to, from, next) => {
   } catch (error) {
     console.log(error)
   } finally {
-    loading.close()
+    // loading.close()
   }
 
   // console.log([to, from, next])

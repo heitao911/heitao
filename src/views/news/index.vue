@@ -158,13 +158,6 @@ const { pageData, handlePageChange, handleSizeChange } = useHandlePages(requestD
 
 const toDetail = (item) => {
   window.open('/#/news/newsDetail/' + item.id, '_blank')
-
-  // router.push({
-  //   name: 'newsDetail',
-  //   params: {
-  //     id: item.id
-  //   }
-  // })
 }
 defineExpose({ requestData })
 
