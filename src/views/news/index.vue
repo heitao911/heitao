@@ -3,7 +3,7 @@
     <div class="news-article-box">
       <header>
         <el-carousel height="350px" :interval="3000" type="card">
-          <el-carousel-item v-for="(item, i) in state.bannerList" :key="i" @click="toDetail(item)">
+          <el-carousel-item v-for="(item, i) in state.bannerList" :key="i" @click="toDetail(item.cid)">
             <div class="box">
               <div class="cover"></div>
               <h2>{{item.title}}</h2>
@@ -24,7 +24,7 @@
           </nav>
           <section class="table" v-loading="state.loadingTab">
             <template v-if="state.newsList.length">
-              <div class="news-item" v-for="item in state.newsList" :key="item.id" @click="toDetail(item)">
+              <div class="news-item" v-for="item in state.newsList" :key="item.id" @click="toDetail(item.id)">
                 <div class="news-box">
                   <el-image :src="item.coverUrl" fit="cover"></el-image>
                   <div class="flex-c jsb content">
@@ -47,7 +47,7 @@
         </article>
         <aside class="right">
           <h1>热门文章</h1>
-          <div class="right-news" v-for="(item, i) in state.hotspotContent" :key="i" @click="toDetail(item)">
+          <div class="right-news" v-for="(item, i) in state.hotspotContent" :key="i" @click="toDetail(item.id)">
             <div v-if="i <= 1" class="news-box1">
               <div class="cover"></div>
               <div class="img-wrap">
@@ -96,7 +96,7 @@ onBeforeMount(() => {
 
 const getBanner = async () => {
   try {
-    const res = await apiGetNewsBanner()
+    const res = await apiGetNewsBanner({ location: 1 })
     if (res.status === '1') {
       state.bannerList = res.data
     }
@@ -156,8 +156,8 @@ const requestData = async (key) => {
 }
 const { pageData, handlePageChange, handleSizeChange } = useHandlePages(requestData)
 
-const toDetail = (item) => {
-  window.open('/#/news/newsDetail/' + item.id, '_blank')
+const toDetail = (id) => {
+  window.open('/#/news/newsDetail/' + id, '_blank')
 }
 defineExpose({ requestData })
 

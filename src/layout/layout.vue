@@ -10,6 +10,7 @@
           </keep-alive>
         </router-view>
       </section>
+      <el-backtop :right="100" :bottom="100" />
     </main>
     <Footer></Footer>
   </div>
