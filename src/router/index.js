@@ -54,6 +54,15 @@ const router = createRouter({
             title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
           },
           component: () => import('@/views/cooperation/detail.vue')
+        }, {
+          path: '/lottery',
+          name: 'lottery',
+          meta: {
+            keepAlive: false,
+            title: '双色球-黑桃商务'
+          },
+          component: () => import('@/views/lottery/index.vue')
+
         }
       ]
     },
