@@ -1,6 +1,6 @@
 /**
  * Created by qingyun on 16/10/8.
- */
+*/
 
 const http = require('http')
 const https = require('https')
@@ -9,6 +9,8 @@ const url = require('url')
 const qs = require('querystring')
 
 const server = http.createServer(function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/html' })
+
   // console.log(url.parse(req.url));
   const query = url.parse(req.url).query// 对请求对象的URl进行解析，拿到？后面的查询参数字符串
   console.log(query)

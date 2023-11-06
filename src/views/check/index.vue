@@ -147,7 +147,6 @@ section.content {
       font-size: 18px;
       line-height: 18px;
       font-weight: 700;
-      font-family: rial, Helvetica, sans-serif;
     }
 
     .search-btn {

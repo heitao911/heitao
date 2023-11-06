@@ -1,13 +1,14 @@
 <template>
   <article class="news-article" v-loading="state.loading">
-    <h1>黑桃资讯</h1>
+    <h1 @click="toNewsList">
+      <el-icon><i-ep-memo /></el-icon>黑桃资讯<el-icon><i-ep-ArrowRight /></el-icon>
+    </h1>
     <section class="news-main">
-      <el-carousel height="200px" :interval="3000" type="card">
-        <el-carousel-item v-for="(item, i) in state.topList" :key="i">
+      <el-carousel height="250px" :interval="3000" type="card">
+        <el-carousel-item v-for="(item, i) in state.topList" :key="i" @click="toDetail(item)">
           <div class="box">
             <div class="cover"></div>
             <h2>{{item.title}}</h2>
-            <!-- <img :src="item.coverUrl" alt=""> -->
             <el-image :src="item.coverUrl" lazy fit="cover"></el-image>
           </div>
         </el-carousel-item>
@@ -24,8 +25,6 @@
   </article>
 </template>
 <script setup name="News">
-// import { reactive } from 'vue'
-import { useChannelStore } from '@/stores/channel'
 import { apiGetHomeNewsList } from '@/api/index.js'
 
 const router = useRouter()
@@ -42,21 +41,21 @@ onBeforeMount(async () => {
       state.topList = res.data.records.slice(0, 3)
       state.list = res.data.records.slice(3)
     }
-    // const res2 = await apiGetContentDetail({ id: 9277 })
-    // if (res2.status === '1') {
-    //   console.log(res2.data)
-    //   this.content = res2.data.content
-    // }
   } catch (error) {
 
   } finally {
     state.loading = false
   }
 })
+const toNewsList = () => {
+  router.push({
+    path: '/news'
+  })
+}
 const toDetail = (item) => {
   router.push({
-    path: '/newDetail',
-    query: {
+    name: 'newsDetail',
+    params: {
       id: item.id
     }
   })
@@ -64,9 +63,9 @@ const toDetail = (item) => {
 </script>
 <style scoped lang="scss">
 .news-article {
-  margin: 40px auto 20px;
+  margin: 30px auto 20px;
   @media only screen and (min-width: 900px) {
-    width: 1200px;
+    width: $min-width;
   }
   @include media(M) {
     width: 100%;
@@ -76,9 +75,15 @@ const toDetail = (item) => {
     font-weight: 500;
     color: white;
     margin-bottom: 10px;
+    cursor: pointer;
+    .el-icon {
+      vertical-align: top;
+      margin-right: 5px;
+      color: $bg-red;
+    }
   }
   section.news-main {
-    padding: 40px 20px 20px;
+    padding: 20px;
     background-color: white;
     box-sizing: border-box;
   }

@@ -10,6 +10,7 @@
           </keep-alive>
         </router-view>
       </section>
+      <el-backtop :right="40" :bottom="50"></el-backtop>
     </main>
     <Footer></Footer>
   </div>
@@ -21,7 +22,7 @@ export default {
   name: 'Index',
   data () {
     return {
-      exclude: []
+      exclude: ['News', 'NewsDetail']
     }
   },
   components: {

@@ -88,8 +88,9 @@ video {
   vertical-align: baseline;
 
   * {
-    font-family: 'Microsoft YaHei', 'PingFangSC-Regular', 'Helvetica Neue',
-      'Helvetica', 'Hiragino Sans GB', 'SimSun', 'sans-serif';
+    // font-family: 'Microsoft YaHei', 'PingFangSC-Regular', 'Helvetica Neue',
+    //   'Helvetica', 'Hiragino Sans GB', 'SimSun', 'sans-serif';
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
   }
 }
 
@@ -111,8 +112,9 @@ section {
 body {
   line-height: 1;
   height: 100%;
-  font-family: 'Microsoft YaHei', 'PingFangSC-Regular', 'Helvetica Neue',
-    'Helvetica', 'Hiragino Sans GB', 'SimSun', 'sans-serif';
+  // font-family: 'Microsoft YaHei', 'PingFangSC-Regular', 'Helvetica Neue',
+  // 'Helvetica', 'Hiragino Sans GB', 'SimSun', 'sans-serif';
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
   font-size: 14px;
   // overflow: hidden;
 }

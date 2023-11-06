@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { getIpCountry } from '@/utils/tools'
+import { getIpCountry } from '@/api'
+
 const router = createRouter({
   history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
   // mode: "hash",
@@ -28,7 +29,6 @@ const router = createRouter({
             title: '合作-黑桃商务'
           },
           component: () => import('@/views/cooperation/index.vue')
-
         }, {
           path: '/cooperation/cooperationDetail',
           name: 'cooperationDetail',
@@ -44,16 +44,15 @@ const router = createRouter({
             keepAlive: false,
             title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
           },
-          component: () => import('@/views/cooperation/index.vue')
-
+          component: () => import('@/views/news/index.vue')
         }, {
-          path: '/news/:id',
+          path: '/news/newsDetail/:id',
           name: 'newsDetail',
           meta: {
             keepAlive: false,
             title: '海外资讯_海外新闻_海外信息_海外政策-黑桃商务'
           },
-          component: () => import('@/views/cooperation/detail.vue')
+          component: () => import('@/views/news/NewsDetail.vue')
         }, {
           path: '/lottery',
           name: 'lottery',
@@ -62,8 +61,7 @@ const router = createRouter({
             title: '双色球-黑桃商务'
           },
           component: () => import('@/views/lottery/index.vue')
-
-        }
+        
       ]
     },
     {
@@ -84,28 +82,28 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  let loading = ''
+  const loading = ''
   try {
-    loading = ElLoading.service({
-      lock: true,
-      text: 'Loading',
-      background: 'rgba(0, 0, 0, 0.7)'
-    })
-    const countryCode = await getIpCountry()
+    // loading = ElLoading.service({
+    //   lock: true,
+    //   text: '加载中',
+    //   background: 'rgba(0, 0, 0, 0.7)'
+    // })
+    // const countryCode = await getIpCountry()
     // console.info(countryCode)
     // 国内禁止访问
-    if (countryCode !== 'CN') {
-      next()
-      return
-    }
+    // if (countryCode !== 'CN') {
+    //   next()
+    //   return
+    // }
   } catch (error) {
     console.log(error)
   } finally {
-    loading.close()
+    // loading.close()
   }
 
   // console.log([to, from, next])
-  console.log('it is CN')
+  console.log('getIpCountry请求失败')
   if (to.path === '/404') {
     next()
   }
