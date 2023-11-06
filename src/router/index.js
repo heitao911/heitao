@@ -61,7 +61,7 @@ const router = createRouter({
             title: '双色球-黑桃商务'
           },
           component: () => import('@/views/lottery/index.vue')
-        
+        }
       ]
     },
     {
