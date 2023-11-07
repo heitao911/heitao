@@ -2,6 +2,8 @@ import axios from 'axios'
 import NProgress from 'nprogress'
 
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8'
+// axios.defaults.withCredentials = true
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 // axios.defaults.timeout = 10 * 1000 // 全局设置10s
 const instance = axios.create({
   baseURL: '/',

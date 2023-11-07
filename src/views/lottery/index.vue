@@ -6,7 +6,18 @@
     <section class="content">
       <article class="left">
         <section class="table">
-          <el-table></el-table>
+          <el-table :data="state.tableData" style="width: 100%">
+            <el-table-column prop="date" label="Date" width="150" />
+            <el-table-column label="Delivery Info">
+              <el-table-column prop="name" label="Name" width="120" />
+              <el-table-column label="Address Info">
+                <el-table-column prop="state" label="State" width="120" />
+                <el-table-column prop="city" label="City" width="120" />
+                <el-table-column prop="address" label="Address" />
+                <el-table-column prop="zip" label="Zip" width="120" />
+              </el-table-column>
+            </el-table-column>
+          </el-table>
           <!-- <el-empty class="empty" v-else description="暂无数据" /> -->
         </section>
         <footer class="pagination-wrap">
@@ -27,10 +38,11 @@
 
   </article>
 </template>
-<script setup name="Cooperation">
+<script setup name="Lottery">
 import { useChannelStore } from '@/stores/channel'
 import { useHandlePages } from '@/hooks/usePagination'
 import { getTimeAgo } from '@/utils/tools'
+import { apiGetLotteryHistoryList } from '@/api'
 
 const route = useRoute()
 const router = useRouter()
@@ -38,15 +50,41 @@ const router = useRouter()
 const channel = useChannelStore()
 const state = reactive({
   adList: channel.adList,
-  dataList: []
+  tableData: []
+})
+onBeforeMount(() => {
+  window.scroll({
+    left: 0,
+    top: 0,
+    behavior: 'smooth'
+  })
+  requestData(true)
 })
 
-const requestData = () => {
-  state.showList = state.secondFilterList.slice((pageData.currentPage - 1) * pageData.pageSize, pageData.currentPage * pageData.pageSize)
-  pageData.recordCount = state.secondFilterList.length
-  nextTick(() => {
-    document.documentElement.scrollTop = 0
-  })
+const requestData = async (key) => {
+  try {
+    const params = {
+      pageNo: pageData.currentPage,
+      pageSize: 30 || pageData.pageSize,
+      issueCount: 30
+    }
+    state.loadingTab = true
+    // document.cookie = 'HMF_CI=3e12403f0470936ba4c4ec34e833c4be91fc5e292b01a33371832d2cfdb13a6677b926aded0501926659dd614b36ff5aaf826834d612ad16f4b41e45d55ec83f48; 21_vq=26'
+    const a = await apiGetLotteryHistoryList(params)
+    // if (status === '1') {
+    //   state.tableData = result || []
+    //   pageData.recordCount = data.total
+    //   key || window.scroll({
+    //     left: 0,
+    //     top: 400,
+    //     behavior: 'smooth'
+    //   })
+    // }
+  } catch (error) {
+
+  } finally {
+    state.loadingTab = false
+  }
 }
 const { pageData, handlePageChange, handleSizeChange } = useHandlePages(requestData)
 
