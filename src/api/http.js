@@ -39,7 +39,7 @@ export function get (url, params) {
       resolve(res.data)
     }).catch((err) => {
       NProgress.done()
-      reject(err.data)
+      reject(err.data || (err.response && err.response.data))
     })
   })
 }

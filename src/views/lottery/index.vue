@@ -1,7 +1,8 @@
 <template>
   <article class="lottery-article">
     <header>
-
+      <AddUser />
+      <!-- <Login /> -->
     </header>
     <section class="content">
       <article class="left">
@@ -43,7 +44,10 @@ import { useChannelStore } from '@/stores/channel'
 import { useHandlePages } from '@/hooks/usePagination'
 import { getTimeAgo } from '@/utils/tools'
 import { apiGetLotteryHistoryList } from '@/api'
+import { defineAsyncComponent } from 'vue'
 
+const Login = defineAsyncComponent(() => import('./login.vue'))
+const AddUser = defineAsyncComponent(() => import('./AddUser.vue'))
 const route = useRoute()
 const router = useRouter()
 // const { proxy } = getCurrentInstance()
@@ -88,11 +92,6 @@ const requestData = async (key) => {
 }
 const { pageData, handlePageChange, handleSizeChange } = useHandlePages(requestData)
 
-const toDetail = (row) => {
-  window.open('/#/cooperation/cooperationDetail?id=' + row.id, '_blank')
-  // router.push({ name: 'cooperationDetail' })
-}
-
 defineExpose({ requestData })
 
 </script>
@@ -101,13 +100,13 @@ article.lottery-article {
   width: 100%;
   background: $bg-black;
   header {
-    position: fixed;
-    z-index: 10;
-    background: $bg-black;
-    width: 100%;
-    @media only screen and (min-width: 900px) {
-      min-width: 1300px;
-    }
+    // position: fixed;
+    // z-index: 10;
+    // background: $bg-black;
+    // width: 100%;
+    // @media only screen and (min-width: 900px) {
+    //   min-width: 1300px;
+    // }
   }
   .header-main {
     width: 1200px;

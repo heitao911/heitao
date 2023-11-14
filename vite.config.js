@@ -180,6 +180,11 @@ export default defineConfig({
         // target: "http://192.168.10.169",
         target: 'http://localhost:9999',
         changeOrigin: true
+      },
+      '/file': {
+        // target: "http://192.168.10.169",
+        target: 'http://localhost:3000',
+        changeOrigin: true
       }
     }
   }
