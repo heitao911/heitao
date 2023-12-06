@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{fadeInOut: isShow}">
     <div class="header-main">
       <section class="left">
         <router-link class="logo" to="/home">
@@ -20,7 +20,12 @@
   </header>
 </template>
 <script setup>
-
+const props = defineProps({
+  isShow: {
+    type: Boolean,
+    default: false
+  }
+})
 const route = useRoute()
 const state = reactive({
   activeIndex: '01',
@@ -85,6 +90,10 @@ watch(route, (newVal) => {
   height: 60px;
   background-color: $bg-black;
   z-index: 10000;
+  &.fadeInOut {
+    top: -70px;
+    transition: all 0.5s ease-in-out;
+  }
   @media only screen and (min-width: 900px) {
     min-width: 1300px;
   }

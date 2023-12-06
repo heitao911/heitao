@@ -1,7 +1,7 @@
 <!--框架首页 - 包括左侧导航栏的实现-->
 <template>
   <div class="layout">
-    <Header></Header>
+    <Header :isShow="isShow"></Header>
     <main>
       <section class="content-container">
         <router-view v-slot="{ Component }">
@@ -18,16 +18,32 @@
 <script >
 import Header from '@/layout/Header.vue'
 import Footer from '@/layout/Footer.vue'
+
 export default {
   name: 'Index',
   data () {
     return {
-      exclude: ['News', 'NewsDetail']
+      exclude: ['News', 'NewsDetail'],
+      isShow: false
     }
   },
   components: {
     Header,
     Footer
+  },
+  mounted () {
+    nextTick(() => {
+      // 控制顶部导航栏的显示
+      window.onscroll = () => {
+        console.log(document.documentElement.scrollTop)
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+        if (scrollTop > 200) {
+          this.isShow = true
+        } else {
+          this.isShow = false
+        }
+      }
+    })
   }
 }
 </script>

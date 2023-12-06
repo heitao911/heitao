@@ -67,10 +67,10 @@ const server = http.createServer(function (req, res) {
     request.setEncoding('utf8')
     // 检测到有数据返回，就会调用第二个参数(函数)，result为返回数据
     console.log('statusCode：', request.statusCode)
-    console.log('headers：', request.headers)
+    // console.log('headers：', request.headers)
     request.on('data', function (result) {
       // console.info();  //打印空白行
-      console.log('数据：', result)
+      // console.log('数据：', result)
       // 由于数据不是全部接收完毕，该方法会调用很多次，需要把数据拼接到resultData中去；
       resultData += result
     })

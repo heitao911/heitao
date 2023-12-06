@@ -199,8 +199,9 @@ article.cooperation-article {
   width: 100%;
   background: $bg-black;
   header {
-    position: fixed;
-    z-index: 10;
+    // position: fixed;
+    // z-index: 10;
+    padding-top: 20px;
     background: $bg-black;
     width: 100%;
     @media only screen and (min-width: 900px) {
@@ -251,7 +252,6 @@ article.cooperation-article {
     width: 1200px;
     min-height: 100vh;
     margin: 0 auto;
-    padding-top: 110px;
     padding-bottom: 20px;
     display: grid;
     grid-template-columns: 3fr 1fr;
